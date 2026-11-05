@@ -58,7 +58,14 @@ export async function generateMetadata() {
       canonical: siteUrl,
     },
     icons: {
-      icon: faviconUrl,
+      icon: [
+        { url: faviconUrl, sizes: "any" },
+        { url: "/favicon.png", type: "image/png", sizes: "512x512" },
+      ],
+      apple: [
+        { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+      ],
+      shortcut: [faviconUrl],
     },
     openGraph: {
       title: "OG Heavy Duty | Heavy-Duty Air Conditioners & Commercial HVAC Solutions",
