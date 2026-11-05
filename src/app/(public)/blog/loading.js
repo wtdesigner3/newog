@@ -1,76 +1,41 @@
 /**
  * Blog listing page — instant loading shell.
- * Shown while the server fetches blog posts and pagination data.
+ * Matches OG Heavy Duty's public inner page header & blog card layout.
  */
 export default function BlogLoading() {
   return (
-    <>
-      {/* Page Header shimmer */}
-      <div
-        aria-hidden="true"
-        style={{
-          width: "100%",
-          height: "280px",
-          background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)",
-          position: "relative",
-          overflow: "hidden",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "16px",
-        }}
-      >
-        <div style={{ position: "absolute", inset: 0 }} className="bl-shimmer" />
-        <div style={{ display: "flex", gap: "8px", alignItems: "center", opacity: 0.5 }}>
-          <div className="bl-skel" style={{ width: "50px", height: "14px", borderRadius: "4px" }} />
-          <div className="bl-skel" style={{ width: "8px", height: "8px", borderRadius: "50%" }} />
-          <div className="bl-skel" style={{ width: "80px", height: "14px", borderRadius: "4px" }} />
+    <div className="w-full bg-slate-50 min-h-screen">
+      {/* Brand Hero Shimmer */}
+      <div className="w-full bg-gradient-to-b from-[#061842] via-[#030e26] to-[#010818] py-16 px-4 text-center">
+        <div className="max-w-xl mx-auto space-y-4 flex flex-col items-center">
+          <div className="h-7 w-44 rounded-full bg-blue-500/20 border border-blue-400/30 animate-pulse" />
+          <div className="h-10 sm:h-12 w-80 max-w-full rounded-2xl bg-white/20 animate-pulse" />
+          <div className="h-4 w-96 max-w-full rounded-full bg-white/10 animate-pulse" />
         </div>
-        <div className="bl-skel" style={{ width: "140px", height: "40px", borderRadius: "6px" }} />
       </div>
 
-      {/* Blog card grid shimmer */}
-      <div style={{ padding: "60px 20px", maxWidth: "1200px", margin: "0 auto" }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))",
-            gap: "32px",
-          }}
-        >
-          {Array.from({ length: 6 }).map((_, i) => (
+      {/* Blog Cards Grid */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {[1, 2, 3, 4, 5, 6].map((i) => (
             <div
               key={i}
-              style={{
-                borderRadius: "12px",
-                overflow: "hidden",
-                background: "#fff",
-                boxShadow: "0 2px 12px rgba(0,0,0,0.06)",
-                animation: `bl-fadein 0.35s ease-out ${i * 0.06}s both`,
-              }}
+              className="rounded-3xl bg-white border border-slate-200/80 p-5 shadow-sm space-y-4"
             >
-              {/* Thumbnail */}
-              <div className="bl-skel" style={{ width: "100%", height: "220px" }} />
-              {/* Body */}
-              <div style={{ padding: "20px", display: "flex", flexDirection: "column", gap: "10px" }}>
-                <div style={{ display: "flex", gap: "8px" }}>
-                  <div className="bl-skel" style={{ width: "60px", height: "20px", borderRadius: "20px" }} />
-                  <div className="bl-skel" style={{ width: "80px", height: "20px", borderRadius: "20px" }} />
-                </div>
-                <div className="bl-skel" style={{ width: "90%", height: "20px", borderRadius: "4px" }} />
-                <div className="bl-skel" style={{ width: "70%", height: "20px", borderRadius: "4px" }} />
-                <div className="bl-skel" style={{ width: "100%", height: "14px", borderRadius: "4px" }} />
-                <div className="bl-skel" style={{ width: "85%", height: "14px", borderRadius: "4px" }} />
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginTop: "8px" }}>
-                  <div className="bl-skel" style={{ width: "90px", height: "13px", borderRadius: "4px" }} />
-                  <div className="bl-skel" style={{ width: "70px", height: "30px", borderRadius: "20px" }} />
-                </div>
+              <div className="h-48 w-full rounded-2xl bg-slate-100 animate-pulse" />
+              <div className="flex gap-2">
+                <div className="h-5 w-20 rounded bg-blue-50 animate-pulse" />
+                <div className="h-5 w-24 rounded bg-slate-100 animate-pulse" />
+              </div>
+              <div className="h-6 w-5/6 rounded-lg bg-slate-200 animate-pulse" />
+              <div className="space-y-2">
+                <div className="h-4 w-full rounded bg-slate-100 animate-pulse" />
+                <div className="h-4 w-2/3 rounded bg-slate-100 animate-pulse" />
               </div>
             </div>
           ))}
         </div>
       </div>
-</>
+    </div>
   );
 }

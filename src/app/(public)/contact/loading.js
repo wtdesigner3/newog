@@ -1,66 +1,52 @@
 /**
  * Contact page — instant loading shell.
- * Shown while the server fetches ContactPage and PageBanner data.
+ * Matches OG Heavy Duty's public inner page header & 2-column contact layout.
  */
 export default function ContactLoading() {
   return (
-    <>
-      {/* Page Header shimmer */}
-      <div
-        aria-hidden="true"
-        style={{
-          width: "100%",
-          height: "280px",
-          background: "linear-gradient(135deg, #1a1a2e 0%, #16213e 100%)",
-          position: "relative",
-          overflow: "hidden",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          gap: "16px",
-        }}
-      >
-        <div style={{ position: "absolute", inset: 0 }} className="ct-shimmer" />
-        <div style={{ display: "flex", gap: "8px", alignItems: "center", opacity: 0.5 }}>
-          <div className="ct-skel" style={{ width: "50px", height: "14px", borderRadius: "4px" }} />
-          <div className="ct-skel" style={{ width: "8px", height: "8px", borderRadius: "50%" }} />
-          <div className="ct-skel" style={{ width: "90px", height: "14px", borderRadius: "4px" }} />
+    <div className="w-full bg-slate-50 min-h-screen">
+      {/* Brand Hero Shimmer */}
+      <div className="w-full bg-gradient-to-b from-[#061842] via-[#030e26] to-[#010818] py-16 px-4 text-center">
+        <div className="max-w-xl mx-auto space-y-4 flex flex-col items-center">
+          <div className="h-7 w-48 rounded-full bg-blue-500/20 border border-blue-400/30 animate-pulse" />
+          <div className="h-10 sm:h-12 w-80 max-w-full rounded-2xl bg-white/20 animate-pulse" />
+          <div className="h-4 w-96 max-w-full rounded-full bg-white/10 animate-pulse" />
         </div>
-        <div className="ct-skel" style={{ width: "180px", height: "40px", borderRadius: "6px" }} />
       </div>
 
-      {/* Contact form + info shimmer */}
-      <div style={{ padding: "60px 20px", maxWidth: "1100px", margin: "0 auto" }}>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "48px" }}>
-          {/* Left: info blocks */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-            <div className="ct-skel" style={{ width: "70%", height: "28px", borderRadius: "6px" }} />
-            <div className="ct-skel" style={{ width: "100%", height: "14px", borderRadius: "4px" }} />
-            <div className="ct-skel" style={{ width: "85%", height: "14px", borderRadius: "4px" }} />
-            {[1, 2, 3].map((i) => (
-              <div key={i} style={{ display: "flex", gap: "16px", alignItems: "center" }}>
-                <div className="ct-skel" style={{ width: "48px", height: "48px", borderRadius: "50%", flexShrink: 0 }} />
-                <div style={{ flex: 1 }}>
-                  <div className="ct-skel" style={{ width: "60%", height: "15px", borderRadius: "4px", marginBottom: "8px" }} />
-                  <div className="ct-skel" style={{ width: "80%", height: "13px", borderRadius: "4px" }} />
+      {/* Contact Form + Info Shimmer */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
+          {/* Left info column */}
+          <div className="lg:col-span-5 space-y-6">
+            <div className="h-8 w-60 rounded-xl bg-slate-200 animate-pulse" />
+            <div className="h-4 w-full rounded bg-slate-100 animate-pulse" />
+            <div className="space-y-4 pt-4">
+              {[1, 2, 3, 4].map((i) => (
+                <div key={i} className="flex gap-4 items-center p-4 rounded-2xl bg-white border border-slate-200/80">
+                  <div className="w-12 h-12 rounded-xl bg-blue-50 border border-blue-100 flex-shrink-0 animate-pulse" />
+                  <div className="space-y-2 flex-1">
+                    <div className="h-4 w-28 rounded bg-slate-200 animate-pulse" />
+                    <div className="h-3.5 w-48 rounded bg-slate-100 animate-pulse" />
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-          {/* Right: form */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
-              <div className="ct-skel" style={{ height: "52px", borderRadius: "8px" }} />
-              <div className="ct-skel" style={{ height: "52px", borderRadius: "8px" }} />
+              ))}
             </div>
-            <div className="ct-skel" style={{ height: "52px", borderRadius: "8px" }} />
-            <div className="ct-skel" style={{ height: "52px", borderRadius: "8px" }} />
-            <div className="ct-skel" style={{ height: "120px", borderRadius: "8px" }} />
-            <div className="ct-skel" style={{ width: "140px", height: "48px", borderRadius: "8px" }} />
+          </div>
+
+          {/* Right form column */}
+          <div className="lg:col-span-7 bg-white rounded-3xl border border-slate-200/80 p-8 shadow-sm space-y-6">
+            <div className="h-8 w-48 rounded-xl bg-slate-200 animate-pulse" />
+            <div className="grid grid-cols-2 gap-4">
+              <div className="h-12 rounded-xl bg-slate-100 animate-pulse" />
+              <div className="h-12 rounded-xl bg-slate-100 animate-pulse" />
+            </div>
+            <div className="h-12 rounded-xl bg-slate-100 animate-pulse" />
+            <div className="h-28 rounded-xl bg-slate-100 animate-pulse" />
+            <div className="h-12 w-44 rounded-xl bg-[#0f7ae0]/80 animate-pulse" />
           </div>
         </div>
       </div>
-</>
+    </div>
   );
 }
