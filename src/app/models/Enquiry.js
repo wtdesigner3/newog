@@ -25,7 +25,7 @@ const enquirySchema = new mongoose.Schema({
   endUse: { type: String, default: "" },
   specialRequirements: { type: String, default: "" },
 
-  // Modern HVAC Enquiry & Guided Sizing Fields
+  // Modern Enquiry & Guided Sizing Fields
   message: { type: String, default: "" },
   enquiryType: { type: String, default: "General Enquiry" },
   product: { type: String, default: "" },

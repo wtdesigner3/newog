@@ -1,6 +1,6 @@
 /**
  * Blog Data Access Service
- * Handles querying, filtering, and fallback resolution for technical HVAC blog posts.
+ * Handles querying, filtering, and fallback resolution for technical cooling blog posts.
  * 
  * Conforms to:
  * - FINDING-601-01: Attached Next.js Data Cache tags (TAG_BLOGS)
@@ -18,7 +18,7 @@ export const FALLBACK_BLOGS = [
     id: "fb-1",
     slug: "selecting-high-ambient-air-conditioners-50c-climates",
     title: "Selecting High-Ambient Air Conditioners: Engineering Guide for 50°C Climates",
-    category: "HVAC Engineering",
+    category: "Cooling Engineering",
     excerpt:
       "Understand why standard residential AC units trip in peak Indian summers and how high-ambient engineering with oversized heat exchangers sustains full cooling capacity up to 50°C.",
     content: `
@@ -32,7 +32,7 @@ export const FALLBACK_BLOGS = [
     readTime: "5 min read",
     author: "OG Engineering Team",
     image: "/images/slide1.jpg",
-    tags: ["High Ambient", "50°C Cooling", "Tropical HVAC"],
+    tags: ["High Ambient", "50°C Cooling", "Tropical Cooling"],
   },
   {
     id: "fb-2",
@@ -56,8 +56,8 @@ export const FALLBACK_BLOGS = [
   },
   {
     id: "fb-3",
-    slug: "commercial-hvac-inverter-vs-fixed-speed-savings",
-    title: "Commercial HVAC Efficiency: Inverter vs Fixed Speed Heavy-Duty AC Systems",
+    slug: "commercial-ac-inverter-vs-fixed-speed-savings",
+    title: "Commercial AC Efficiency: Inverter vs Fixed Speed Heavy-Duty AC Systems",
     category: "Energy Efficiency",
     excerpt:
       "Evaluate seasonal power consumption (ISEER) across university campuses, corporate branches, and hospital wards to select between variable-speed inverter compressors and rugged fixed-speed workhorses.",
@@ -78,7 +78,7 @@ export const FALLBACK_BLOGS = [
     title: "Preventive Air Conditioner Maintenance: Cleaning Heavy Copper Coils & Filters",
     category: "Maintenance & Service",
     excerpt:
-      "Step-by-step technical guidance on condenser cleaning, fin combing, filter maintenance, and electrical contactor inspection for industrial and institutional HVAC installations.",
+      "Step-by-step technical guidance on condenser cleaning, fin combing, filter maintenance, and electrical contactor inspection for industrial and institutional air conditioning installations.",
     content: `
       <h2>Condenser Coil Maintenance</h2>
       <p>Accumulated dust and particulate matter reduce convective heat transfer by up to 30%, forcing the compressor to operate against higher head pressures. Regular low-pressure water cleaning and neutral detergent washes protect fin geometry and sustain rated cooling capacity.</p>
@@ -94,9 +94,9 @@ export const FALLBACK_BLOGS = [
     id: "fb-5",
     slug: "cassette-vs-ductable-air-conditioners-commercial-spaces",
     title: "Cassette vs Ductable Air Conditioners: Architectural & Sizing Guide",
-    category: "Commercial HVAC",
+    category: "Commercial AC",
     excerpt:
-      "How to determine whether a 4-way ceiling cassette or a concealed ducted HVAC system is best suited for your corporate boardroom, retail showroom, or auditorium layout.",
+      "How to determine whether a 4-way ceiling cassette or a concealed ducted AC system is best suited for your corporate boardroom, retail showroom, or auditorium layout.",
     content: `
       <h2>Aesthetics and Spatial Constraints</h2>
       <p>4-way ceiling cassette units fit directly within standard 2x2 ceiling grids and provide 360-degree radial air distribution without ductwork. Ductable units allow concealed, silent airflow distributed across multiple linear diffusers for expansive open spaces.</p>
@@ -135,7 +135,7 @@ function normalizeBlogDoc(doc) {
     id: doc.slug,
     title: doc.title,
     slug: doc.slug,
-    category: doc.category || "HVAC Engineering",
+    category: doc.category || "Cooling Engineering",
     excerpt: doc.excerpt || "",
     content: doc.content || "",
     author: doc.author || "OG Heavy Duty Technical Team",
@@ -160,7 +160,7 @@ function normalizeBlogDoc(doc) {
     readTime: "5 min read",
     tags: Array.isArray(doc.tags) && doc.tags.length > 0 
       ? doc.tags 
-      : (Array.isArray(doc.metakeywords) && doc.metakeywords.length > 0 ? doc.metakeywords : ["HVAC", "Cooling"]),
+      : (Array.isArray(doc.metakeywords) && doc.metakeywords.length > 0 ? doc.metakeywords : ["Air Conditioning", "Cooling"]),
     isPublished: doc.isPublished !== false && doc.status !== "draft" && doc.status !== "archived",
     status: doc.status || (doc.isPublished ? "published" : "draft"),
     metatag: doc.metatag || "",

@@ -20,16 +20,16 @@ import {
 export const revalidate = 3600; // 1 hour ISR
 
 export const metadata = {
-  title: "Technical Blogs & HVAC Insights | OG Heavy Duty",
+  title: "Technical Blogs & Air Conditioning Insights | OG Heavy Duty",
   description:
-    "Read the latest engineering articles, high-ambient tropical cooling guides, copper condenser coil maintenance, and commercial HVAC insights from OG Heavy Duty.",
+    "Read the latest engineering articles, high-ambient tropical cooling guides, copper condenser coil maintenance, and commercial air conditioning insights from OG Heavy Duty.",
   alternates: {
     canonical: "https://ogheavyduty.in/blogs",
   },
   openGraph: {
-    title: "Technical Blogs & HVAC Insights | OG Heavy Duty",
+    title: "Technical Blogs & Air Conditioning Insights | OG Heavy Duty",
     description:
-      "Educational cooling guides, 52°C high-ambient engineering insights, 100% copper coil durability, and institutional HVAC sizing from OG Heavy Duty.",
+      "Educational cooling guides, 52°C high-ambient engineering insights, 100% copper coil durability, and institutional air conditioning sizing from OG Heavy Duty.",
     url: "https://ogheavyduty.in/blogs",
     siteName: "OG Heavy Duty",
     locale: "en_IN",
@@ -37,25 +37,25 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Technical Blogs & HVAC Insights | OG Heavy Duty",
+    title: "Technical Blogs & Air Conditioning Insights | OG Heavy Duty",
     description:
-      "Engineering insights, copper condenser coil benefits, and commercial HVAC recommendations from OG Heavy Duty.",
+      "Engineering insights, copper condenser coil benefits, and commercial air conditioning recommendations from OG Heavy Duty.",
   },
 };
 
-// Resilient fallback HVAC educational articles for offline builds and unseeded databases
+// Resilient fallback educational articles for offline builds and unseeded databases
 const FALLBACK_BLOGS = [
   {
     id: "fb-1",
     slug: "selecting-high-ambient-air-conditioners-50c-climates",
     title: "Selecting High-Ambient Air Conditioners: Engineering Guide for 52°C Climates",
-    category: "HVAC Engineering",
+    category: "Cooling Engineering",
     excerpt:
       "Understand why standard residential AC units trip during peak tropical heatwaves and how heavy-duty engineering with oversized condenser coils sustains full cooling pull-down.",
     date: "Oct 28, 2026",
     readTime: "5 min read",
     image: "/images/banner_ac_commercial.jpg",
-    tags: ["High Ambient", "52°C Cooling", "Tropical HVAC"],
+    tags: ["High Ambient", "52°C Cooling", "Tropical Cooling"],
   },
   {
     id: "fb-2",
@@ -71,8 +71,8 @@ const FALLBACK_BLOGS = [
   },
   {
     id: "fb-3",
-    slug: "commercial-hvac-inverter-vs-fixed-speed-savings",
-    title: "Commercial HVAC Efficiency: Inverter vs Fixed Speed Heavy-Duty AC Systems",
+    slug: "commercial-ac-inverter-vs-fixed-speed-savings",
+    title: "Commercial AC Efficiency: Inverter vs Fixed Speed Heavy-Duty AC Systems",
     category: "Energy Efficiency",
     excerpt:
       "Evaluate seasonal power consumption (ISEER) across university campuses, corporate branches, and hospital wards to select between variable-speed inverter compressors and rugged fixed-speed workhorses.",
@@ -99,7 +99,7 @@ const FALLBACK_BLOGS = [
     title: "Cassette vs Ductable AC: Selecting Ceiling Cooling for Modern Institutions",
     category: "Architectural Planning",
     excerpt:
-      "How to determine whether a 4-way ceiling cassette or a concealed ducted HVAC system is best suited for your corporate boardroom, retail showroom, or auditorium layout.",
+      "How to determine whether a 4-way ceiling cassette or a concealed ducted AC system is best suited for your corporate boardroom, retail showroom, or auditorium layout.",
     date: "Sep 18, 2026",
     readTime: "5 min read",
     image: "/images/slide2.jpg",
@@ -131,7 +131,7 @@ async function getPublishedBlogs() {
         id: b._id.toString(),
         slug: b.slug,
         title: b.title,
-        category: b.category || "HVAC Engineering",
+        category: b.category || "Cooling Engineering",
         excerpt:
           b.excerpt ||
           b.metaDescription ||
@@ -149,7 +149,7 @@ async function getPublishedBlogs() {
           }),
         readTime: b.readTime || "5 min read",
         image: b.coverImage || "/images/banner_ac_commercial.jpg",
-        tags: b.tags || ["HVAC", "Air Conditioning"],
+        tags: b.tags || ["Heavy Duty", "Air Conditioning"],
       }));
     }
   } catch (err) {
@@ -165,10 +165,10 @@ export default async function BlogsPage() {
   const collectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Technical Blogs & HVAC Insights | OG Heavy Duty",
+    name: "Technical Blogs & Air Conditioning Insights | OG Heavy Duty",
     url: "https://ogheavyduty.in/blogs",
     description:
-      "Engineering articles, high-ambient tropical cooling guides, and commercial HVAC maintenance insights from OG Heavy Duty.",
+      "Engineering articles, high-ambient tropical cooling guides, and commercial air conditioning maintenance insights from OG Heavy Duty.",
     hasPart: blogs.map((b) => ({
       "@type": "BlogPosting",
       headline: b.title,
@@ -219,7 +219,7 @@ export default async function BlogsPage() {
       <PublicPageBanner
         title="Technical Blogs & Engineering Insights"
         subtitle="Educational guides, 52°C tropical heatwave engineering, 100% inner-grooved copper coil durability, and institutional climate control protocols."
-        badge="HVAC ENGINEERING INSIGHTS"
+        badge="COOLING ENGINEERING INSIGHTS"
         bgImage="/uploads/breadcrumb/1648811523_download.jpg"
         breadcrumbItems={breadcrumbs}
       />

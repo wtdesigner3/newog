@@ -6,7 +6,7 @@ import Image from "next/image";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 
 /**
- * ProductCard — Compact, engineering-grade HVAC product card.
+ * ProductCard — Compact, engineering-grade product card.
  * Standardized with elevated border-2 styling and streamlined compact height.
  */
 export default function ProductCard({ product }) {

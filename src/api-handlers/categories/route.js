@@ -10,7 +10,7 @@ import { getCategories } from "@/lib/services/categoryService";
 
 /**
  * GET /api/categories
- * Retrieves OG Heavy Duty HVAC categories with active product counts.
+ * Retrieves OG Heavy Duty categories with active product counts.
  * Scoped strictly to OG categories (zero steel categories leaked).
  */
 export async function GET() {
@@ -56,7 +56,7 @@ export async function GET() {
 
 /**
  * POST /api/categories
- * Creates a new OG Heavy Duty HVAC category.
+ * Creates a new OG Heavy Duty category.
  * Requires 'categories:create' permission.
  */
 export async function POST(request) {

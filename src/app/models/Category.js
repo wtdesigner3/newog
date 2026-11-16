@@ -15,7 +15,7 @@ const CategorySchema = new mongoose.Schema(
     sort: { type: Number, default: 0 },
     isActive: { type: Boolean, default: true },
 
-    // OG Heavy Duty HVAC Category Fields
+    // OG Heavy Duty Category Fields
     shortName: { type: String, default: "" },
     series: { type: String, default: "" },
     badge: { type: String, default: "" },

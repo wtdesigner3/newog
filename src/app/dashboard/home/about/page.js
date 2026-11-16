@@ -16,7 +16,7 @@ export default function HomeAboutPage() {
   const [saving, setSaving] = useState(false)
   const [aboutId, setAboutId] = useState(null)
   const [form, setForm] = useState({
-    badge: 'PIONEERING HIGH-AMBIENT HVAC',
+    badge: 'PIONEERING HIGH-AMBIENT COOLING',
     title: '',
     short_description: '',
     description: '',
@@ -52,7 +52,7 @@ export default function HomeAboutPage() {
         const about = data[0]
         setAboutId(about._id)
         setForm({
-          badge: about.badge || 'PIONEERING HIGH-AMBIENT HVAC',
+          badge: about.badge || 'PIONEERING HIGH-AMBIENT COOLING',
           title: about.title || '',
           short_description: about.short_description || '',
           description: about.description || '',
@@ -168,7 +168,7 @@ export default function HomeAboutPage() {
                     label="Pill Tagline Badge *"
                     value={form.badge}
                     onChange={e => updateField('badge', e.target.value)}
-                    placeholder="e.g. PIONEERING HIGH-AMBIENT HVAC"
+                    placeholder="e.g. PIONEERING HIGH-AMBIENT COOLING"
                     rightElement={<AIAssistantButton context="About Us Section Pill Badge" field="Tagline Pill" onGenerate={(val) => updateField('badge', val)} />}
                   />
                 </div>

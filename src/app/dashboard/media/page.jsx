@@ -196,7 +196,7 @@ export default function MediaLibraryPage() {
     <div className="p-4 sm:p-6 lg:p-8 space-y-6 bg-background min-h-full">
       <Breadcrumb
         title="Central Media Library"
-        subtitle={`Authoritative repository for commercial HVAC catalogs, equipment photography, and technical literature.`}
+        subtitle={`Authoritative repository for commercial air conditioning catalogs, equipment photography, and technical literature.`}
         crumbs={[{ label: 'Dashboard' }, { label: 'Media Library' }]}
       />
 

@@ -28,7 +28,7 @@ const AC_CATEGORY_OPTIONS = [
   "Floor Standing / Tower AC (2.0T – 5.0T)",
   "Ductable Air Conditioners (1.5T – 5.5T)",
   "Survivor Heavy-Duty Commercial Series",
-  "Turnkey Commercial HVAC / Multi-Ton",
+  "Turnkey Commercial Cooling / Multi-Ton",
   "Other / Engineering Sizing Query",
 ];
 
@@ -36,7 +36,7 @@ const ENQUIRY_TYPES = [
   "Commercial / Project Quotation",
   "Residential High-Ambient AC",
   "Institutional / Bulk Supply",
-  "Architect & HVAC Consultant Inquiry",
+  "Architect & Cooling Consultant Inquiry",
   "Dealership / Distribution",
 ];
 

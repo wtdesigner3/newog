@@ -195,9 +195,9 @@ export async function generateMetadata() {
   const seoData = await getHomeSeo();
 
   const defaultTitle =
-    "OG Heavy Duty | Heavy-Duty Air Conditioners & Commercial HVAC Solutions";
+    "OG Heavy Duty | Heavy-Duty Air Conditioners & Commercial Cooling Solutions";
   const defaultDesc =
-    "OG Heavy Duty is India's premier manufacturer of high-ambient heavy-duty air conditioners, including Window ACs, Split ACs, Cassette ACs, and Commercial HVAC systems engineered for severe tropical high-ambient climates.";
+    "OG Heavy Duty is India's premier manufacturer of high-ambient heavy-duty air conditioners, including Window ACs, Split ACs, Cassette ACs, and Commercial Air Conditioning systems engineered for severe tropical high-ambient climates.";
 
   if (!seoData) {
     return {
@@ -287,12 +287,12 @@ export default async function HomePage(props) {
     getTestimonials(),
   ]);
 
-  // JSON-LD structured data for HVAC contractor / commercial equipment business
+  // JSON-LD structured data for commercial air conditioning manufacturer
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": "HVACBusiness",
+        "@type": "LocalBusiness",
         "@id": "https://ogheavyduty.in/#organization",
         "name": "OG Heavy Duty",
         "url": "https://ogheavyduty.in",
@@ -352,10 +352,10 @@ export default async function HomePage(props) {
       {/* ─── 2. COMPANY INTRO: Authentic Machine Visual + Corporate Narrative ─── */}
       <CompanyIntro data={homeAboutData} />
 
-      {/* ─── 3. MILESTONES STRIP: 4 Core Engineered Milestones (Dark Blueprint) ─── */}
+      {/* ─── 3. MILESTONES STRIP: 3 Core Engineered Milestones (Dark Blueprint) ─── */}
       <MilestonesStrip items={milestonesData} />
 
-      {/* ─── 4. CATEGORY SHOWCASE: 6 Core Heavy Duty HVAC Classifications (Light Slate) ─── */}
+      {/* ─── 4. CATEGORY SHOWCASE: 6 Core Heavy Duty Cooling Classifications (Light Slate) ─── */}
       <CategoryShowcase
         products={productsData}
         badge={homeExtraData?.product_badge}
@@ -383,7 +383,7 @@ export default async function HomePage(props) {
       {/* ─── 7. TESTIMONIALS: Verified Commercial Facility Experiences ─── */}
       <TestimonialSection items={testimonialsData} />
 
-      {/* ─── 8. BLOGS: Latest HVAC Engineering Articles & Guides ─── */}
+      {/* ─── 8. BLOGS: Latest Air Conditioning Engineering Articles & Guides ─── */}
       <BlogSection
         badge={homeExtraData?.blog_badge}
         title={homeExtraData?.blog_title}

@@ -168,10 +168,10 @@ export default function EngineeringDifferentiators({ items: propItems, badge, ti
           <div className="relative z-10 space-y-1.5 text-center md:text-left">
             <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-blue-400 mb-1">
               <Fan className="w-3.5 h-3.5 animate-fan-slow text-blue-400" />
-              <span>{callout?.badge || "MEP & HVAC ENGINEERING SUPPORT"}</span>
+              <span>{callout?.badge || "ENGINEERING & TECHNICAL SUPPORT"}</span>
             </div>
             <h4 className="text-xl sm:text-2xl font-bold tracking-tight">
-              {callout?.title || "Require custom institutional HVAC specifications?"}
+              {callout?.title || "Require custom institutional air conditioning specifications?"}
             </h4>
             <p className="text-sm text-slate-300 max-w-2xl leading-relaxed">
               {callout?.content || "Our engineering desk assists MEP consultants, architects, and facilities managers with heat load calculations, static pressure sizing, and duct equipment layouts."}

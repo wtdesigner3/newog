@@ -32,11 +32,11 @@ export const metadata = {
     card: "summary_large_image",
     title: "Frequently Asked Questions (FAQ) | OG Heavy Duty",
     description:
-      "Answers to top questions regarding OG Heavy Duty air conditioners, accepted payment methods, store landmark, hours, and HVAC warranties.",
+      "Answers to top questions regarding OG Heavy Duty air conditioners, accepted payment methods, store landmark, hours, and air conditioner warranties.",
   },
 };
 
-// Verified FAQs with legacy store questions and HVAC technical answers
+// Verified FAQs with legacy store questions and air conditioning technical answers
 const FAQ_ITEMS = [
   // ─── 4 Verified Legacy Store Inquiries (from ognext/faq.php) ───
   {
@@ -121,7 +121,7 @@ const FAQ_ITEMS = [
     answer:
       "Cooling capacity depends on floor area, ceiling height, sunlight exposure, window orientation, and occupant load. For standard 10-foot ceilings: up to 120 sq ft typically requires 1.0 Ton; 120 to 180 sq ft requires 1.5 Ton; 180 to 240 sq ft requires 2.0 Ton. Top-floor spaces or commercial venues benefit from our interactive AC Sizing Calculator.",
     answerHtml:
-      "<p>As a general guideline for standard 10-foot residential or office ceilings:</p><ul class='list-disc pl-5 mt-2 space-y-1'><li><strong>Up to 120 sq. ft.:</strong> 1.0 Ton capacity</li><li><strong>120 to 180 sq. ft.:</strong> 1.5 Ton capacity</li><li><strong>180 to 240 sq. ft.:</strong> 2.0 Ton capacity</li><li><strong>Above 250 sq. ft. or Top Floors:</strong> 3.0 Ton+ Cassette, Floor Standing, or Ductable HVAC systems</li></ul><p class='mt-2'>Top-floor installations with direct rooftop solar exposure or large west-facing glass facades often require an additional 0.5 Ton buffer to maintain target indoor temperatures during 45°C+ summer peaks.</p>",
+      "<p>As a general guideline for standard 10-foot residential or office ceilings:</p><ul class='list-disc pl-5 mt-2 space-y-1'><li><strong>Up to 120 sq. ft.:</strong> 1.0 Ton capacity</li><li><strong>120 to 180 sq. ft.:</strong> 1.5 Ton capacity</li><li><strong>180 to 240 sq. ft.:</strong> 2.0 Ton capacity</li><li><strong>Above 250 sq. ft. or Top Floors:</strong> 3.0 Ton+ Cassette, Floor Standing, or Ductable AC systems</li></ul><p class='mt-2'>Top-floor installations with direct rooftop solar exposure or large west-facing glass facades often require an additional 0.5 Ton buffer to maintain target indoor temperatures during 45°C+ summer peaks.</p>",
     relatedLink: {
       label: "Calculate Exact Capacity with AC Sizing Tool",
       href: "/ac-sizing",
@@ -141,11 +141,11 @@ const FAQ_ITEMS = [
     id: "institutional-supply",
     category: "commercial",
     isVerified: false,
-    question: "Does OG Heavy Duty provide HVAC solutions for government, corporate, and institutional clients?",
+    question: "Does OG Heavy Duty provide cooling solutions for government, corporate, and institutional clients?",
     answer:
       "Yes. OG Heavy Duty is a trusted supplier to government ministries, public sector enterprises, universities, healthcare institutions, and corporate facilities across India. Our client roster includes installations for CPWD, Delhi University, Ministry of Railways, JNU, State Bank of India, and ESIC.",
     answerHtml:
-      "<p>Yes. OG Heavy Duty has delivered HVAC systems to leading public sector undertakings, premier universities, healthcare centers, and corporate facilities across India, including:</p><ul class='list-disc pl-5 mt-2 space-y-1'><li><strong>Central Public Works Department (CPWD)</strong> &amp; <strong>Ministry of Railways</strong></li><li><strong>University of Delhi</strong> &amp; <strong>Jawaharlal Nehru University (JNU)</strong></li><li><strong>State Bank of India</strong> &amp; <strong>Punjab National Bank</strong></li><li><strong>Employees' State Insurance Corporation (ESIC)</strong></li></ul><p class='mt-2'>We support government e-marketplace (GeM) requirements, tender specifications, and custom ductable/cassette drawings.</p>",
+      "<p>Yes. OG Heavy Duty has delivered air conditioning systems to leading public sector undertakings, premier universities, healthcare centers, and corporate facilities across India, including:</p><ul class='list-disc pl-5 mt-2 space-y-1'><li><strong>Central Public Works Department (CPWD)</strong> &amp; <strong>Ministry of Railways</strong></li><li><strong>University of Delhi</strong> &amp; <strong>Jawaharlal Nehru University (JNU)</strong></li><li><strong>State Bank of India</strong> &amp; <strong>Punjab National Bank</strong></li><li><strong>Employees' State Insurance Corporation (ESIC)</strong></li></ul><p class='mt-2'>We support government e-marketplace (GeM) requirements, tender specifications, and custom ductable/cassette drawings.</p>",
     relatedLink: {
       label: "View Verified Client Installations",
       href: "/clients",
@@ -185,7 +185,7 @@ const FAQ_ITEMS = [
     isVerified: false,
     question: "How do I schedule an installation, site survey, or preventive maintenance service?",
     answer:
-      "You can contact our customer service and technical support helpline at 011-35727834 or email us at info@ogheavyduty.in. You can also submit an online enquiry form, and an HVAC technical consultant will respond within 24 business hours.",
+      "You can contact our customer service and technical support helpline at 011-35727834 or email us at info@ogheavyduty.in. You can also submit an online enquiry form, and a cooling technical consultant will respond within 24 business hours.",
     answerHtml:
       "<p>You can schedule an installation, site inspection, or service consultation through any of the following channels:</p><ul class='list-disc pl-5 mt-2 space-y-1'><li><strong>Phone Helpline:</strong> 011-35727834 (Mon–Sun: 10:00 AM – 7:00 PM)</li><li><strong>Direct Mobile / WhatsApp:</strong> +91 93199 77568</li><li><strong>Email:</strong> <a href='mailto:info@ogheavyduty.in' class='text-[#0f7ae0] underline'>info@ogheavyduty.in</a></li><li><strong>Online Form:</strong> Fill out our quick <a href='/contact-us' class='text-[#0f7ae0] underline'>Contact &amp; Enquiry Form</a></li></ul>",
     relatedLink: {
@@ -250,7 +250,7 @@ export default async function FaqPage() {
       {/* ─── Consistent Public Page Hero Banner ──────────────────────── */}
       <PublicPageBanner
         title="Frequently Asked Questions"
-        subtitle="Find verified answers regarding our Delhi showroom, accepted payment methods (Cash, UPI, Cards, EMI), operating hours, cooling tonnage sizing, and heavy-duty HVAC engineering."
+        subtitle="Find verified answers regarding our Delhi showroom, accepted payment methods (Cash, UPI, Cards, EMI), operating hours, cooling tonnage sizing, and heavy-duty air conditioning engineering."
         badge="CUSTOMER & TECHNICAL SUPPORT"
         bgImage="/uploads/breadcrumb/1648811523_download.jpg"
         breadcrumbItems={breadcrumbs}

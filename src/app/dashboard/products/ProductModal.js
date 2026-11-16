@@ -189,7 +189,7 @@ export default function ProductModal({ product, categories = [], nextSort = 1, o
 
   const tabs = [
     { key: 'basic', label: 'Basic Info', icon: Package },
-    { key: 'specs', label: 'HVAC Specs', icon: Wrench },
+    { key: 'specs', label: 'Technical Specs', icon: Wrench },
     { key: 'features', label: 'Features & Apps', icon: ListChecks },
     { key: 'media', label: 'Media & Literature', icon: FileText },
     { key: 'seo', label: 'SEO & Meta', icon: Globe },
@@ -376,7 +376,7 @@ export default function ProductModal({ product, categories = [], nextSort = 1, o
               </div>
             )}
 
-            {/* ── TAB 2: HVAC ENGINEERING SPECS ── */}
+            {/* ── TAB 2: TECHNICAL ENGINEERING SPECS ── */}
             {tab === 'specs' && (
               <div className="space-y-4 animate-in fade-in duration-200">
                 <div className="bg-primary/5 p-3 rounded-lg border border-primary/20 text-xs text-primary mb-2">

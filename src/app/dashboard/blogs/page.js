@@ -20,9 +20,9 @@ import BulkActionBar from '../../../components/dashboard/BulkActionBar'
 
 const EMPTY = {
   title: '', slug: '', excerpt: '', content: '',
-  author: 'OG Heavy Duty Technical Team', category: 'HVAC Engineering',
+  author: 'OG Heavy Duty Technical Team', category: 'Cooling Engineering',
   status: 'published', isPublished: true, sort: 0,
-  tagsText: 'High Ambient, 50°C Cooling, Tropical HVAC',
+  tagsText: 'High Ambient, 50°C Cooling, Tropical Cooling',
   metatag: '', metakeywords: '', metaDescription: '', canonicalUrl: '',
   ogTitle: '', ogDescription: '', twitterCard: 'summary_large_image',
   robots: 'index, follow', schema: '', alt: '', coverImage: '', breadImage: '',
@@ -89,7 +89,7 @@ function BlogModal({ blog, nextSort = 1, onClose, onSave, saving }) {
             </DialogTitle>
           </div>
           <p className="text-slate-300 text-xs mt-1">
-            Authoritative technical guides, high-ambient comparisons, and industrial HVAC engineering articles.
+            Authoritative technical guides, high-ambient comparisons, and industrial air conditioning engineering articles.
           </p>
         </DialogHeader>
 
@@ -142,7 +142,7 @@ function BlogModal({ blog, nextSort = 1, onClose, onSave, saving }) {
                     }}
                   />
                   <FloatingInput
-                    label="Category (e.g. HVAC Engineering, Maintenance)"
+                    label="Category (e.g. Cooling Engineering, Maintenance)"
                     value={form.category}
                     onChange={e => f('category', e.target.value)}
                   />
@@ -508,7 +508,7 @@ export default function BlogManagementPage() {
           <span className="font-bold text-sm text-foreground">{row.title}</span>
           <span className="text-xs text-muted-foreground font-mono mt-0.5">{row.slug}</span>
           <span className="text-[11px] text-muted-foreground mt-0.5">
-            By {row.author || 'OG Engineering Team'} &bull; {row.category || 'HVAC'}
+            By {row.author || 'OG Engineering Team'} &bull; {row.category || 'AC'}
           </span>
         </div>
       )
@@ -588,7 +588,7 @@ export default function BlogManagementPage() {
     <div className="p-4 sm:p-6 lg:p-8 space-y-6 bg-background min-h-full">
       <Breadcrumb 
         title="Technical Articles" 
-        subtitle={`Manage HVAC engineering articles and guides (${publishedCount} published)`}
+        subtitle={`Manage cooling engineering articles and guides (${publishedCount} published)`}
         crumbs={[{ label: 'Blog Management' }]} 
       />
 

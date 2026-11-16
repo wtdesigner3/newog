@@ -42,14 +42,6 @@ export const ACHIEVEMENTS_DATA = [
     badge: "Thermal Standard",
   },
   {
-    icon: Layers,
-    target: 100,
-    suffix: "%",
-    label: "Pure Copper Construction",
-    subtext: "Inner-grooved condenser & evaporator rifled copper coils",
-    badge: "Cu-DHP Grade",
-  },
-  {
     icon: Building2,
     target: 50000,
     suffix: "+",
@@ -59,12 +51,12 @@ export const ACHIEVEMENTS_DATA = [
     badge: "Proven Scale",
   },
   {
-    icon: MapPin,
-    isText: true,
-    textValue: "Pan-India",
-    label: "Service & Distribution",
-    subtext: "Rapid technician dispatch, certified spares & authorized partner hubs",
-    badge: "National Reach",
+    icon: Award,
+    target: 20,
+    suffix: "+",
+    label: "Years of Experience",
+    subtext: "Over two decades of specialized heavy-duty air conditioning excellence",
+    badge: "Proven Legacy",
   },
 ];
 
@@ -169,7 +161,7 @@ export default function MilestonesStrip({ items = null }) {
       <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-[#0f7ae0] to-transparent" />
 
       <PageContainer>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-800/80">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 divide-y md:divide-y-0 md:divide-x divide-slate-800/80">
           {displayList.map((item, idx) => {
             const Icon = (typeof item.icon === 'function' || typeof item.icon === 'object') && item.icon !== null
               ? item.icon
@@ -183,7 +175,7 @@ export default function MilestonesStrip({ items = null }) {
               <div
                 key={item.id || idx}
                 className={`flex flex-col items-center text-center group ${
-                  idx > 0 ? "pt-6 sm:pt-0 sm:pl-6" : ""
+                  idx > 0 ? "pt-6 md:pt-0 md:pl-8" : ""
                 }`}
               >
                 {/* Icon & Badge */}

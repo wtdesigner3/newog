@@ -23,7 +23,7 @@ const ENQUIRY_TYPES = [
   "Dealership & Distribution",
   "Institutional / Bulk Supply",
   "Technical & Service Assistance",
-  "Architect & HVAC Consultant Query",
+  "Architect & Cooling Consultant Query",
 ];
 
 const PRODUCT_CATEGORIES = [

@@ -36,7 +36,7 @@ const CATEGORY_MAP = {
 
 const CATEGORY_OPTIONS = [
   { value: 'general', label: 'General & Showroom Inquiries' },
-  { value: 'technical', label: 'Technical & HVAC Engineering' },
+  { value: 'technical', label: 'Technical & Cooling Engineering' },
   { value: 'sizing', label: 'Capacity & Tonnage Sizing' },
   { value: 'support', label: 'Service, GeM & Warranty Support' },
 ]
@@ -416,7 +416,7 @@ export default function FaqsDashboardPage() {
               placeholder="e.g. What makes OG Heavy Duty air conditioners suitable for severe heatwaves?"
               rightElement={
                 <AIAssistantButton
-                  context="HVAC Customer Support FAQ"
+                  context="Air Conditioning Customer Support FAQ"
                   field="Clear & Frequently Asked Question"
                   onGenerate={val => setForm({ ...form, question: val })}
                 />

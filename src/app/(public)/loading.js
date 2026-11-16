@@ -66,7 +66,7 @@ export default function PublicLoading() {
             {/* Right Machine / Equipment Visual Wireframe (Desktop) */}
             <div className="hidden lg:flex lg:col-span-5 flex-col items-center justify-center">
               <div className="w-full h-[340px] rounded-2xl bg-gradient-to-tr from-slate-100 via-blue-50/50 to-white border border-slate-200/80 p-6 flex flex-col items-center justify-center gap-4 shadow-xs animate-pulse">
-                {/* Simulated HVAC Unit Silhouette */}
+                {/* Simulated Air Conditioner Silhouette */}
                 <div className="w-4/5 h-36 rounded-xl bg-white border border-slate-200 shadow-xs flex items-center justify-center">
                   <div className="w-14 h-14 rounded-full bg-blue-50 border border-blue-200/70 flex items-center justify-center">
                     <div className="w-6 h-6 rounded-full bg-[#0f7ae0]/30" />
@@ -88,8 +88,8 @@ export default function PublicLoading() {
       {/* ─── Milestones Strip Skeleton (Clean, Light White Panel) ─── */}
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-8">
         <div className="rounded-2xl bg-white border border-slate-200/90 p-6 sm:p-8 shadow-xs">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
-            {[1, 2, 3, 4].map((i) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {[1, 2, 3].map((i) => (
               <div key={i} className="space-y-3 p-4 rounded-xl bg-slate-50/70 border border-slate-100">
                 <div className="flex items-center gap-2.5">
                   <div className="w-9 h-9 rounded-xl bg-blue-50 border border-blue-200/80 flex items-center justify-center">

@@ -98,7 +98,7 @@ function ViewModal({ enq, onClose, onUpdateStatus }) {
               </div>
             </div>
 
-            {/* HVAC Requirements */}
+            {/* Cooling Requirements */}
             <div className="space-y-4">
               <h3 className="text-xs font-bold text-muted-foreground uppercase tracking-wider flex items-center gap-1.5">
                 <Factory className="w-3.5 h-3.5" /> Equipment & Project Requirements

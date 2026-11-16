@@ -49,11 +49,11 @@ export async function generateMetadata() {
   return {
     metadataBase: new URL(siteUrl),
     title: {
-      default: "OG Heavy Duty | Heavy-Duty Air Conditioners & Commercial HVAC Solutions",
+      default: "OG Heavy Duty | Heavy-Duty Air Conditioners & Commercial Cooling Solutions",
       template: "%s | OG Heavy Duty",
     },
     description:
-      "OG Heavy Duty is India's premier manufacturer of high-ambient heavy-duty air conditioners, including Window ACs, Split ACs, Cassette ACs, Tower ACs, and Commercial HVAC systems engineered for severe high-ambient climates.",
+      "OG Heavy Duty is India's premier manufacturer of high-ambient heavy-duty air conditioners, including Window ACs, Split ACs, Cassette ACs, Tower ACs, and Commercial Air Conditioning systems engineered for severe high-ambient climates.",
     alternates: {
       canonical: siteUrl,
     },
@@ -68,7 +68,7 @@ export async function generateMetadata() {
       shortcut: [faviconUrl],
     },
     openGraph: {
-      title: "OG Heavy Duty | Heavy-Duty Air Conditioners & Commercial HVAC Solutions",
+      title: "OG Heavy Duty | Heavy-Duty Air Conditioners & Commercial Cooling Solutions",
       description:
         "India's trusted heavy-duty cooling manufacturer. High-ambient thermal tolerance, 100% copper coils, Window, Split, Cassette, and Tower ACs for residential and commercial spaces.",
       url: siteUrl,
@@ -78,7 +78,7 @@ export async function generateMetadata() {
     },
     twitter: {
       card: "summary_large_image",
-      title: "OG Heavy Duty | Heavy-Duty Air Conditioners & Commercial HVAC Solutions",
+      title: "OG Heavy Duty | Heavy-Duty Air Conditioners & Commercial Cooling Solutions",
       description:
         "India's trusted heavy-duty cooling manufacturer. High-ambient thermal tolerance, 100% copper coils, Window, Split, Cassette, and Tower ACs.",
     },
@@ -93,12 +93,12 @@ export default function RootLayout({ children }) {
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://ogheavyduty.in";
   const jsonLd = {
     "@context": "https://schema.org",
-    "@type": "HVACBusiness",
+    "@type": "LocalBusiness",
     name: "OG Heavy Duty",
     url: siteUrl,
     logo: `${siteUrl}/images/og-logo.png`,
     description:
-      "Manufacturer and supplier of heavy-duty air conditioners, commercial HVAC systems, high-ambient window ACs, and inverter split units.",
+      "Manufacturer and supplier of heavy-duty air conditioners, commercial air conditioning systems, high-ambient window ACs, and inverter split units.",
     telephone: "011-35727834",
     email: "info@ogheavyduty.in",
     address: {

@@ -77,7 +77,7 @@ export async function generateMetadata() {
   const description =
     dbData?.metaDescription ||
     homeAbout?.short_description ||
-    "Discover OG Heavy Duty's manufacturing heritage, executive leadership by Mr. Sanjay Kumar (Founder, ex-Director at Mitsubishi Heavy Industries India) and Mr. Shubham Goel (Director), Make in India commitment, and heavy-duty HVAC systems engineered for severe tropical climates.";
+    "Discover OG Heavy Duty's manufacturing heritage, executive leadership by Mr. Sanjay Kumar (Founder, ex-Director at Mitsubishi Heavy Industries India) and Mr. Shubham Goel (Director), Make in India commitment, and heavy-duty air conditioning systems engineered for severe tropical climates.";
 
   return {
     title,
@@ -150,7 +150,7 @@ export default async function AboutUsPage() {
         },
       },
       {
-        "@type": "HVACBusiness",
+        "@type": "LocalBusiness",
         "@id": "https://ogheavyduty.in/#organization",
         "name": "OG Heavy Duty",
         "url": "https://ogheavyduty.in",
@@ -191,7 +191,7 @@ export default async function AboutUsPage() {
       {/* ─── 1. PAGE BANNER: Image in Background with Cinematic Brand Overlay ─── */}
       <PublicPageBanner
         title="Engineering Resilience for Tropical Climates"
-        subtitle="Over 30 years of heavy-duty commercial HVAC manufacturing, purpose-built for continuous duty up to 52°C ambient."
+        subtitle="Over 30 years of heavy-duty commercial air conditioning manufacturing, purpose-built for continuous duty up to 52°C ambient."
         badge="ABOUT OG HEAVY DUTY"
         bgImage="/uploads/breadcrumb/1648811523_download.jpg"
         breadcrumbItems={breadcrumbs}
@@ -266,7 +266,7 @@ export default async function AboutUsPage() {
               <div>
                 <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 text-[#0f7ae0] border border-blue-200/80 text-xs font-bold uppercase tracking-wider mb-4">
                   <Sparkles size={13} />
-                  <span>{homeAbout?.badge || "PIONEERING HIGH-AMBIENT HVAC"}</span>
+                  <span>{homeAbout?.badge || "PIONEERING HIGH-AMBIENT COOLING"}</span>
                 </div>
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-900 tracking-tight leading-[1.15]">
                   {homeAbout?.title || "High-Performance Cooling Aligned with Make in India"}
@@ -325,7 +325,7 @@ export default async function AboutUsPage() {
                       O.G. Heavy Duty Air Conditioner is an authoritative Indian manufacturer committed to delivering high-performance, reliable, and energy-efficient climate control systems. Proudly aligned with the <strong>Make in India</strong> initiative and actively promoting <strong>Vocal for Local</strong>, we engineer cooling machines purpose-built for continuous duty in India&apos;s most punishing environments.
                     </p>
                     <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-sans">
-                      With over 30 years of specialized manufacturing experience, OG Heavy Duty has become the trusted HVAC partner for major Government Departments, central universities, and large commercial establishments across the country. Where ordinary air conditioning units suffer thermal tripping above 45°C, our tropicalized engineering guarantees continuous pull-down even at peak 52°C ambient temperatures.
+                      With over 30 years of specialized manufacturing experience, OG Heavy Duty has become the trusted cooling partner for major Government Departments, central universities, and large commercial establishments across the country. Where ordinary air conditioning units suffer thermal tripping above 45°C, our tropicalized engineering guarantees continuous pull-down even at peak 52°C ambient temperatures.
                     </p>
                   </>
                 );
@@ -352,7 +352,7 @@ export default async function AboutUsPage() {
                   icon={true}
                   className="whitespace-nowrap shrink-0 !w-auto inline-flex"
                 >
-                  Consult HVAC Engineers
+                  Consult Cooling Experts
                 </SecondaryButton>
               </div>
             </div>
@@ -447,7 +447,7 @@ export default async function AboutUsPage() {
                 </h3>
 
                 <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-sans">
-                  To be India&apos;s benchmark heavy-duty HVAC brand, championing low-GWP refrigerants (R32 / R410A) and energy-conserving inverter drives for industrial decarbonization.
+                  To be India&apos;s benchmark heavy-duty air conditioning brand, championing low-GWP refrigerants (R32 / R410A) and energy-conserving inverter drives for industrial decarbonization.
                 </p>
               </div>
 

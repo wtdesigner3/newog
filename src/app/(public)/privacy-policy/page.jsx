@@ -339,7 +339,7 @@ export default function PrivacyPolicyPage() {
                   We only disclose personal data to the following strictly defined entities:
                 </p>
                 <ul className="list-disc pl-5 space-y-1.5 text-sm text-slate-600 mt-2">
-                  <li><strong>Authorized Logistics & Technical Partners:</strong> Trusted logistics carriers and certified installation technicians solely to complete delivery and commission HVAC equipment at your designated site.</li>
+                  <li><strong>Authorized Logistics & Technical Partners:</strong> Trusted logistics carriers and certified installation technicians solely to complete delivery and commission air conditioning equipment at your designated site.</li>
                   <li><strong>Cloud Infrastructure Providers:</strong> Managed database and hosting services (e.g. MongoDB Atlas, Vercel/Node cloud nodes) operating under strict data processing agreements and enterprise encryption standards.</li>
                   <li><strong>Statutory & Legal Obligations:</strong> When legally mandated by Indian law enforcement, tax authorities (e.g., GST portal compliance), or a valid court subpoena issued by a court of competent jurisdiction.</li>
                 </ul>

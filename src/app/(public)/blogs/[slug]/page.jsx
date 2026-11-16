@@ -27,11 +27,11 @@ export const revalidate = 3600; // 1 hour ISR
 const FALLBACK_ARTICLES = {
   "selecting-high-ambient-air-conditioners-50c-climates": {
     title: "Selecting High-Ambient Air Conditioners: Engineering Guide for 52°C Climates",
-    category: "HVAC Engineering",
+    category: "Cooling Engineering",
     date: "Oct 28, 2026",
     readTime: "5 min read",
     image: "/images/banner_ac_commercial.jpg",
-    tags: ["High Ambient", "52°C Cooling", "Tropical HVAC"],
+    tags: ["High Ambient", "52°C Cooling", "Tropical Cooling"],
     excerpt:
       "Understand why standard residential AC units trip in peak Indian summers and how high-ambient engineering with oversized condenser coils sustains full cooling pull-down.",
     content: `
@@ -53,7 +53,7 @@ const FALLBACK_ARTICLES = {
       </ul>
       <h3 class="text-xl font-bold text-slate-900 mt-6 mb-3">Key Takeaways for Commercial Planners</h3>
       <p class="text-slate-600 mb-4">
-        When planning institutional or commercial HVAC installations, verify the manufacturer's maximum ambient operating threshold and coil metallurgy. Opting for heavy-gauge copper coils with anti-corrosion fin treatments ensures decade-long continuous duty performance without thermal derating.
+        When planning institutional or commercial air conditioning installations, verify the manufacturer's maximum ambient operating threshold and coil metallurgy. Opting for heavy-gauge copper coils with anti-corrosion fin treatments ensures decade-long continuous duty performance without thermal derating.
       </p>
     `,
   },
@@ -80,12 +80,12 @@ const FALLBACK_ARTICLES = {
       </p>
       <h3 class="text-xl font-bold text-slate-900 mt-6 mb-3">Field Serviceability &amp; Repair</h3>
       <p class="text-slate-600 mb-4">
-        Micro-punctures caused by environmental vibrations or aggressive urban contaminants can be easily identified and brazed on-site with standard oxy-acetylene torches by certified HVAC technicians. In contrast, all-aluminum microchannel coils frequently require total coil replacement at substantial expense and downtime.
+        Micro-punctures caused by environmental vibrations or aggressive urban contaminants can be easily identified and brazed on-site with standard oxy-acetylene torches by certified AC technicians. In contrast, all-aluminum microchannel coils frequently require total coil replacement at substantial expense and downtime.
       </p>
     `,
   },
-  "commercial-hvac-inverter-vs-fixed-speed-savings": {
-    title: "Commercial HVAC Efficiency: Inverter vs Fixed Speed Heavy-Duty AC Systems",
+  "commercial-ac-inverter-vs-fixed-speed-savings": {
+    title: "Commercial AC Efficiency: Inverter vs Fixed Speed Heavy-Duty AC Systems",
     category: "Energy Efficiency",
     date: "Oct 14, 2026",
     readTime: "7 min read",
@@ -154,7 +154,7 @@ const FALLBACK_ARTICLES = {
     image: "/images/slide2.jpg",
     tags: ["Cassette AC", "Ductable AC", "Ceiling Layouts"],
     excerpt:
-      "How to determine whether a 4-way ceiling cassette or a concealed ducted HVAC system is best suited for your corporate boardroom, retail showroom, or auditorium layout.",
+      "How to determine whether a 4-way ceiling cassette or a concealed ducted AC system is best suited for your corporate boardroom, retail showroom, or auditorium layout.",
     content: `
       <p class="lead text-base sm:text-lg text-slate-700 font-medium mb-4">
         Architects, interior designers, and corporate planners must balance aesthetics, structural ceiling constraints, and thermal distribution when selecting centralized ceiling cooling equipment.
@@ -190,7 +190,7 @@ const FALLBACK_ARTICLES = {
       "Learn how solar heat gain through west-facing glass, high ceilings, and IT equipment affects real-world cooling tonnage requirements beyond simple floor square footage rules of thumb.",
     content: `
       <p class="lead text-base sm:text-lg text-slate-700 font-medium mb-4">
-        A common pitfall in HVAC installation is sizing air conditioning capacity exclusively on floor area (e.g., 1 Ton per 100 sq. ft.). In extreme high-ambient Indian climates, solar radiation, building geometry, and sensible heat sources frequently double the actual thermal load.
+        A common pitfall in AC installation is sizing air conditioning capacity exclusively on floor area (e.g., 1 Ton per 100 sq. ft.). In extreme high-ambient Indian climates, solar radiation, building geometry, and sensible heat sources frequently double the actual thermal load.
       </p>
       <h3 class="text-xl font-bold text-slate-900 mt-6 mb-3">The Components of Real Cooling Heat Load</h3>
       <ul class="list-disc pl-5 space-y-2 text-slate-600 mb-4">
@@ -257,7 +257,7 @@ async function getRelatedBlogs(currentSlug) {
       return docs.map((b) => ({
         slug: b.slug,
         title: b.title,
-        category: b.category || "HVAC Engineering",
+        category: b.category || "Cooling Engineering",
         date: b.publishedAt
           ? new Date(b.publishedAt).toLocaleDateString("en-IN", {
               month: "short",
@@ -400,7 +400,7 @@ export default async function BlogDetailPage({ params }) {
       <PublicPageBanner
         title={post.title}
         subtitle={post.excerpt || "In-depth engineering analysis and operational protocols from OG Heavy Duty."}
-        badge={post.category || "HVAC ENGINEERING"}
+        badge={post.category || "COOLING ENGINEERING"}
         bgImage="/uploads/breadcrumb/1648811523_download.jpg"
         breadcrumbItems={breadcrumbs}
       />
@@ -430,7 +430,7 @@ export default async function BlogDetailPage({ params }) {
                   {/* Frosted Category Pill on Image */}
                   <div className="absolute top-4 left-4 z-10 pointer-events-none">
                     <span className="inline-flex items-center px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wide uppercase bg-white/95 backdrop-blur-md text-[#0f7ae0] shadow-md border border-white/60">
-                      {post.category || "HVAC Engineering"}
+                      {post.category || "Cooling Engineering"}
                     </span>
                   </div>
                 </div>
@@ -527,7 +527,7 @@ export default async function BlogDetailPage({ params }) {
                           Related Articles
                         </h3>
                         <p className="text-[11px] text-slate-500">
-                          HVAC Engineering Guides
+                          Cooling Engineering Guides
                         </p>
                       </div>
                     </div>

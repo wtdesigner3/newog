@@ -106,7 +106,7 @@ export async function GET(request) {
 
 /**
  * POST /api/products
- * Creates a new OG Heavy Duty HVAC product.
+ * Creates a new OG Heavy Duty product.
  * Requires 'products:create' permission.
  */
 export async function POST(request) {

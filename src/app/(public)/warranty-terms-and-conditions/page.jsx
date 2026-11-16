@@ -268,7 +268,7 @@ export default function WarrantyTermsPage() {
                   </div>
                   <h4 className="text-sm font-bold text-slate-900 mb-1">Authorized Field Support</h4>
                   <p className="text-xs text-slate-600 leading-relaxed font-sans">
-                    On-site diagnostics and repairs conducted exclusively by factory-trained HVAC engineers using genuine OEM replacement parts.
+                    On-site diagnostics and repairs conducted exclusively by factory-trained AC engineers using genuine OEM replacement parts.
                   </p>
                 </div>
               </div>
@@ -395,7 +395,7 @@ export default function WarrantyTermsPage() {
                   </div>
                   <div className="space-y-3 text-xs sm:text-sm text-slate-600 font-sans leading-relaxed pl-9">
                     <p>
-                      Air conditioning machines require precise refrigeration balance. To ensure warranty validity, installation must adhere strictly to standard HVAC commissioning protocols:
+                      Air conditioning machines require precise refrigeration balance. To ensure warranty validity, installation must adhere strictly to standard AC commissioning protocols:
                     </p>
                     <ul className="space-y-2 list-disc pl-5 text-slate-700">
                       <li>

@@ -221,13 +221,13 @@ export default function FaqClient({ faqs = [] }) {
           <div className="md:col-span-2 space-y-2">
             <span className="inline-flex items-center gap-1.5 text-xs font-bold text-blue-300 bg-blue-500/20 border border-blue-400/30 px-3 py-1 rounded-full uppercase tracking-wider mb-2 backdrop-blur-md">
               <Sparkles size={12} />
-              <span>Need Tailored HVAC Guidance?</span>
+              <span>Need Tailored Cooling Guidance?</span>
             </span>
             <h3 className="text-xl sm:text-2xl font-black font-heading tracking-tight text-white">
               Have an Engineering or Bulk Inquiry?
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl font-sans">
-              Our New Delhi technical team assists clients with custom HVAC load estimation, ductable layout drawings, institutional tenders, and pan-India project fulfillment.
+              Our New Delhi technical team assists clients with custom cooling load estimation, ductable layout drawings, institutional tenders, and pan-India project fulfillment.
             </p>
           </div>
 

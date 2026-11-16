@@ -1,6 +1,6 @@
 /**
  * Category Data Access Service
- * Handles querying, filtering, and fallback resolution for HVAC product categories.
+ * Handles querying, filtering, and fallback resolution for air conditioning product categories.
  * 
  * Conforms to:
  * - FINDING-601-01: Attached Next.js Data Cache tags (TAG_CATEGORIES, TAG_CATALOG)
@@ -101,7 +101,7 @@ async function getTotalOGCategoryCount() {
 }
 
 /**
- * Get all published HVAC categories.
+ * Get all published categories.
  */
 async function _getCategoriesRaw() {
   const conn = await connectDBSafe({ silent: true });

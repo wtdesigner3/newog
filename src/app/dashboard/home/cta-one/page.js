@@ -11,8 +11,8 @@ import { Save, RotateCcw, Fan, ArrowRight, Sparkles, Link as LinkIcon } from 'lu
 const BASE_URL = ''
 
 const DEFAULT_STATE = {
-  badge: 'MEP & HVAC ENGINEERING SUPPORT',
-  title: 'Require custom institutional HVAC specifications?',
+  badge: 'ENGINEERING & TECHNICAL SUPPORT',
+  title: 'Require custom institutional air conditioning specifications?',
   content: 'Our engineering desk assists MEP consultants, architects, and facilities managers with heat load calculations, static pressure sizing, and duct equipment layouts.',
   buttonText: 'Consult Engineering Desk',
   buttonUrl: '/contact-us',
@@ -120,10 +120,10 @@ export default function CtaOnePage() {
                   required
                   value={form.badge}
                   onChange={e => setForm({ ...form, badge: e.target.value })}
-                  placeholder="e.g. MEP & HVAC ENGINEERING SUPPORT"
+                  placeholder="e.g. ENGINEERING & TECHNICAL SUPPORT"
                   rightElement={
                     <AIAssistantButton
-                      context="Technical HVAC Consultation Banner"
+                      context="Technical Consultation Banner"
                       field="Badge Pill Tagline"
                       onGenerate={val => setForm({ ...form, badge: val })}
                     />
@@ -136,10 +136,10 @@ export default function CtaOnePage() {
                   required
                   value={form.title}
                   onChange={e => setForm({ ...form, title: e.target.value })}
-                  placeholder="e.g. Require custom institutional HVAC specifications?"
+                  placeholder="e.g. Require custom institutional air conditioning specifications?"
                   rightElement={
                     <AIAssistantButton
-                      context="Technical HVAC Consultation Banner"
+                      context="Technical Consultation Banner"
                       field="Direct Actionable Headline"
                       onGenerate={val => setForm({ ...form, title: val })}
                     />
@@ -153,7 +153,7 @@ export default function CtaOnePage() {
                       Description Subtext
                     </label>
                     <AIAssistantButton
-                      context={form.title || 'Technical HVAC Consultation'}
+                      context={form.title || 'Technical Consultation'}
                       field="Persuasive Subtext for Engineers"
                       onGenerate={val => setForm({ ...form, content: val })}
                     />
@@ -234,11 +234,11 @@ export default function CtaOnePage() {
             <div className="relative z-10 space-y-3">
               <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-blue-400">
                 <Fan className="w-3.5 h-3.5 text-blue-400" />
-                <span>{form.badge || 'MEP & HVAC ENGINEERING SUPPORT'}</span>
+                <span>{form.badge || 'ENGINEERING & TECHNICAL SUPPORT'}</span>
               </div>
 
               <h4 className="text-lg font-bold tracking-tight text-white">
-                {form.title || 'Require custom institutional HVAC specifications?'}
+                {form.title || 'Require custom institutional air conditioning specifications?'}
               </h4>
 
               <p className="text-xs text-slate-300 leading-relaxed font-sans">

@@ -290,7 +290,7 @@ export default function TermsAndConditionPage() {
                 </p>
                 <ul className="list-disc pl-5 space-y-1.5 text-sm text-slate-600 mt-2">
                   <li><strong>Transit Inspection:</strong> The buyer or receiving representative must inspect exterior wooden crates / carton packaging upon physical delivery and note any overt transit damage on the consignment note before signing.</li>
-                  <li><strong>Site Readiness:</strong> Safe execution of HVAC installation requires that the client provides appropriate electrical circuits (with dedicated MCB breakers and reliable earthing), secure wall/rooftop scaffolding, and unimpeded access for technicians.</li>
+                  <li><strong>Site Readiness:</strong> Safe execution of air conditioning installation requires that the client provides appropriate electrical circuits (with dedicated MCB breakers and reliable earthing), secure wall/rooftop scaffolding, and unimpeded access for technicians.</li>
                 </ul>
               </section>
 

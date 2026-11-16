@@ -59,7 +59,7 @@ export default function ContactPage() {
       "Official contact directory and customer support channels for OG Heavy Duty Air Conditioners.",
     url: "https://ogheavyduty.in/contact",
     mainEntity: {
-      "@type": "HVACBusiness",
+      "@type": "LocalBusiness",
       name: "OG Heavy Duty",
       legalName: "Operationally Genius Heavy Duty",
       url: "https://ogheavyduty.in",
@@ -267,7 +267,7 @@ export default function ContactPage() {
                     Submit an Official Enquiry
                   </h2>
                   <p className="text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed font-sans">
-                    Fill out the form below. Inquiries are routed directly to our regional sales and HVAC applications engineers in New Delhi.
+                    Fill out the form below. Inquiries are routed directly to our regional sales and cooling applications engineers in New Delhi.
                   </p>
                 </div>
 

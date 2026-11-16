@@ -35,11 +35,11 @@ export const SLIDES = [
     image: "/images/banner_ac_industrial.jpg",
     kicker: "Central Ducted & Industrial Systems",
     headingPart1: "Robust High-Tonnage ",
-    headingHighlight: "Industrial HVAC Chillers",
+    headingHighlight: "Industrial Cooling Chillers",
     headingPart2: " & Ducted Units",
     description:
       "Engineered for massive cooling loads across manufacturing hubs, server facilities, and commercial buildings with multi-stage compressor staging and 145V–285V voltage tolerance.",
-    primaryCta: { label: "Consult HVAC Engineers", href: "#quote" },
+    primaryCta: { label: "Consult Cooling Experts", href: "#quote" },
     secondaryCta: { label: "View Technical Specs", href: "/resources" },
     badge: "Heavy-Gauge Anti-Rust Chassis",
   },

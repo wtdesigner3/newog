@@ -12,10 +12,10 @@ export async function GET() {
         let homeAbout = await HomeAbout.findOne().lean();
         if (!homeAbout) {
             homeAbout = await HomeAbout.create({
-                badge: "PIONEERING HIGH-AMBIENT HVAC",
+                badge: "PIONEERING HIGH-AMBIENT COOLING",
                 title: "Engineered to Cool Where Ordinary Air Conditioners Fail",
                 short_description: "O.G. HEAVY DUTY engineers cooling machines purpose-built for continuous duty in India's most punishing environments, creating a harmonious and comfortable world with over 30 years of manufacturing experience & expertise.",
-                description: "The world contains an infinite number of spaces. O.G. HEAVY DUTY believes that the air in each of them should be ideally suited to the environment they support. Thus, we make it possible to manage the air—to control its temperature, humidity, and flow.\n\nO.G. Heavy Duty Air Conditioner is an authoritative Indian manufacturer committed to delivering high-performance, reliable, and energy-efficient climate control systems. Proudly aligned with the Make in India initiative and actively promoting Vocal for Local, we engineer cooling machines purpose-built for continuous duty in India's most punishing environments.\n\nWith over 30 years of specialized manufacturing experience, OG Heavy Duty has become the trusted HVAC partner for major Government Departments, central universities, and large commercial establishments across the country. Where ordinary air conditioning units suffer thermal tripping above 45°C, our tropicalized engineering guarantees continuous pull-down even at peak 52°C ambient temperatures.",
+                description: "The world contains an infinite number of spaces. O.G. HEAVY DUTY believes that the air in each of them should be ideally suited to the environment they support. Thus, we make it possible to manage the air—to control its temperature, humidity, and flow.\n\nO.G. Heavy Duty Air Conditioner is an authoritative Indian manufacturer committed to delivering high-performance, reliable, and energy-efficient climate control systems. Proudly aligned with the Make in India initiative and actively promoting Vocal for Local, we engineer cooling machines purpose-built for continuous duty in India's most punishing environments.\n\nWith over 30 years of specialized manufacturing experience, OG Heavy Duty has become the trusted cooling partner for major Government Departments, central universities, and large commercial establishments across the country. Where ordinary air conditioning units suffer thermal tripping above 45°C, our tropicalized engineering guarantees continuous pull-down even at peak 52°C ambient temperatures.",
                 image: "/images/home1/about-img.jpg",
                 alt: "OG Heavy Duty Manufacturing & Precision Engineering",
                 experience_years: "30+ Years",
@@ -40,7 +40,7 @@ export async function POST(request) {
         await connectDB();
 
         const formData = await request.formData();
-        const badge = formData.get("badge") || "PIONEERING HIGH-AMBIENT HVAC";
+        const badge = formData.get("badge") || "PIONEERING HIGH-AMBIENT COOLING";
         const title = formData.get("title") || "";
         const short_description = formData.get("short_description") || "";
         const description = formData.get("description") || "";

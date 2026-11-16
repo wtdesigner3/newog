@@ -3,7 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 /**
- * CategoryGrid — Renders the 6 primary HVAC cooling categories.
+ * CategoryGrid — Renders the 6 primary cooling categories.
  *
  * Each card features:
  * - Technical series badge & tonnage range

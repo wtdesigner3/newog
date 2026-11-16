@@ -6,7 +6,7 @@ import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react";
 import ProductCard from "./ProductCard";
 
 /**
- * RelatedProductsCarousel — Interactive, touch-and-drag enabled carousel for related HVAC products.
+ * RelatedProductsCarousel — Interactive, touch-and-drag enabled carousel for related cooling products.
  * Includes smooth arrow controls, responsive card sizing, and scroll-snap alignment.
  */
 export default function RelatedProductsCarousel({

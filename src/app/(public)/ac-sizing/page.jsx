@@ -17,7 +17,7 @@ import ACSizingTool from "../../../components/forms/ACSizingTool";
 export const metadata = {
   title: "Guided AC Sizing & Heat Load Tool | OG Heavy Duty",
   description:
-    "Interactive HVAC cooling-load information collector for commercial, institutional, and residential air conditioners. Capture room dimensions, ceiling height, and solar exposure for technical review.",
+    "Interactive cooling-load information collector for commercial, institutional, and residential air conditioners. Capture room dimensions, ceiling height, and solar exposure for technical review.",
   alternates: {
     canonical: "https://ogheavyduty.in/ac-sizing",
   },
@@ -34,7 +34,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Guided AC Sizing Tool | OG Heavy Duty",
     description:
-      "Interactive preliminary HVAC cooling load collector for OG Heavy Duty air conditioners.",
+      "Interactive preliminary cooling load collector for OG Heavy Duty air conditioners.",
   },
 };
 
@@ -119,11 +119,11 @@ export default function ACSizingPage() {
           <ACSizingTool />
         </section>
 
-        {/* Engineering Education Section: Why HVAC Calculations Matter (Standardized 60px Spacing) */}
+        {/* Engineering Education Section: Why Sizing Calculations Matter (Standardized 60px Spacing) */}
         <section className="py-[60px] max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
             <h2 className="text-2xl font-black text-slate-900 tracking-tight">
-              Why Real HVAC Engineering Matters
+              Why Real Cooling Engineering Matters
             </h2>
             <p className="text-sm text-slate-600 mt-2 max-w-xl mx-auto">
               Generic online calculators use arbitrary square-footage rules that lead to severe undercooling during peak summer heatwaves.

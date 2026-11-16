@@ -65,7 +65,7 @@ export default function ProductSpecTable({ product }) {
       groupTitle: "Manufacturing & Compliance Standards",
       specs: [
         { label: "Origin / Manufacturing", value: "100% Made in India (Vocal for Local)" },
-        { label: "Standard Manufacturing Protocol", value: "Designed in Accordance with Indian HVAC Norms" },
+        { label: "Standard Manufacturing Protocol", value: "Designed in Accordance with Indian AC Norms" },
         { label: "Model Code Identifier", value: product.model },
         { label: "Commercial Warranty", value: specs.warranty || "1 Year Comprehensive + 5 Years Compressor Warranty" },
       ],

@@ -130,7 +130,7 @@ function CatModal({ cat, nextSort = 1, onClose, onSave }) {
 
   const tabs = [
     { key: 'basic', label: 'Basic Info' },
-    { key: 'hvac', label: 'HVAC Hierarchy' },
+    { key: 'hierarchy', label: 'Category Hierarchy' },
     { key: 'media', label: 'Images & Banners' },
     { key: 'seo', label: 'SEO Settings' },
   ]
@@ -144,11 +144,11 @@ function CatModal({ cat, nextSort = 1, onClose, onSave }) {
               <Layers className="w-5 h-5" />
             </span>
             <DialogTitle className="text-xl font-bold !text-white">
-              {cat ? `Edit Category: ${cat.name}` : 'Add HVAC Category'}
+              {cat ? `Edit Category: ${cat.name}` : 'Add AC Category'}
             </DialogTitle>
           </div>
           <p className="text-slate-300 text-xs mt-1">
-            Configure HVAC equipment categories, series badges, and subcategory hierarchies.
+            Configure air conditioning categories, series badges, and subcategory hierarchies.
           </p>
         </DialogHeader>
         
@@ -242,7 +242,7 @@ function CatModal({ cat, nextSort = 1, onClose, onSave }) {
               </div>
             )}
 
-            {tab === 'hvac' && (
+            {tab === 'hierarchy' && (
               <div className="space-y-4 animate-in fade-in duration-200">
                 <FloatingInput 
                   label="Tonnage Range (e.g. 1.0 Ton • 1.5 Ton • 2.0 Ton)" 
@@ -483,7 +483,7 @@ export default function CategoriesPage() {
     },
     {
       key: 'category',
-      label: 'HVAC Category',
+      label: 'AC Category',
       render: (row) => (
         <div className="flex flex-col">
           <div className="flex items-center gap-2">
@@ -496,7 +496,7 @@ export default function CategoriesPage() {
           </div>
           <span className="text-xs text-muted-foreground font-mono mt-0.5">{row.slug}</span>
           <span className="text-[11px] text-muted-foreground mt-0.5">
-            {row.series || 'HVAC Series'} &bull; {row.tonnageRange || 'Heavy Duty Capacity'}
+            {row.series || 'AC Series'} &bull; {row.tonnageRange || 'Heavy Duty Capacity'}
           </span>
         </div>
       )
@@ -582,7 +582,7 @@ export default function CategoriesPage() {
     <div className="p-4 sm:p-6 lg:p-8 space-y-6 bg-background min-h-full">
       <Breadcrumb 
         title="Product Categories" 
-        subtitle={`Manage HVAC equipment categories (${rows.filter(r => r.isActive).length} active)`}
+        subtitle={`Manage air conditioning categories (${rows.filter(r => r.isActive).length} active)`}
         crumbs={[{ label: 'Product Management' }, { label: 'Categories' }]} 
       />
       
@@ -595,7 +595,7 @@ export default function CategoriesPage() {
         onBulkDelete={() => setConfirmModal({ isOpen: true, type: 'bulk', id: null })}
         bulkDeleting={bulkDeleting}
         onAdd={() => setModal('new')}
-        addLabel="Add HVAC Category"
+        addLabel="Add AC Category"
       />
 
       <DataTable 

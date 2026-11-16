@@ -398,7 +398,7 @@ export default function MilestonesPage() {
                   onChange={e => setForm({ ...form, badge: e.target.value })}
                   placeholder="e.g. Thermal Standard"
                   rightElement={
-                    <AIAssistantButton context="HVAC Engineering Milestone Tagline" field="Pill Badge" onGenerate={v => setForm({ ...form, badge: v })} />
+                    <AIAssistantButton context="Air Conditioning Engineering Milestone Tagline" field="Pill Badge" onGenerate={v => setForm({ ...form, badge: v })} />
                   }
                 />
 
@@ -494,7 +494,7 @@ export default function MilestonesPage() {
                 onChange={e => setForm({ ...form, label: e.target.value })}
                 placeholder="e.g. Extreme Ambient Ceiling"
                 rightElement={
-                  <AIAssistantButton context={form.badge || 'HVAC Engineering Benchmark'} field="Catchy Stat Label" onGenerate={v => setForm({ ...form, label: v })} />
+                  <AIAssistantButton context={form.badge || 'Engineering Benchmark'} field="Catchy Stat Label" onGenerate={v => setForm({ ...form, label: v })} />
                 }
               />
 
@@ -505,7 +505,7 @@ export default function MilestonesPage() {
                 onChange={e => setForm({ ...form, subtext: e.target.value })}
                 placeholder="e.g. Continuous cooling engineered & tested up to 52°C tropical peak"
                 rightElement={
-                  <AIAssistantButton context={form.label || 'HVAC Milestone'} field="Explanatory Subtext" onGenerate={v => setForm({ ...form, subtext: v })} />
+                  <AIAssistantButton context={form.label || 'Milestone'} field="Explanatory Subtext" onGenerate={v => setForm({ ...form, subtext: v })} />
                 }
               />
 

@@ -21,7 +21,7 @@ export async function POST(request) {
         await connectDB();
 
         const formData = await request.formData();
-        const badge = formData.get("badge") || "MEP & HVAC ENGINEERING SUPPORT";
+        const badge = formData.get("badge") || "ENGINEERING & TECHNICAL SUPPORT";
         const title = formData.get("title") || "";
         const content = formData.get("content") || "";
         const buttonText = formData.get("buttonText") || "Consult Engineering Desk";

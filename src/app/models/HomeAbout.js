@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const homeAboutSchema = new mongoose.Schema({
   badge: {
     type: String,
-    default: "PIONEERING HIGH-AMBIENT HVAC",
+    default: "PIONEERING HIGH-AMBIENT COOLING",
   },
   title: {
     type: String,

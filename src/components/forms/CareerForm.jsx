@@ -20,8 +20,8 @@ import {
 
 const POSITIONS = [
   "General Application",
-  "HVAC Service & Commissioning Engineer",
-  "Commercial HVAC Sales Executive",
+  "AC Service & Commissioning Engineer",
+  "Commercial AC Sales Executive",
   "Production & Assembly Line Technician",
   "Quality Assurance & Testing Inspector",
   "Supply Chain & Procurement Specialist",
@@ -543,7 +543,7 @@ export default function CareerForm({ defaultPosition = "General Application" }) 
           rows={3}
           value={formData.message}
           onChange={handleChange}
-          placeholder="Briefly highlight your HVAC expertise, certifications (e.g. ITI, Diploma, B.Tech), or key projects..."
+          placeholder="Briefly highlight your air conditioning expertise, certifications (e.g. ITI, Diploma, B.Tech), or key projects..."
           className="w-full p-3.5 rounded-xl border border-slate-200 text-xs sm:text-sm text-slate-900 placeholder:text-slate-400 focus:outline-hidden focus:ring-2 focus:ring-[#0f7ae0] focus:border-transparent transition-all bg-white"
         />
       </div>

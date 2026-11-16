@@ -356,7 +356,7 @@ export default function ProductsPage() {
     <div className="p-4 sm:p-6 lg:p-8 space-y-6 bg-background min-h-full">
       <Breadcrumb 
         title="Heavy Duty Products" 
-        subtitle={`Manage HVAC product models (${activeCount} published, ${draftCount} draft)`}
+        subtitle={`Manage air conditioning product models (${activeCount} published, ${draftCount} draft)`}
         crumbs={[{ label: 'Product Management' }, { label: 'All Products' }]} 
       />
 
@@ -413,7 +413,7 @@ export default function ProductsPage() {
         onBulkDelete={() => setConfirmModal({ isOpen: true, type: 'bulk', id: null })}
         bulkDeleting={bulkDeleting}
         onAdd={() => setModal('new')}
-        addLabel="Add HVAC Product"
+        addLabel="Add AC Product"
         extraActions={customButtons}
       />
 

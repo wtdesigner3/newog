@@ -184,15 +184,15 @@ export const TECHNICAL_RESOURCES = [
   },
   {
     id: "troubleshooting-guide",
-    title: "Commercial HVAC Systematic Troubleshooting Guide",
+    title: "Commercial AC Systematic Troubleshooting Guide",
     category: "error-codes",
     categoryName: "Diagnostic Error Codes & Guides",
     description:
-      "Systematic HVAC troubleshooting flowchart for service engineers and facility managers. Diagnoses inadequate cooling, insufficient airflow, abnormal acoustic noise, electrical tripping, and refrigerant leak verification.",
+      "Systematic AC troubleshooting flowchart for service engineers and facility managers. Diagnoses inadequate cooling, insufficient airflow, abnormal acoustic noise, electrical tripping, and refrigerant leak verification.",
     applicableProducts: "All Commercial & Residential Cooling Systems",
     applicableCategorySlug: "all",
     applicableModels: ["OG-18W5IN", "OG-19WA5", "OG-18S5IN", "OG-25IN5", "OGC-24", "OG-70OWC", "OG-24FCC", "OG-48FCC", "OG-SV24"],
-    filePath: "/documents/hvac-troubleshooting-guide.pdf",
+    filePath: "/documents/ac-troubleshooting-guide.pdf",
     legacyPaths: ["/images/troubleshooting.pdf"],
     fileType: "PDF",
     fileSize: "2.17 MB",

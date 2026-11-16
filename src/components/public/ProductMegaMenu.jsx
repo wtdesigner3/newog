@@ -23,7 +23,7 @@ import {
 } from "lucide-react";
 
 /**
- * Verified Multi-Tier HVAC Product Mega Menu Data
+ * Verified Multi-Tier Air Conditioning Product Mega Menu Data
  * Aligned with OG Heavy Duty Product Catalogue 2024-2026.
  */
 export const MEGA_MENU_CATEGORIES = [
@@ -500,7 +500,7 @@ export default function ProductMegaMenu({ onClose }) {
         <div className="flex items-center gap-2">
           <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-blue-500/20 border border-blue-400/30 text-[#00D2FF] font-bold text-[11px]">
             <Sparkles size={11} />
-            <span>Heavy-Duty HVAC</span>
+            <span>Heavy-Duty Cooling</span>
           </span>
 
           {activeCategory ? (
@@ -643,7 +643,7 @@ export default function ProductMegaMenu({ onClose }) {
               </h3>
 
               <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed max-w-2xl">
-                Explore OG Heavy Duty&apos;s full HVAC range from residential high-ambient split units to
+                Explore OG Heavy Duty&apos;s full air conditioning range from residential high-ambient split units to
                 multi-ton commercial cassettes, floor towers, and central ducted plants.
               </p>
 

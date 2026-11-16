@@ -141,7 +141,7 @@ export default function CategoryShowcase({ products: propProducts, badge, title,
           <div>
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-50 text-[#0f7ae0] border border-blue-200/80 mb-4 shadow-xs">
               <Wind size={13} className="text-[#0f7ae0]" />
-              <span>{badge || "HEAVY-DUTY HVAC CLASSIFICATIONS"}</span>
+              <span>{badge || "HEAVY-DUTY COOLING CLASSIFICATIONS"}</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black font-heading text-slate-900 tracking-tight leading-[1.15]">
               {title || (

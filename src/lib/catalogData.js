@@ -32,7 +32,7 @@ export const VERIFIED_CATEGORIES = [
       { slug: "fixed-speed-window-ac", name: "Fixed Speed Heavy Duty Series" },
     ],
     features: [
-      "Designed in Accordance with Indian HVAC Norms",
+      "Designed in Accordance with Indian AC Norms",
       "100% Inner-Grooved Copper Coils",
       "High Ambient Operating Range up to 50°C",
       "Auto Swing & Digital Temperature Display",
@@ -121,7 +121,7 @@ export const VERIFIED_CATEGORIES = [
     shortName: "Ductable AC",
     series: "Light Commercial Series",
     badge: "Central Ducted Split",
-    tagline: "High External Static Pressure for Institutional HVAC Projects",
+    tagline: "High External Static Pressure for Institutional Cooling Projects",
     description:
       "Centralized ducted split systems with high external static pressure (ESP) and scroll compressor architecture, engineered for multi-speciality hospitals, universities, server halls, and commercial establishments.",
     bannerImage: "/uploads/breadcrumb/1648815831_download.jpg",
@@ -142,7 +142,7 @@ export const VERIFIED_CATEGORIES = [
   },
   {
     slug: "commercial-range",
-    name: "Survivor & Industrial HVAC Series",
+    name: "Survivor & Industrial Heavy Duty Series",
     shortName: "Survivor Series",
     series: "Heavy Industrial Series",
     badge: "Industrial 52°C Ambient",
@@ -790,7 +790,7 @@ const RAW_PRODUCTS = [
     model: "OG-SV24",
     name: "2.0 Ton Survivor Heavy Duty Industrial Air Conditioner",
     categorySlug: "commercial-range",
-    categoryName: "Survivor & Industrial HVAC Series",
+    categoryName: "Survivor & Industrial Heavy Duty Series",
     subcategorySlug: "survivor-heavy-duty",
     subcategoryName: "Survivor High-Ambient Series",
     series: "Heavy Industrial Series",

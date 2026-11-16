@@ -28,7 +28,7 @@ export default function CompanyIntro({
   imageSrc = "/images/home1/about-img.jpg",
   data,
 }) {
-  const badge = data?.badge || "PIONEERING HIGH-AMBIENT HVAC";
+  const badge = data?.badge || "PIONEERING HIGH-AMBIENT COOLING";
   const title = data?.title || "Engineered to Cool Where Ordinary Air Conditioners Fail";
   
   // Display Logic: If short_description is provided, use it. Otherwise, extract a clean limited excerpt from description.

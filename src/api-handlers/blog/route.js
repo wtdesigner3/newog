@@ -10,7 +10,7 @@ import { getPublishedBlogs } from "@/lib/services/blogService";
 
 /**
  * GET /api/blog (and /api/blogs)
- * Retrieves OG Heavy Duty HVAC articles. Scoped strictly to OG records (zero steel blogs).
+ * Retrieves OG Heavy Duty cooling articles. Scoped strictly to OG records (zero steel blogs).
  */
 export async function GET(request) {
   try {
@@ -179,7 +179,7 @@ export async function POST(request) {
       excerpt: body.excerpt || "",
       content: sanitizedContent,
       author: body.author || "OG Heavy Duty Technical Team",
-      category: body.category || "HVAC Engineering",
+      category: body.category || "Cooling Engineering",
       tags,
       status,
       isPublished,

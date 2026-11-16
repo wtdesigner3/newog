@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const ctaSchema = new mongoose.Schema({
   badge: {
     type: String,
-    default: "MEP & HVAC ENGINEERING SUPPORT",
+    default: "ENGINEERING & TECHNICAL SUPPORT",
   },
   title: {
     type: String,

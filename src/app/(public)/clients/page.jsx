@@ -25,7 +25,7 @@ import {
 export const revalidate = 3600; // 1 hour ISR
 
 export const metadata = {
-  title: "Our Prestigious Clients | OG Heavy Duty — Institutional & Commercial HVAC",
+  title: "Our Prestigious Clients | OG Heavy Duty — Institutional & Commercial Air Conditioners",
   description:
     "View the premier government ministries, central universities, public sector undertakings (PSUs), and financial institutions across India that trust OG Heavy Duty air conditioners.",
   alternates: {

@@ -24,7 +24,7 @@ const sections = [
     key: 'product',   
     label: 'Products Range Section', 
     fields: [
-      { key: 'product_badge', label: 'Tagline Pill Badge (e.g. HEAVY-DUTY HVAC CLASSIFICATIONS)' },
+      { key: 'product_badge', label: 'Tagline Pill Badge (e.g. HEAVY-DUTY COOLING CLASSIFICATIONS)' },
       { key: 'product_title', label: 'Section Title' },
       { key: 'product_subtitle', label: 'Subtitle / Description' }
     ]

@@ -4,13 +4,13 @@ import Blog from "src/app/models/Blog";
 import { PageContainer } from "src/components/public";
 import BlogCarousel from "./BlogCarousel";
 
-// Verified fallback HVAC educational articles for robust carousel rendering
+// Verified fallback educational articles for robust carousel rendering
 export const FALLBACK_BLOGS = [
   {
     id: "fb-1",
     slug: "selecting-high-ambient-air-conditioners-50c-climates",
     title: "Selecting High-Ambient Air Conditioners: Engineering Guide for 52°C Climates",
-    category: "HVAC Engineering",
+    category: "Air Conditioning Engineering",
     excerpt:
       "Understand why standard residential AC units trip during peak tropical heatwaves and how heavy-duty engineering with oversized condenser coils sustains full cooling pull-down.",
     date: "Oct 28, 2026",
@@ -30,8 +30,8 @@ export const FALLBACK_BLOGS = [
   },
   {
     id: "fb-3",
-    slug: "commercial-hvac-inverter-vs-fixed-speed-savings",
-    title: "Commercial HVAC Efficiency: Inverter vs Fixed Speed Heavy-Duty AC Systems",
+    slug: "commercial-ac-inverter-vs-fixed-speed-savings",
+    title: "Commercial Cooling Efficiency: Inverter vs Fixed Speed Heavy-Duty AC Systems",
     category: "Energy Efficiency",
     excerpt:
       "Evaluate seasonal power consumption (ISEER) across university campuses, corporate towers, and healthcare wards to select between inverter systems and rugged fixed-speed workhorses.",
@@ -56,7 +56,7 @@ export const FALLBACK_BLOGS = [
     title: "Cassette vs Ductable AC: Selecting Ceiling Cooling for Modern Institutions",
     category: "Architectural Planning",
     excerpt:
-      "How to determine whether a 4-way ceiling cassette or a concealed ducted HVAC system is best suited for your corporate boardroom, retail showroom, or auditorium layout.",
+      "How to determine whether a 4-way ceiling cassette or a concealed ductable air conditioning system is best suited for your corporate boardroom, retail showroom, or auditorium layout.",
     date: "Sep 18, 2026",
     readTime: "5 min read",
     image: "/images/slide2.jpg",
@@ -65,7 +65,7 @@ export const FALLBACK_BLOGS = [
     id: "fb-6",
     slug: "high-static-pressure-ductable-sizing-banquets",
     title: "High-Static Pressure Ductable Sizing for Large Auditoriums & Banquets",
-    category: "HVAC Engineering",
+    category: "Cooling Engineering",
     excerpt:
       "Master engineering considerations for high-occupancy event halls requiring long duct runs, uniform laminar air diffusion, and low-dB acoustic damper control.",
     date: "Sep 05, 2026",
@@ -87,7 +87,7 @@ async function getFeaturedBlogs() {
         id: String(b._id),
         slug: b.slug,
         title: b.title,
-        category: b.category || "HVAC Engineering",
+        category: b.category || "Air Conditioning Engineering",
         excerpt:
           b.excerpt ||
           b.metaDescription ||
@@ -136,14 +136,14 @@ export default async function BlogSection({ badge, title, subtitle }) {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold font-heading text-slate-900 tracking-tight leading-[1.15]">
             {title || (
               <>
-                HVAC Engineering &amp;{" "}
+                Air Conditioning &amp;{" "}
                 <span className="text-[#0f7ae0]">Cooling Insights</span>
               </>
             )}
           </h2>
 
           <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-2xl leading-relaxed font-sans">
-            {subtitle || "Educational cooling guides, 52°C tropical engineering benchmarks, and commercial equipment maintenance insights from our certified HVAC engineering team."}
+            {subtitle || "Educational cooling guides, 52°C tropical engineering benchmarks, and commercial equipment maintenance insights from our certified cooling engineering team."}
           </p>
         </div>
 

@@ -314,7 +314,7 @@ export default function ACSizingTool() {
       <div className="mb-8 p-4 rounded-2xl bg-amber-50/70 border border-amber-200 text-amber-900 text-xs sm:text-sm flex items-start gap-3">
         <Info size={18} className="text-amber-600 shrink-0 mt-0.5" />
         <div className="leading-relaxed">
-          <strong className="font-semibold">Engineering Disclaimer:</strong> This tool collects preliminary layout parameters to prepare for heat-load calculation. Real-world cooling tonnage depends on building envelope materials, window glazing U-factors, ceiling insulation, and regional ambient design dry-bulb temperatures. Final capacity must be certified by an HVAC engineer.
+          <strong className="font-semibold">Engineering Disclaimer:</strong> This tool collects preliminary layout parameters to prepare for heat-load calculation. Real-world cooling tonnage depends on building envelope materials, window glazing U-factors, ceiling insulation, and regional ambient design dry-bulb temperatures. Final capacity must be certified by a cooling engineer.
         </div>
       </div>
 

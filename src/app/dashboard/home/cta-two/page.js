@@ -113,7 +113,7 @@ export default function CtaTwoPage() {
       <div className="p-4 sm:p-6 lg:p-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-8">
         <Card className="border-0 shadow-sm shadow-primary/5 bg-background h-fit">
           <CardHeader className="border-b border-border/40 px-6 py-5 bg-card rounded-t-2xl">
-            <CardTitle className="text-xl font-bold text-foreground">Turnkey HVAC Lead Quotation CTA</CardTitle>
+            <CardTitle className="text-xl font-bold text-foreground">Turnkey Lead Quotation CTA</CardTitle>
             <p className="text-sm text-muted-foreground mt-1">Manage the high-conversion lead generation banner displayed before the footer on the homepage.</p>
           </CardHeader>
 

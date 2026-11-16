@@ -417,7 +417,7 @@ export default function TestimonialsDashboardPage() {
                 placeholder="e.g. Rajesh Malhotra"
                 rightElement={
                   <AIAssistantButton
-                    context="Commercial HVAC Testimonial"
+                    context="Commercial Air Conditioning Testimonial"
                     field="Indian Corporate Executive Name"
                     onGenerate={val => setForm({ ...form, name: val })}
                   />
@@ -431,7 +431,7 @@ export default function TestimonialsDashboardPage() {
                 placeholder="e.g. Managing Director"
                 rightElement={
                   <AIAssistantButton
-                    context="HVAC Facility Decision Maker"
+                    context="Facility Decision Maker"
                     field="Professional Job Title"
                     onGenerate={val => setForm({ ...form, role: val })}
                   />
@@ -462,7 +462,7 @@ export default function TestimonialsDashboardPage() {
                 placeholder="e.g. 4.0 Ton Ceiling Cassette Systems"
                 rightElement={
                   <AIAssistantButton
-                    context="OG Heavy Duty HVAC Equipment"
+                    context="OG Heavy Duty Air Conditioning Equipment"
                     field="Specific AC Model / Capacity"
                     onGenerate={val => setForm({ ...form, equipment: val })}
                   />

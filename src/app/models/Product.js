@@ -21,7 +21,7 @@ const ProductSchema = new mongoose.Schema(
     sort: { type: Number, default: 0 },
     isActive: { type: Boolean, default: true },
 
-    // OG Heavy Duty HVAC Fields
+    // OG Heavy Duty Fields
     model: { type: String, default: "", index: true },
     modelNumber: { type: String, default: "" },
     series: { type: String, default: "" },

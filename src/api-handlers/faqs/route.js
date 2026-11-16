@@ -75,7 +75,7 @@ export const DEFAULT_FAQS = [
     answer:
       "We provide a comprehensive portfolio of high-ambient cooling solutions: Window AC (1.0 Ton and 1.5 Ton models), Split AC (1.5 Ton and 2.0 Ton Inverter & Fixed Speed models), Cassette AC (2.0 Ton and 2.5 Ton 4-way ceiling units), Floor Standing / Tower AC (2.0 Ton and 4.0 Ton units), and Ductable AC (2.0 Ton and 3.0 Ton concealed ducted systems).",
     answerHtml:
-      "<p>Our standard product catalog covers Window ACs, Split ACs, Cassette ACs, Floor Standing Tower ACs, and Concealed Ducted HVAC systems.</p>",
+      "<p>Our standard product catalog covers Window ACs, Split ACs, Cassette ACs, Floor Standing Tower ACs, and Concealed Ducted AC systems.</p>",
     relatedLink: {
       label: "Browse Split Air Conditioners",
       href: "/products/split-ac",
@@ -112,11 +112,11 @@ export const DEFAULT_FAQS = [
   {
     category: "support",
     isVerified: true,
-    question: "Does OG Heavy Duty provide HVAC solutions for government, corporate, and institutional clients?",
+    question: "Does OG Heavy Duty provide cooling solutions for government, corporate, and institutional clients?",
     answer:
       "Yes. OG Heavy Duty is a trusted supplier to government ministries, public sector enterprises, universities, healthcare institutions, and corporate facilities across India including CPWD, Delhi University, Ministry of Railways, JNU, State Bank of India, and ESIC.",
     answerHtml:
-      "<p>Yes. OG Heavy Duty supplies turnkey HVAC solutions to CPWD, Ministry of Railways, University of Delhi, State Bank of India, and ESIC under GeM tender specs.</p>",
+      "<p>Yes. OG Heavy Duty supplies turnkey cooling solutions to CPWD, Ministry of Railways, University of Delhi, State Bank of India, and ESIC under GeM tender specs.</p>",
     relatedLink: {
       label: "View Verified Client Installations",
       href: "/clients",
@@ -159,7 +159,7 @@ export const DEFAULT_FAQS = [
     isVerified: true,
     question: "How do I schedule an installation, site survey, or preventive maintenance service?",
     answer:
-      "You can contact our customer service and technical support helpline at 011-35727834 or email us at info@ogheavyduty.in. You can also submit an online enquiry form, and an HVAC technical consultant will respond within 24 business hours.",
+      "You can contact our customer service and technical support helpline at 011-35727834 or email us at info@ogheavyduty.in. You can also submit an online enquiry form, and a cooling technical consultant will respond within 24 business hours.",
     answerHtml:
       "<p>Contact our support helpline at 011-35727834, WhatsApp +91 93199 77568, or submit an inquiry via our contact form.</p>",
     relatedLink: {

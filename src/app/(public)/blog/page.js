@@ -7,7 +7,7 @@ import PageBanner from "../../models/PageBanner";
 export const metadata = {
   title: "Blog & Technical Insights | OG Heavy Duty",
   description:
-    "Read the latest engineering articles, high-ambient cooling updates, copper coil maintenance guides, and HVAC manufacturing news from OG Heavy Duty.",
+    "Read the latest engineering articles, high-ambient cooling updates, copper coil maintenance guides, and air conditioning manufacturing news from OG Heavy Duty.",
   alternates: {
     canonical: "https://ogheavyduty.in/blogs",
   },
@@ -23,7 +23,7 @@ async function getBlogs() {
       id: b._id.toString(),
       image: b.coverImage || "/images/slide1.jpg",
       date: b.publishedAt ? new Date(b.publishedAt).toLocaleDateString() : new Date(b.createdAt).toLocaleDateString(),
-      category: b.category || "HVAC Engineering",
+      category: b.category || "Cooling Engineering",
       title: b.title,
       link: `/blogs/${b.slug}`,
     }));

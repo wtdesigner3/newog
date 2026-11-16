@@ -4,7 +4,7 @@ import { PageContainer } from "src/components/public";
 
 export default function EnquiryCta({ data = null, badge: propBadge, title: propTitle, subtitle: propSubtitle }) {
   const badge = data?.subtitle?.split('|')?.[0]?.trim() || propBadge || "Get a Quote";
-  const kickerRight = data?.subtitle?.includes('|') ? data.subtitle.split('|')[1].trim() : (data?.subtitle || "Turnkey HVAC Projects");
+  const kickerRight = data?.subtitle?.includes('|') ? data.subtitle.split('|')[1].trim() : (data?.subtitle || "Turnkey Cooling Projects");
   const title = data?.title || propTitle;
   const description = data?.content || propSubtitle;
   const btn1Text = data?.buttonText1 || "Request a Quotation";

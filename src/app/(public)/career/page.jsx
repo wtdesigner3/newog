@@ -22,7 +22,7 @@ import {
 export const metadata = {
   title: "Careers & Openings | OG Heavy Duty Air Conditioners",
   description:
-    "Join OG Heavy Duty Air Conditioners. Explore career opportunities in HVAC engineering, sales, field service, manufacturing, and production quality control.",
+    "Join OG Heavy Duty Air Conditioners. Explore career opportunities in air conditioning engineering, sales, field service, manufacturing, and production quality control.",
   alternates: {
     canonical: "https://ogheavyduty.in/career",
   },
@@ -45,7 +45,7 @@ export const metadata = {
 
 const OPEN_ROLES = [
   {
-    title: "HVAC Service & Commissioning Engineer",
+    title: "AC Service & Commissioning Engineer",
     department: "Field Engineering",
     location: "Delhi NCR / Pan-India",
     experience: "2–5 Years",
@@ -54,7 +54,7 @@ const OPEN_ROLES = [
       "Installation, diagnostic troubleshooting, vacuuming, and commissioning of light commercial cassette and ductable split systems.",
   },
   {
-    title: "Commercial HVAC Sales Executive",
+    title: "Commercial AC Sales Executive",
     department: "Institutional Sales",
     location: "New Delhi Headquarters",
     experience: "1–4 Years",
@@ -109,7 +109,7 @@ export default function CareerPage() {
       {/* ─── Standardized Public Page Banner ─────────────────────────────── */}
       <PublicPageBanner
         title="Careers & Job Openings"
-        subtitle="Build the future of high-ambient HVAC engineering. Explore open positions across technical commissioning, plant manufacturing, and commercial sales."
+        subtitle="Build the future of high-ambient air conditioning engineering. Explore open positions across technical commissioning, plant manufacturing, and commercial sales."
         badge="JOIN OUR ENGINEERING & SALES TEAMS"
         bgImage="/uploads/breadcrumb/1648815831_download.jpg"
         breadcrumbItems={breadcrumbs}
@@ -145,7 +145,7 @@ export default function CareerPage() {
                       <Wrench size={18} />
                     </div>
                     <div>
-                      <p className="font-bold text-slate-900">Hands-on HVAC Engineering</p>
+                      <p className="font-bold text-slate-900">Hands-on Cooling Engineering</p>
                       <p className="text-slate-500 mt-0.5 leading-relaxed font-sans">
                         Direct exposure to 100% inner-grooved copper tube fabrication, vacuuming, and dual-rotary refrigeration circuits.
                       </p>

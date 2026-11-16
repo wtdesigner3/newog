@@ -1,6 +1,6 @@
 /**
  * Product Data Access Service
- * Handles querying, filtering, and fallback resolution for HVAC products.
+ * Handles querying, filtering, and fallback resolution for air conditioning products.
  * 
  * Conforms to:
  * - FINDING-601-01: Attached Next.js Data Cache tags (TAG_PRODUCTS, TAG_CATALOG)
