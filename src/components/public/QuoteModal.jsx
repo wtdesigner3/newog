@@ -22,12 +22,15 @@ import {
 import { getRecaptchaToken } from "@/lib/recaptchaClient";
 
 const AC_CATEGORY_OPTIONS = [
-  "Split Air Conditioners (1.0T – 2.0T)",
-  "Window Air Conditioners (1.0T – 1.5T)",
-  "Cassette Air Conditioners (1.5T – 3.0T)",
+  "Domestic AC (Window & Split AC)",
+  "Light Commercial AC (Cassette, Tower, Ductable)",
+  "Window Air Conditioners (1.0T – 2.0T)",
+  "Split Hi-Wall Air Conditioners (1.0T – 2.0T)",
+  "Four Way Cassette AC (1.0T – 5.0T)",
+  "Ductable Air Conditioners (1.0T – 8.0T)",
+  "One-Way Cassette AC (1.5T – 2.0T)",
   "Floor Standing / Tower AC (2.0T – 5.0T)",
-  "Ductable Air Conditioners (1.5T – 5.5T)",
-  "Survivor Heavy-Duty Commercial Series",
+  "Survivor Heavy-Duty Industrial AC",
   "Turnkey Commercial Cooling / Multi-Ton",
   "Other / Engineering Sizing Query",
 ];
@@ -76,7 +79,9 @@ export default function QuoteModal({ isOpen, onClose, data = {} }) {
       setErrors({});
 
       let initialProduct = "";
-      if (data.model && data.product) {
+      if (data.model && data.tonnage) {
+        initialProduct = `${data.model} (${data.tonnage})${data.category ? ` — ${data.category}` : ""}`;
+      } else if (data.model && data.product) {
         initialProduct = `${data.model} — ${data.product}`;
       } else if (data.model) {
         initialProduct = `Model: ${data.model}`;

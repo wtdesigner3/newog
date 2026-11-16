@@ -4,4 +4,5 @@ export { default as ProductGallery } from "./ProductGallery";
 export { default as CategoryGrid } from "./CategoryGrid";
 export { default as CatalogFilterBar } from "./CatalogFilterBar";
 export { default as RelatedProductsCarousel } from "./RelatedProductsCarousel";
+export { default as CategoryModelTable } from "./CategoryModelTable";
 

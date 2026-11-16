@@ -28,12 +28,15 @@ const ENQUIRY_TYPES = [
 
 const PRODUCT_CATEGORIES = [
   "General Inquiries / Unsure",
-  "Window Air Conditioners (1.5T / 2.0T)",
-  "Inverter Split Air Conditioners (1.0T to 2.0T)",
-  "Cassette Air Conditioners (2.0T / 4.0T)",
-  "Floor Standing / Tower AC (2.0T / 4.0T)",
-  "Ductable Air Conditioners (2.0T to 8.5T)",
-  "Survivor Commercial Heavy-Duty Series",
+  "Domestic AC (Window & Split AC)",
+  "Light Commercial AC (Cassette, Tower, Ductable)",
+  "Window Air Conditioners (1.0T – 2.0T)",
+  "Split Hi-Wall Air Conditioners (1.0T – 2.0T)",
+  "Four Way Cassette AC (1.0T – 5.0T)",
+  "Ductable Air Conditioners (1.0T – 8.0T)",
+  "One-Way Cassette AC (1.5T – 2.0T)",
+  "Floor Standing / Tower AC (2.0T – 5.0T)",
+  "Survivor Industrial Heavy-Duty Series",
 ];
 
 const INITIAL_STATE = {

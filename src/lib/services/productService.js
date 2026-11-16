@@ -125,7 +125,9 @@ async function _getProductBySlugRaw(categorySlug, productSlug) {
       };
 
       if (categorySlug && categorySlug !== "all") {
-        query.categorySlug = categorySlug;
+        query.$and = [
+          { $or: [{ categorySlug }, { subcategorySlug: categorySlug }] },
+        ];
       }
 
       const doc = await Product.findOne(getOGProductFilter(query)).lean();
@@ -174,7 +176,7 @@ async function _getProductsByCategoryRaw(categorySlug) {
       if (totalOG > 0) {
         const docs = await Product.find(
           getOGProductFilter({
-            categorySlug,
+            $or: [{ categorySlug }, { subcategorySlug: categorySlug }],
             status: "published",
             isActive: { $ne: false },
           })

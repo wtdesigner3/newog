@@ -77,7 +77,11 @@ export default function CategoryShowcase({ products: propProducts, badge, title,
   const filteredProducts =
     activeFilter === "all"
       ? allProducts
-      : allProducts.filter((p) => p.categorySlug === activeFilter);
+      : allProducts.filter(
+          (p) =>
+            p.categorySlug === activeFilter ||
+            p.subcategorySlug === activeFilter
+        );
 
   const checkScroll = () => {
     if (!scrollContainerRef.current) return;

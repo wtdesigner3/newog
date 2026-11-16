@@ -35,7 +35,7 @@ export default function PublicHeader({
     <header className="fixed top-2.5 sm:top-3 inset-x-0 z-50 px-3 sm:px-6 lg:px-8 pointer-events-none select-none transition-all duration-300">
       {/* ─── Slim Floating Island Pill Capsule (Ultra Crystal Glassmorphism) ─── */}
       <div
-        className={`pointer-events-auto mx-auto w-full max-w-6xl rounded-full transition-all duration-300 flex items-center justify-between px-4 sm:px-6 py-2 sm:py-2.5 backdrop-blur-2xl backdrop-saturate-180 ${
+        className={`pointer-events-auto mx-auto w-full max-w-7xl rounded-full transition-all duration-300 flex items-center justify-between px-4 sm:px-6 py-2 sm:py-2.5 backdrop-blur-2xl backdrop-saturate-180 ${
           isScrolled
             ? "bg-white/55 border border-white/60 shadow-[0_12px_36px_-6px_rgba(15,23,42,0.14),inset_0_1px_1px_0_rgba(255,255,255,0.95),inset_0_-1px_1px_0_rgba(255,255,255,0.25)] ring-1 ring-black/[0.04] scale-[0.99]"
             : "bg-white/40 border border-white/50 shadow-[0_8px_32px_-4px_rgba(15,23,42,0.1),inset_0_1px_1px_0_rgba(255,255,255,0.9),inset_0_-1px_1px_0_rgba(255,255,255,0.2)] ring-1 ring-black/[0.03]"

@@ -21,7 +21,7 @@ export default function MobileNavigation({
 }) {
   const { openQuoteModal } = useQuoteModal();
   const pathname = usePathname();
-  const [expandedCategories, setExpandedCategories] = useState({ Products: true });
+  const [expandedCategories, setExpandedCategories] = useState({ "Domestic AC": true, "Light Commercial AC": false });
   const [expandedProductCategory, setExpandedProductCategory] = useState({ "split-ac": true });
 
   const toggleProductCategory = (catSlug) => {
@@ -141,85 +141,58 @@ export default function MobileNavigation({
                   </button>
 
                   {isExpanded && (
-                    <div className="pl-3 pr-1 py-1 mt-1 space-y-1.5 border-l-2 border-slate-200 ml-3">
-                      {item.label === "Products" ? (
-                        <>
-                          {MEGA_MENU_CATEGORIES.map((category) => {
-                            const isCatOpen = Boolean(expandedProductCategory[category.slug]);
-                            const Icon = category.icon;
+                    <div className="pl-3 pr-1 py-1 mt-1 space-y-1.5 border-l-2 border-blue-500/30 ml-3">
+                      {item.children.map((child) => {
+                        const childActive = pathname === child.href;
+                        const isSubOpen = Boolean(expandedProductCategory[child.label]);
 
-                            return (
-                              <div key={category.slug} className="rounded-lg bg-slate-50/80 border border-slate-100 overflow-hidden">
-                                <div className="flex items-center justify-between px-2.5 py-2">
+                        return (
+                          <div key={child.label} className="rounded-lg bg-slate-50/80 border border-slate-100 overflow-hidden">
+                            <div className="flex items-center justify-between px-2.5 py-2">
+                              <Link
+                                href={child.href}
+                                onClick={onClose}
+                                className={`text-xs font-bold hover:text-[#0f7ae0] flex-1 truncate ${
+                                  childActive ? "text-[#0f7ae0]" : "text-slate-800"
+                                }`}
+                              >
+                                {child.label}
+                              </Link>
+                              {child.series?.length > 0 && (
+                                <button
+                                  type="button"
+                                  onClick={() => toggleProductCategory(child.label)}
+                                  className="p-1 text-slate-400 hover:text-[#0f7ae0] rounded"
+                                  aria-label={`Toggle ${child.label} series`}
+                                >
+                                  <ChevronDown
+                                    size={15}
+                                    strokeWidth={2.2}
+                                    className={`transition-all duration-200 ${
+                                      isSubOpen ? "rotate-180 text-[#0f7ae0]" : "text-slate-500"
+                                    }`}
+                                  />
+                                </button>
+                              )}
+                            </div>
+
+                            {isSubOpen && child.series?.length > 0 && (
+                              <div className="px-3 pb-2 pt-0.5 space-y-1 border-t border-slate-100 bg-white">
+                                {child.series.map((s) => (
                                   <Link
-                                    href={`/products/${category.slug}`}
+                                    key={s.label}
+                                    href={s.href}
                                     onClick={onClose}
-                                    className="flex items-center gap-2 text-xs font-bold text-slate-800 hover:text-[#0f7ae0] flex-1 truncate"
+                                    className="block py-1.5 px-2 text-[11px] text-slate-600 hover:text-[#0f7ae0] rounded font-medium truncate"
                                   >
-                                    <Icon size={14} className="text-[#0f7ae0] shrink-0" />
-                                    <span className="truncate">{category.name}</span>
+                                    • {s.label}
                                   </Link>
-                                  <button
-                                    type="button"
-                                    onClick={() => toggleProductCategory(category.slug)}
-                                    className="p-1 text-slate-400 hover:text-[#0f7ae0] rounded"
-                                    aria-label={`Toggle ${category.name} subcategories`}
-                                  >
-                                    <ChevronDown
-                                      size={16}
-                                      strokeWidth={2.2}
-                                      className={`transition-all duration-200 ${
-                                        isCatOpen ? "rotate-180 text-[#0f7ae0]" : "text-slate-600"
-                                      }`}
-                                    />
-                                  </button>
-                                </div>
-
-                                {isCatOpen && (
-                                  <div className="px-3 pb-2 pt-0.5 space-y-1 border-t border-slate-100 bg-white">
-                                    {category.subcategories.map((sub) => (
-                                      <Link
-                                        key={sub.slug}
-                                        href={`/products/${category.slug}`}
-                                        onClick={onClose}
-                                        className="block py-1.5 px-2 text-[11px] text-slate-600 hover:text-[#0f7ae0] rounded font-medium truncate"
-                                      >
-                                        • {sub.name}
-                                      </Link>
-                                    ))}
-                                    <Link
-                                      href={`/products/${category.slug}`}
-                                      onClick={onClose}
-                                      className="inline-flex items-center gap-1 text-[11px] font-bold text-[#0f7ae0] pt-1"
-                                    >
-                                      <span>View All {category.shortName}</span>
-                                      <ChevronRight size={11} />
-                                    </Link>
-                                  </div>
-                                )}
+                                ))}
                               </div>
-                            );
-                          })}
-                        </>
-                      ) : (
-                        item.children.map((child) => {
-                          const childActive = pathname === child.href;
-                          return (
-                            <Link
-                              key={child.href}
-                              href={child.href}
-                              onClick={onClose}
-                              className={`block px-3 py-2 text-xs sm:text-sm font-medium rounded-md transition-colors min-h-[38px] flex items-center ${
-                                childActive
-                                  ? "text-[#0f7ae0] font-semibold bg-blue-50/80"
-                                  : "text-slate-600 hover:text-[#0f7ae0] hover:bg-slate-50"
-                              }`}
-                            >
-                              {child.label}
-                            </Link>
-                          );
-                        })
-                      )}
+                            )}
+                          </div>
+                        );
+                      })}
                     </div>
                   )}
                 </div>

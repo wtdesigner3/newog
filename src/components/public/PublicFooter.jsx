@@ -31,11 +31,13 @@ export default function PublicFooter({ settings = null }) {
   ];
 
   const productLinks = [
-    { label: "Window Air Conditioners", href: "/products/window-ac" },
-    { label: "Split Air Conditioners", href: "/products/split-ac" },
-    { label: "Cassette Air Conditioners", href: "/products/cassette-ac" },
-    { label: "Floor Standing / Tower AC", href: "/products/floor-standing-ac" },
-    { label: "Ductable Air Conditioners", href: "/products/ductable-ac" },
+    { label: "Domestic AC Range", href: "/products/domestic-ac" },
+    { label: "Light Commercial AC", href: "/products/light-commercial-ac" },
+    { label: "Window Air Conditioners", href: "/products/domestic-ac/window-ac" },
+    { label: "Split Air Conditioners", href: "/products/domestic-ac/split-ac" },
+    { label: "Four Way Cassette AC", href: "/products/light-commercial-ac/four-way-cassette-ac" },
+    { label: "Ductable Air Conditioners", href: "/products/light-commercial-ac/ductable-ac" },
+    { label: "Floor Standing / Tower AC", href: "/products/light-commercial-ac/floor-standing-ac" },
   ];
 
   return (
