@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { X, ChevronDown, Phone, Mail, FileText, ArrowRight } from "lucide-react";
+import { X, ChevronDown, ChevronRight, Phone, Mail, FileText, ArrowRight } from "lucide-react";
 import { PUBLIC_NAV_ITEMS } from "./DesktopNavigation";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 
@@ -146,7 +146,14 @@ export default function MobileNavigation({
                                 : "text-slate-700 hover:text-[#0f7ae0] hover:bg-slate-50"
                             }`}
                           >
-                            <span className="text-[#0f7ae0] font-black">—</span>
+                            <ChevronRight
+                              size={12}
+                              strokeWidth={2.4}
+                              className={`shrink-0 ${
+                                childActive ? "text-[#0f7ae0]" : "text-slate-400"
+                              }`}
+                              aria-hidden="true"
+                            />
                             <span className="truncate">{child.label}</span>
                           </Link>
                         );

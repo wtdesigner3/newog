@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, ChevronRight } from "lucide-react";
 
 /**
  * 2-Tier Header Navigation based on client requirements:
@@ -160,16 +160,23 @@ export default function DesktopNavigation({ navItems = PUBLIC_NAV_ITEMS }) {
                           key={child.label}
                           href={child.href}
                           role="menuitem"
-                          className={`group/item flex items-center px-4 py-2.5 text-[13.5px] font-medium transition-colors ${
+                          className={`group/item flex items-center px-4 py-2.5 text-[13.5px] font-medium transition-all ${
                             isChildActive
-                              ? "text-[#0f7ae0] bg-blue-50/60 font-bold"
-                              : "text-slate-800 hover:text-[#0f7ae0] hover:bg-slate-50"
+                              ? "text-[#0f7ae0] bg-blue-50/70 font-bold border-l-2 border-[#0f7ae0]"
+                              : "text-slate-800 hover:text-[#0f7ae0] hover:bg-slate-50 border-l-2 border-transparent hover:border-[#0f7ae0]"
                           }`}
                         >
-                          <span className="flex items-center gap-2">
-                            <span className="text-[#0f7ae0] font-bold text-sm">
-                              —
-                            </span>
+                          <span className="flex items-center gap-2.5">
+                            <ChevronRight
+                              size={13}
+                              strokeWidth={2.4}
+                              className={`shrink-0 transition-transform duration-150 ${
+                                isChildActive
+                                  ? "text-[#0f7ae0] translate-x-0.5"
+                                  : "text-slate-400 group-hover/item:text-[#0f7ae0] group-hover/item:translate-x-0.5"
+                              }`}
+                              aria-hidden="true"
+                            />
                             <span className="group-hover/item:translate-x-0.5 transition-transform duration-150">
                               {child.label}
                             </span>
