@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useMemo } from "react";
-import { Star, ShieldCheck, ArrowRight, Zap, CheckCircle2, SlidersHorizontal } from "lucide-react";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 
 export default function CategoryModelTable({
@@ -63,117 +62,115 @@ export default function CategoryModelTable({
     });
   };
 
-  const renderTechnicalStarRating = (starText) => {
+  const renderCleanStarRating = (starText) => {
     if (!starText) {
-      return (
-        <span className="font-mono text-[11px] font-semibold text-slate-500 uppercase tracking-tight">
-          Commercial Duty
-        </span>
-      );
+      return <span className="text-slate-400 text-sm font-medium">—</span>;
     }
 
     const match = starText.match(/(\d+)/);
     const count = match ? parseInt(match[1], 10) : 0;
 
     return (
-      <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded border border-amber-300/80 bg-amber-50/70 text-amber-950">
-        <span className="font-mono text-xs font-bold tracking-tight text-amber-700">
+      <div className="flex items-center gap-1.5">
+        <span className="text-amber-500 text-sm font-semibold tracking-wider">
           {"★".repeat(Math.min(count, 5))}
+          {"☆".repeat(Math.max(0, 5 - count))}
         </span>
-        <span className="font-mono text-[11px] font-bold text-amber-900 tracking-tight">
-          {count} Star BEE
+        <span className="text-xs font-semibold text-slate-700">
+          {count} Star
         </span>
       </div>
     );
   };
 
+  const normalizeTonnage = (tonnage) => {
+    if (!tonnage) return "—";
+    const t = String(tonnage).trim();
+    // If it's already "1.5 Ton" or "1.5 ton" or "2 Ton"
+    if (/ton/i.test(t)) {
+      return t.replace(/ton/i, "Ton");
+    }
+    return `${t} Ton`;
+  };
+
   return (
     <div className="w-full space-y-4">
-      {/* ── Technical Header & Engineering Filter Bar ── */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-2 border-b border-slate-200">
+      {/* ── Section Title & Filter Tabs ── */}
+      <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 pb-1">
         <div>
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-[#0f7ae0]" />
-            <h2 className="text-lg sm:text-xl font-bold font-heading text-slate-900 tracking-tight uppercase">
-              Technical Specifications &amp; Model Matrix
-            </h2>
-          </div>
-          <p className="text-slate-500 font-mono text-xs mt-1">
-            Certified technical parameters for {subcategoryName || categoryName} &bull; Showing {filteredModels.length} of {models.length} models
+          <h2 className="text-xl sm:text-2xl font-bold font-heading text-slate-900 tracking-tight">
+            Available Models &amp; Specifications
+          </h2>
+          <p className="text-slate-500 text-xs sm:text-sm mt-1">
+            Certified technical specifications for {subcategoryName || categoryName}.
           </p>
         </div>
 
-        {/* Industrial Segmented Toggle Filter */}
+        {/* Professional Segmented Control */}
         {hasInverter && (
-          <div className="flex items-center bg-slate-100 p-1 rounded-lg border border-slate-300/80 self-start md:self-auto">
+          <div className="inline-flex items-center bg-slate-100 p-1 rounded-lg border border-slate-200 self-start sm:self-auto">
             <button
               type="button"
               onClick={() => setActiveTab("all")}
-              className={`px-3 py-1.5 rounded text-xs font-mono font-semibold transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-md text-xs font-semibold transition-all cursor-pointer ${
                 activeTab === "all"
-                  ? "bg-[#0B132B] text-white shadow-xs font-bold"
-                  : "text-slate-700 hover:text-slate-900 hover:bg-slate-200/60"
+                  ? "bg-white text-slate-900 shadow-xs"
+                  : "text-slate-600 hover:text-slate-900"
               }`}
             >
-              ALL ({models.length})
+              All Models ({models.length})
             </button>
             <button
               type="button"
               onClick={() => setActiveTab("fixed-speed")}
-              className={`px-3 py-1.5 rounded text-xs font-mono font-semibold transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-md text-xs font-semibold transition-all cursor-pointer ${
                 activeTab === "fixed-speed"
-                  ? "bg-[#0B132B] text-white shadow-xs font-bold"
-                  : "text-slate-700 hover:text-slate-900 hover:bg-slate-200/60"
+                  ? "bg-white text-slate-900 shadow-xs"
+                  : "text-slate-600 hover:text-slate-900"
               }`}
             >
-              FIXED SPEED ({fixedCount})
+              Fixed Speed ({fixedCount})
             </button>
             <button
               type="button"
               onClick={() => setActiveTab("variable-inverter")}
-              className={`px-3 py-1.5 rounded text-xs font-mono font-semibold transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-md text-xs font-semibold transition-all cursor-pointer ${
                 activeTab === "variable-inverter" || activeTab === "variable-speed"
-                  ? "bg-[#0B132B] text-white shadow-xs font-bold"
-                  : "text-slate-700 hover:text-slate-900 hover:bg-slate-200/60"
+                  ? "bg-white text-slate-900 shadow-xs"
+                  : "text-slate-600 hover:text-slate-900"
               }`}
             >
-              INVERTER ({inverterCount})
+              Inverter ({inverterCount})
             </button>
           </div>
         )}
       </div>
 
-      {/* ── High-Precision Technical Desktop Table (≥ md) ── */}
-      <div className="hidden md:block overflow-hidden rounded-lg border border-slate-200 bg-white shadow-xs">
+      {/* ── Corporate Desktop Specification Table (≥ md) ── */}
+      <div className="hidden md:block overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xs">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="bg-[#0B132B] text-slate-200 border-b border-slate-800">
-              <th className="py-3 px-4 font-mono text-[11px] font-bold uppercase tracking-wider text-slate-300">
-                Model Number
+            <tr className="bg-slate-50/90 border-b border-slate-200 text-slate-700">
+              <th className="py-3.5 px-6 text-xs font-bold uppercase tracking-wider">
+                Model No.
               </th>
-              <th className="py-3 px-4 font-mono text-[11px] font-bold uppercase tracking-wider text-slate-300">
-                Nominal Capacity
+              <th className="py-3.5 px-6 text-xs font-bold uppercase tracking-wider">
+                Capacity
               </th>
               {hasStarRatings && (
-                <th className="py-3 px-4 font-mono text-[11px] font-bold uppercase tracking-wider text-slate-300">
-                  Energy Rating
+                <th className="py-3.5 px-6 text-xs font-bold uppercase tracking-wider">
+                  Star Rating
                 </th>
               )}
-              <th className="py-3 px-4 font-mono text-[11px] font-bold uppercase tracking-wider text-slate-300">
-                Technology / Compressor
+              <th className="py-3.5 px-6 text-xs font-bold uppercase tracking-wider">
+                Technology
               </th>
-              <th className="py-3 px-4 font-mono text-[11px] font-bold uppercase tracking-wider text-slate-300">
-                Condenser Coil
-              </th>
-              <th className="py-3 px-4 font-mono text-[11px] font-bold uppercase tracking-wider text-slate-300">
-                Ambient Duty
-              </th>
-              <th className="py-3 px-4 font-mono text-[11px] font-bold uppercase tracking-wider text-right text-slate-300">
-                Technical Action
+              <th className="py-3.5 px-6 text-right text-xs font-bold uppercase tracking-wider">
+                Quotation
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-slate-200 text-xs text-slate-800">
+          <tbody className="divide-y divide-slate-100 text-slate-800">
             {filteredModels.map((item, idx) => {
               const isInverter =
                 item.technology?.toUpperCase().includes("VARIABLE") ||
@@ -182,69 +179,49 @@ export default function CategoryModelTable({
               return (
                 <tr
                   key={item.model || idx}
-                  className="even:bg-slate-50/70 hover:bg-blue-50/40 transition-colors"
+                  className="hover:bg-slate-50/80 transition-colors"
                 >
                   {/* Model Number */}
-                  <td className="py-3 px-4">
-                    <span className="font-mono text-[13px] font-bold text-slate-900 tracking-tight">
+                  <td className="py-4 px-6">
+                    <span className="font-semibold text-sm text-slate-900 tracking-tight">
                       {item.model}
                     </span>
                   </td>
 
                   {/* Nominal Tonnage */}
-                  <td className="py-3 px-4">
-                    <span className="font-mono text-xs font-semibold text-slate-900">
-                      {item.tonnage}
-                    </span>
+                  <td className="py-4 px-6 text-sm font-medium text-slate-800">
+                    {normalizeTonnage(item.tonnage)}
                   </td>
 
-                  {/* Energy Star Rating */}
+                  {/* Star Rating */}
                   {hasStarRatings && (
-                    <td className="py-3 px-4">
-                      {renderTechnicalStarRating(item.starRating)}
+                    <td className="py-4 px-6">
+                      {renderCleanStarRating(item.starRating)}
                     </td>
                   )}
 
-                  {/* Technology / Compressor */}
-                  <td className="py-3 px-4">
-                    <span
-                      className={`inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-mono font-bold tracking-tight ${
-                        isInverter
-                          ? "bg-emerald-50 text-emerald-800 border border-emerald-300/80"
-                          : "bg-slate-100 text-slate-800 border border-slate-300/80"
-                      }`}
-                    >
-                      {isInverter ? (
-                        <Zap size={11} className="text-emerald-600 shrink-0" />
-                      ) : (
-                        <CheckCircle2 size={11} className="text-slate-500 shrink-0" />
-                      )}
-                      <span>{item.technology}</span>
-                    </span>
-                  </td>
-
-                  {/* Condenser Coil */}
-                  <td className="py-3 px-4 font-mono text-[11px] text-slate-700">
-                    <span className="inline-flex items-center gap-1 text-slate-700">
-                      <ShieldCheck size={12} className="text-[#0f7ae0] shrink-0" />
-                      <span>100% Grooved Cu</span>
-                    </span>
-                  </td>
-
-                  {/* Ambient Duty */}
-                  <td className="py-3 px-4 font-mono text-[11px] text-slate-700">
-                    <span className="text-slate-700 font-semibold">Up to 52°C</span>
+                  {/* Technology */}
+                  <td className="py-4 px-6">
+                    <div className="flex items-center gap-2">
+                      <span
+                        className={`w-2 h-2 rounded-full shrink-0 ${
+                          isInverter ? "bg-emerald-500" : "bg-slate-400"
+                        }`}
+                      />
+                      <span className="text-sm font-medium text-slate-800">
+                        {item.technology}
+                      </span>
+                    </div>
                   </td>
 
                   {/* Action */}
-                  <td className="py-3 px-4 text-right">
+                  <td className="py-4 px-6 text-right">
                     <button
                       type="button"
                       onClick={() => handleQuoteClick(item)}
-                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded bg-[#0f7ae0] hover:bg-[#0b63b8] text-white font-mono text-[11px] font-bold tracking-wider uppercase transition-colors shadow-2xs active:scale-95 cursor-pointer"
+                      className="px-4 py-1.5 rounded-md text-xs font-semibold text-white bg-[#0f7ae0] hover:bg-[#0c66be] transition-colors shadow-2xs active:scale-95 cursor-pointer"
                     >
-                      <span>Get Quote</span>
-                      <ArrowRight size={12} />
+                      Get Quote
                     </button>
                   </td>
                 </tr>
@@ -252,10 +229,25 @@ export default function CategoryModelTable({
             })}
           </tbody>
         </table>
+
+        {/* Technical Engineering Standard Strip */}
+        <div className="flex flex-wrap items-center justify-between gap-4 px-6 py-3 bg-slate-50 border-t border-slate-200 text-xs text-slate-600">
+          <div className="flex flex-wrap items-center gap-6">
+            <span className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0f7ae0]" />
+              <span><strong>Coils:</strong> 100% Inner-Grooved Pure Copper</span>
+            </span>
+            <span className="flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#0f7ae0]" />
+              <span><strong>Ambient Limit:</strong> Continuous Cooling up to 52°C</span>
+            </span>
+          </div>
+          <span className="text-slate-400 font-medium">BEE / Commercial Heavy-Duty Standard</span>
+        </div>
       </div>
 
-      {/* ── Technical Mobile Spec Cards (< md) ── */}
-      <div className="md:hidden space-y-2.5">
+      {/* ── Corporate Mobile Cards (< md) ── */}
+      <div className="md:hidden space-y-3">
         {filteredModels.map((item, idx) => {
           const isInverter =
             item.technology?.toUpperCase().includes("VARIABLE") ||
@@ -264,81 +256,48 @@ export default function CategoryModelTable({
           return (
             <div
               key={item.model || idx}
-              className="bg-white rounded-lg border border-slate-200 p-3.5 shadow-2xs space-y-2.5"
+              className="bg-white rounded-xl border border-slate-200 p-4 shadow-xs space-y-3"
             >
-              {/* Header: Model & Tonnage */}
-              <div className="flex items-center justify-between pb-2 border-b border-slate-100">
+              <div className="flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] font-mono uppercase text-slate-400 block">
-                    MODEL NO.
+                  <span className="text-[10px] font-semibold uppercase text-slate-400 block tracking-wider">
+                    Model
                   </span>
-                  <span className="font-mono text-sm font-bold text-slate-900">
+                  <span className="font-bold text-slate-900 text-sm">
                     {item.model}
                   </span>
                 </div>
                 <div className="text-right">
-                  <span className="text-[10px] font-mono uppercase text-slate-400 block">
-                    CAPACITY
+                  <span className="text-[10px] font-semibold uppercase text-slate-400 block tracking-wider">
+                    Capacity
                   </span>
-                  <span className="font-mono text-xs font-bold text-[#0f7ae0]">
-                    {item.tonnage}
+                  <span className="font-semibold text-slate-900 text-sm">
+                    {normalizeTonnage(item.tonnage)}
                   </span>
                 </div>
               </div>
 
-              {/* Technical Specifications Grid */}
-              <div className="grid grid-cols-2 gap-2 text-xs py-1">
-                <div>
-                  <span className="text-[10px] font-mono text-slate-400 block">
-                    TECHNOLOGY
-                  </span>
+              <div className="flex items-center justify-between pt-2 border-t border-slate-100 text-xs">
+                <div className="flex items-center gap-1.5">
                   <span
-                    className={`inline-block mt-0.5 px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
-                      isInverter
-                        ? "bg-emerald-50 text-emerald-800 border border-emerald-300/80"
-                        : "bg-slate-100 text-slate-800 border border-slate-300/80"
+                    className={`w-2 h-2 rounded-full shrink-0 ${
+                      isInverter ? "bg-emerald-500" : "bg-slate-400"
                     }`}
-                  >
+                  />
+                  <span className="font-medium text-slate-700">
                     {item.technology}
                   </span>
                 </div>
 
-                <div>
-                  <span className="text-[10px] font-mono text-slate-400 block">
-                    ENERGY RATING
-                  </span>
-                  <div className="mt-0.5">
-                    {renderTechnicalStarRating(item.starRating)}
-                  </div>
-                </div>
-
-                <div>
-                  <span className="text-[10px] font-mono text-slate-400 block">
-                    CONDENSER
-                  </span>
-                  <span className="font-mono text-[11px] font-semibold text-slate-700">
-                    100% Grooved Copper
-                  </span>
-                </div>
-
-                <div>
-                  <span className="text-[10px] font-mono text-slate-400 block">
-                    AMBIENT PEAK
-                  </span>
-                  <span className="font-mono text-[11px] font-semibold text-slate-700">
-                    52°C Tropical Ceiling
-                  </span>
-                </div>
+                {item.starRating && renderCleanStarRating(item.starRating)}
               </div>
 
-              {/* Action Button */}
               <button
                 type="button"
                 onClick={() => handleQuoteClick(item)}
-                className="w-full mt-1 py-2 px-3 rounded bg-[#0f7ae0] hover:bg-[#0b63b8] text-white font-mono text-[11px] font-bold tracking-wider uppercase flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                className="w-full mt-1 py-2 px-3 rounded-lg bg-[#0f7ae0] hover:bg-[#0c66be] text-white text-xs font-semibold flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
               >
-                <span>Request Quotation / Spec Sheet</span>
-                <ArrowRight size={12} />
+                Get Quote
               </button>
             </div>
           );
