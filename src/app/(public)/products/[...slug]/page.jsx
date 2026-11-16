@@ -267,7 +267,7 @@ function renderSubcategoryView(
       />
 
       <PageContainer className="py-[40px] sm:py-[50px] space-y-8 sm:space-y-10">
-        {/* ── 1. HORIZONTAL IMAGE BANNER SECTION (BEFORE TABLE) ── */}
+        {/* ── 1. HORIZONTAL IMAGE BANNER SECTION (BEFORE TABLE - PURE CLEAN IMAGE) ── */}
         <section className="relative w-full rounded-2xl overflow-hidden border border-slate-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.06)] bg-[#061129]">
           <div className="relative w-full h-[220px] sm:h-[300px] lg:h-[340px] overflow-hidden">
             <Image
@@ -279,29 +279,6 @@ function renderSubcategoryView(
               unoptimized={true}
               className="object-cover object-center"
             />
-            {/* Subtle Vignette Gradient for Contrast */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#061129]/85 via-transparent to-black/20 pointer-events-none" />
-
-            {/* Bottom Overlay Info Tag */}
-            <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 right-4 sm:right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-3 pointer-events-none">
-              <div className="bg-[#080E21]/85 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/15 max-w-xl shadow-lg">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#00D2FF] block">
-                  {parentName} &bull; HEAVY-DUTY COMMERCIAL SPECIFICATION
-                </span>
-                <h2 className="text-base sm:text-xl font-bold font-heading text-white tracking-tight">
-                  OG Heavy Duty {subcategory.name}
-                </h2>
-              </div>
-
-              <div className="hidden md:flex items-center gap-2">
-                <div className="bg-[#080E21]/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/15 text-xs font-mono font-bold text-slate-200 shadow-md">
-                  100% Grooved Copper
-                </div>
-                <div className="bg-[#080E21]/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-blue-500/30 text-xs font-mono font-bold text-[#00D2FF] shadow-md">
-                  52°C Ambient Peak
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -408,7 +385,7 @@ async function renderMainCategoryView(
           })}
         </div>
 
-        {/* ── Horizontal Banner Image for Selected Subcategory ── */}
+        {/* ── Horizontal Banner Image for Selected Subcategory (PURE CLEAN IMAGE) ── */}
         <section className="relative w-full rounded-2xl overflow-hidden border border-slate-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.06)] bg-[#061129]">
           <div className="relative w-full h-[220px] sm:h-[300px] lg:h-[340px] overflow-hidden">
             <Image
@@ -420,27 +397,6 @@ async function renderMainCategoryView(
               unoptimized={true}
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#061129]/85 via-transparent to-black/20 pointer-events-none" />
-
-            <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 right-4 sm:right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-3 pointer-events-none">
-              <div className="bg-[#080E21]/85 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/15 max-w-xl shadow-lg">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#00D2FF] block">
-                  {category.name} &bull; HEAVY-DUTY COMMERCIAL SPECIFICATION
-                </span>
-                <h2 className="text-base sm:text-xl font-bold font-heading text-white tracking-tight">
-                  OG Heavy Duty {selectedSub?.name || category.name}
-                </h2>
-              </div>
-
-              <div className="hidden md:flex items-center gap-2">
-                <div className="bg-[#080E21]/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/15 text-xs font-mono font-bold text-slate-200 shadow-md">
-                  100% Grooved Copper
-                </div>
-                <div className="bg-[#080E21]/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-blue-500/30 text-xs font-mono font-bold text-[#00D2FF] shadow-md">
-                  52°C Ambient Peak
-                </div>
-              </div>
-            </div>
           </div>
         </section>
 
@@ -502,7 +458,7 @@ async function renderProductDetailView(product) {
       />
 
       <PageContainer className="py-[40px] sm:py-[50px] space-y-8">
-        {/* Horizontal Banner Section for Product Category */}
+        {/* Horizontal Banner Section for Product Category (PURE CLEAN IMAGE) ── */}
         <section className="relative w-full rounded-2xl overflow-hidden border border-slate-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.06)] bg-[#061129]">
           <div className="relative w-full h-[220px] sm:h-[280px] lg:h-[320px] overflow-hidden">
             <Image
@@ -514,18 +470,6 @@ async function renderProductDetailView(product) {
               unoptimized={true}
               className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#061129]/85 via-transparent to-black/20 pointer-events-none" />
-
-            <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 right-4 sm:right-6 flex items-end justify-between gap-3 pointer-events-none">
-              <div className="bg-[#080E21]/85 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/15 max-w-xl shadow-lg">
-                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#00D2FF] block">
-                  MODEL: {product.model} &bull; {product.tonnage}
-                </span>
-                <h2 className="text-base sm:text-xl font-bold font-heading text-white tracking-tight">
-                  {product.name}
-                </h2>
-              </div>
-            </div>
           </div>
         </section>
 
