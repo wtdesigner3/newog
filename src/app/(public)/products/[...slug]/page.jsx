@@ -52,7 +52,7 @@ export async function generateMetadata({ params }) {
     const cat = await getCategoryBySlug(slug[0]);
     if (cat) {
       return {
-        title: `${cat.name} | Heavy-Duty Air Conditioning | OG Heavy Duty`,
+        title: `${cat.name} | Heavy-Duty Air Conditioning`,
         description:
           cat.description ||
           `Explore ${cat.name} engineered for extreme Indian climates up to 52°C.`,
@@ -65,7 +65,7 @@ export async function generateMetadata({ params }) {
     const directProduct = await getProductBySlug(null, slug[0]);
     if (directProduct) {
       return {
-        title: `${directProduct.model} — ${directProduct.name} | OG Heavy Duty`,
+        title: `${directProduct.model} — ${directProduct.name}`,
         description: directProduct.description,
         alternates: {
           canonical: `https://ogheavyduty.in/products/${directProduct.categorySlug}/${directProduct.slug}`,
@@ -84,7 +84,7 @@ export async function generateMetadata({ params }) {
     const product = await getProductBySlug(parentSlug, subSlug);
     if (product) {
       return {
-        title: `${product.model} — ${product.name} | OG Heavy Duty`,
+        title: `${product.model} — ${product.name}`,
         description: `${product.name} with ${product.specs?.coolingCapacity || "heavy duty cooling"} for tropical ambient operation.`,
         alternates: {
           canonical: `https://ogheavyduty.in/products/${product.categorySlug}/${product.slug}`,
@@ -97,7 +97,7 @@ export async function generateMetadata({ params }) {
     const parentCat = await getCategoryBySlug(parentSlug);
     if (subCat) {
       return {
-        title: `${subCat.name} | ${parentCat?.name || "Air Conditioners"} | OG Heavy Duty`,
+        title: `${subCat.name} | ${parentCat?.name || "Air Conditioners"}`,
         description:
           subCat.description ||
           `Explore heavy-duty ${subCat.name} engineered for 52°C tropical ambient duty.`,
@@ -115,7 +115,7 @@ export async function generateMetadata({ params }) {
     const product = await getProductBySlug(slug[0], slug[2]);
     if (product) {
       return {
-        title: `${product.model} — ${product.name} | OG Heavy Duty`,
+        title: `${product.model} — ${product.name}`,
         description: product.description,
         alternates: {
           canonical: `https://ogheavyduty.in/products/${slug[0]}/${slug[1]}/${product.slug}`,
@@ -238,7 +238,7 @@ function renderSubcategoryView(
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: `${subcategory.name} — OG Heavy Duty`,
+    name: subcategory.name,
     description: subcategory.description,
     url: `https://ogheavyduty.in/products/${parentSlug}/${subcategory.slug}`,
     hasPart: products.map((p) => ({
@@ -272,7 +272,7 @@ function renderSubcategoryView(
           <div className="relative w-full h-[220px] sm:h-[300px] lg:h-[340px] overflow-hidden">
             <Image
               src={bannerImage}
-              alt={`OG Heavy Duty ${subcategory.name}`}
+              alt={subcategory.name}
               fill
               sizes="(max-width: 1280px) 100vw, 1280px"
               priority
@@ -390,7 +390,7 @@ async function renderMainCategoryView(
           <div className="relative w-full h-[220px] sm:h-[300px] lg:h-[340px] overflow-hidden">
             <Image
               src={bannerImage}
-              alt={`OG Heavy Duty ${selectedSub?.name || category.name}`}
+              alt={selectedSub?.name || category.name}
               fill
               sizes="(max-width: 1280px) 100vw, 1280px"
               priority

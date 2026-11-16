@@ -43,15 +43,15 @@ const getBanners = cache(async () => {
     if (docs && docs.length > 0) {
       return docs.map((d) => ({
         id: d._id.toString(),
-        image: d.image || "/images/banner_ac_commercial.jpg",
-        kicker: d.kicker || d.alt || "Commercial & Corporate Climate Control",
+        image: d.image || "/images/banner_application_residence.jpg",
+        kicker: d.kicker || d.alt || "Heavy-Duty Climate Control",
         headingPart1: d.title || "",
         headingHighlight: "",
         headingPart2: "",
         description: d.subtitle || "",
         primaryCta: {
           label: d.buttonText || "Explore Range",
-          href: d.url || "/products/split-ac",
+          href: d.url || "/products/domestic-ac",
         },
         secondaryCta: {
           label: "Download Catalog",
