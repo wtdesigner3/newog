@@ -8,148 +8,32 @@ import {
   getProductsByCategory,
 } from "@/lib/services/catalogService";
 import {
+  PublicPageBanner,
   PageContainer,
-  Breadcrumbs,
 } from "@/components/public";
 import {
   CategoryModelTable,
 } from "@/components/catalog";
-import { ShieldCheck, ThermometerSnowflake, CheckCircle2, Phone, ArrowRight, Zap } from "lucide-react";
+import { ShieldCheck, ThermometerSnowflake, CheckCircle2, Phone, ArrowRight } from "lucide-react";
 
 /**
- * High-Resolution Horizontal Banner & Technical Information Mapping for Each Category & Subcategory.
- * Fully replaces the old card with a cinematic, full horizontal banner.
+ * Horizontal Banner Image Mapping for Each Subcategory & Category.
+ * Used for the wide horizontal image section rendered directly before the table.
  */
 const SUBCATEGORY_BANNER_MAP = {
-  "window-ac": {
-    image: "/images/banner_window_ac_horizontal.jpg",
-    title: "OG Heavy Duty Window Air Conditioners",
-    tagline:
-      "High-tonnage heavy-duty window air conditioning units engineered with tropicalized rotary compressors and 100% inner-grooved copper coils. Built to deliver uncompromised cooling performance under high ambient temperatures up to 52°C.",
-    features: [
-      "100% Inner-Grooved Pure Copper Coils",
-      "52°C Extreme Tropical Ambient Operation",
-      "Heavy-Duty Tropical Rotary Compressor",
-      "Anti-Corrosion Hydrophilic Blue Fin Barrier",
-    ],
-  },
-  "split-ac": {
-    image: "/images/banner_split_ac_horizontal.jpg",
-    title: "OG Heavy Duty Split Hi-Wall Air Conditioners",
-    tagline:
-      "Ultra-quiet, high-efficiency split air conditioners with dual-inverter and fixed-speed engineering, heavy copper heat exchangers, and rapid thermal pull-down tested up to 52°C peak heat.",
-    features: [
-      "100% Rifled Copper Inner-Groove Coils",
-      "Twin-Rotary Inverter & Fixed Speed Series",
-      "Tropical 52°C Ambient Continuous Cooling",
-      "Multi-Stage Air Filtration & Hydrophilic Fins",
-    ],
-  },
-  "four-way-cassette-ac": {
-    image: "/images/banner_cassette_ac_horizontal.jpg",
-    title: "OG Heavy Duty 4-Way Ceiling Cassette AC",
-    tagline:
-      "Commercial ceiling-recessed cassette air conditioners featuring 360-degree uniform circular airflow distribution, high-lift condensate drain pump, and industrial cooling longevity.",
-    features: [
-      "360° Surround Airflow Distribution",
-      "100% Pure Copper Tubing & Coils",
-      "High-Lift Built-In Condensate Drain Pump",
-      "Engineered for Commercial & Institutional Duty",
-    ],
-  },
-  "ductable-ac": {
-    image: "/images/banner_ductable_ac_horizontal.jpg",
-    title: "OG Heavy Duty Commercial Ductable AC",
-    tagline:
-      "High-static commercial ductable split systems engineered for auditoriums, hospitals, corporate workspaces, and industrial halls with expansive duct runs and whisper-quiet air delivery.",
-    features: [
-      "High External Static Pressure (ESP)",
-      "Heavy-Duty Tropical Condensing Units",
-      "Rifled Pure Copper Heat Exchangers",
-      "Modular Zoning & BMS Integration Ready",
-    ],
-  },
-  "one-way-cassette-ac": {
-    image: "/images/banner_cassette_ac_horizontal.jpg",
-    title: "OG Heavy Duty 1-Way Slim Cassette AC",
-    tagline:
-      "Compact single-directional ceiling cassette air conditioning units ideal for hotel guest rooms, perimeter cooling zones, and restricted ceiling voids.",
-    features: [
-      "Slim Architectural Profile for Tight Plenums",
-      "100% Pure Copper Construction",
-      "Long-Distance Directional Air Throw",
-      "Low Acoustic Signature & Energy Efficient",
-    ],
-  },
-  "floor-standing-ac": {
-    image: "/images/banner_ac_tower_new.jpg",
-    title: "OG Heavy Duty Floor Standing (Tower) AC",
-    tagline:
-      "Vertical high-tonnage package cooling towers engineered for banquet halls, religious venues, airport lounges, and large public spaces without ceiling duct access.",
-    features: [
-      "Powerful Long-Distance Air Throw (Up to 20m)",
-      "High-Capacity Tropical Scroll / Rotary Compressor",
-      "100% Pure Copper Heat Exchanger",
-      "Robust Touch Panel & Remote Control System",
-    ],
-  },
-  "survivor-ac": {
-    image: "/images/banner_ac_industrial_new.jpg",
-    title: "OG Heavy Duty Survivor Industrial AC",
-    tagline:
-      "Ruggedized harsh-environment industrial air conditioners built to withstand severe coastal humidity, extreme chemical ambients, and high thermal shock.",
-    features: [
-      "Marine-Grade Anti-Corrosion Protective Coating",
-      "100% Inner-Grooved Heavy Copper",
-      "Extreme Tropical Duty Beyond 52°C",
-      "Reinforced Heavy-Gauge Steel Chassis",
-    ],
-  },
-  "domestic-ac": {
-    image: "/images/banner_split_ac_horizontal.jpg",
-    title: "OG Heavy Duty Domestic Air Conditioners",
-    tagline:
-      "Premium residential and light commercial cooling solutions featuring Window and Split Hi-Wall air conditioners built with 100% copper construction.",
-    features: [
-      "100% Inner-Grooved Pure Copper",
-      "52°C Ambient Operation",
-      "Fixed Speed & Inverter Series",
-      "BEE Star Rated Energy Efficiency",
-    ],
-  },
-  "light-commercial-ac": {
-    image: "/images/banner_cassette_ac_horizontal.jpg",
-    title: "OG Heavy Duty Light Commercial Air Conditioners",
-    tagline:
-      "Engineered commercial cooling solutions comprising Four-Way Cassette, Ductable, One-Way Cassette, Floor Standing Tower, and Survivor AC systems.",
-    features: [
-      "Heavy-Duty Commercial Scroll & Rotary Compressors",
-      "High Static Pressure & Uniform Air Distribution",
-      "100% Pure Copper Coils & Hydrophilic Fins",
-      "Engineered for Institutional & Industrial Projects",
-    ],
-  },
+  "window-ac": "/images/banner_window_ac_horizontal.jpg",
+  "split-ac": "/images/banner_split_ac_horizontal.jpg",
+  "four-way-cassette-ac": "/images/banner_cassette_ac_horizontal.jpg",
+  "one-way-cassette-ac": "/images/banner_cassette_ac_horizontal.jpg",
+  "ductable-ac": "/images/banner_ductable_ac_horizontal.jpg",
+  "floor-standing-ac": "/images/banner_ac_tower_new.jpg",
+  "survivor-ac": "/images/banner_ac_industrial_new.jpg",
+  "domestic-ac": "/images/banner_split_ac_horizontal.jpg",
+  "light-commercial-ac": "/images/banner_cassette_ac_horizontal.jpg",
 };
 
-/**
- * Helper to get banner data for any category or subcategory slug.
- */
-function getBannerData(slug, fallbackName, fallbackDesc) {
-  const match = SUBCATEGORY_BANNER_MAP[slug];
-  if (match) return match;
-  return {
-    image: "/images/banner_window_ac_horizontal.jpg",
-    title: `OG Heavy Duty ${fallbackName || "Air Conditioners"}`,
-    tagline:
-      fallbackDesc ||
-      "Commercial heavy-duty cooling engineered for extreme ambient climates up to 52°C.",
-    features: [
-      "100% Inner-Grooved Pure Copper Coils",
-      "52°C Extreme Tropical Ambient Operation",
-      "Heavy-Duty Tropical Rotary Compressor",
-      "Anti-Corrosion Hydrophilic Blue Fin Barrier",
-    ],
-  };
+function getBannerImage(slug) {
+  return SUBCATEGORY_BANNER_MAP[slug] || "/images/banner_window_ac_horizontal.jpg";
 }
 
 /**
@@ -320,8 +204,9 @@ export default async function DynamicProductPage({ params, searchParams }) {
 }
 
 /**
- * ─── Renders Subcategory View (Full Horizontal Banner, Then Technical Table) ──
- * Replaces the old card completely with a panoramic horizontal banner.
+ * ─── Renders Subcategory View ───────────────────────────────────────────────
+ * Page Header (PublicPageBanner) stays intact.
+ * Inside container: Wide Horizontal Banner Image Section, then Technical Table.
  */
 function renderSubcategoryView(
   subcategory,
@@ -337,13 +222,9 @@ function renderSubcategoryView(
   const parentSlug =
     parentCategory?.slug || subcategory.parentCategorySlug || "domestic-ac";
 
-  const bannerData = getBannerData(
-    subcategory.slug,
-    subcategory.name,
-    subcategory.description
-  );
+  const bannerImage = getBannerImage(subcategory.slug);
 
-  const breadcrumbs = [
+  const breadcrumbItems = [
     { label: "Home", href: "/" },
     { label: parentName, href: `/products/${parentSlug}` },
     {
@@ -376,87 +257,55 @@ function renderSubcategoryView(
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* ── 1. FULL PANORAMIC HORIZONTAL BANNER (WINDOW / SPLIT / COMMERCIAL AC) ── */}
-      <section className="relative w-full overflow-hidden bg-[#061129] text-white border-b border-slate-800">
-        {/* Horizontal Background Image */}
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <Image
-            src={bannerData.image}
-            alt={bannerData.title}
-            fill
-            sizes="100vw"
-            priority
-            unoptimized={true}
-            className="object-cover object-right md:object-center opacity-80 sm:opacity-90"
-          />
-          {/* Dual Multi-Stop Gradient Scrim: Clear background image visibility + 100% text contrast */}
-          <div className="absolute inset-0 bg-gradient-to-r from-[#061129] via-[#061129]/85 to-[#061129]/30 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#061129] via-transparent to-[#061129]/60 pointer-events-none" />
-        </div>
+      {/* ── Standard Page Header Banner (Preserved as requested) ── */}
+      <PublicPageBanner
+        title={subcategory.name}
+        subtitle={subcategory.tagline || subcategory.description}
+        badge={`${parentName} • HEAVY-DUTY COOLING`}
+        breadcrumbItems={breadcrumbItems}
+        bgImage={subcategory.bannerImage || "/uploads/breadcrumb/1648811523_download.jpg"}
+      />
 
-        {/* Blueprint Texture Accent */}
-        <div className="absolute inset-0 bg-[radial-gradient(#0f7ae0_1px,transparent_1px)] [background-size:28px_28px] opacity-15 pointer-events-none z-0" />
+      <PageContainer className="py-[40px] sm:py-[50px] space-y-8 sm:space-y-10">
+        {/* ── 1. HORIZONTAL IMAGE BANNER SECTION (BEFORE TABLE) ── */}
+        <section className="relative w-full rounded-2xl overflow-hidden border border-slate-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.06)] bg-[#061129]">
+          <div className="relative w-full h-[220px] sm:h-[300px] lg:h-[340px] overflow-hidden">
+            <Image
+              src={bannerImage}
+              alt={`OG Heavy Duty ${subcategory.name}`}
+              fill
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              priority
+              unoptimized={true}
+              className="object-cover object-center"
+            />
+            {/* Subtle Vignette Gradient for Contrast */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#061129]/85 via-transparent to-black/20 pointer-events-none" />
 
-        <PageContainer
-          size="default"
-          className="relative z-10 pt-20 sm:pt-24 pb-12 sm:pb-16"
-        >
-          {/* Breadcrumb Row */}
-          <div className="mb-4">
-            <Breadcrumbs items={breadcrumbs} theme="dark" />
-          </div>
-
-          {/* Classification Tag */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/35 text-[11px] font-bold tracking-wider uppercase text-blue-300 mb-3 backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-[#00D2FF] animate-pulse" />
-            <span>{parentName} &bull; HEAVY-DUTY COOLING</span>
-          </div>
-
-          {/* Heading */}
-          <h1 className="text-2xl sm:text-3xl lg:text-[40px] font-black font-heading text-white tracking-tight leading-tight max-w-2xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
-            {bannerData.title}
-          </h1>
-
-          {/* Subtitle / Description */}
-          <p className="mt-3 text-xs sm:text-sm lg:text-[15px] text-slate-200 max-w-2xl leading-relaxed font-sans drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
-            {bannerData.tagline}
-          </p>
-
-          {/* Engineering Feature Badges (Horizontal Row) */}
-          <div className="mt-6 flex flex-wrap gap-2.5 max-w-3xl">
-            {bannerData.features.map((feat) => (
-              <div
-                key={feat}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#080E21]/80 backdrop-blur-md border border-slate-700/80 text-xs font-semibold text-slate-200 shadow-xs"
-              >
-                <CheckCircle2 size={14} className="text-[#00D2FF] shrink-0" />
-                <span>{feat}</span>
+            {/* Bottom Overlay Info Tag */}
+            <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 right-4 sm:right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-3 pointer-events-none">
+              <div className="bg-[#080E21]/85 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/15 max-w-xl shadow-lg">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#00D2FF] block">
+                  {parentName} &bull; HEAVY-DUTY COMMERCIAL SPECIFICATION
+                </span>
+                <h2 className="text-base sm:text-xl font-bold font-heading text-white tracking-tight">
+                  OG Heavy Duty {subcategory.name}
+                </h2>
               </div>
-            ))}
-          </div>
 
-          {/* Direct Action Links */}
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href="#specifications-matrix"
-              className="px-6 py-3 rounded-lg bg-gradient-to-r from-[#0f7ae0] to-[#0a66c2] hover:from-[#1185f3] hover:to-[#0c59a3] text-white font-bold text-xs shadow-md transition-all active:scale-95 flex items-center gap-2 cursor-pointer"
-            >
-              <span>View Technical Specifications</span>
-              <ArrowRight size={14} />
-            </a>
-            <a
-              href="tel:01135727834"
-              className="px-5 py-3 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold text-xs border border-white/20 backdrop-blur-md transition-colors flex items-center gap-2"
-            >
-              <Phone size={14} className="text-[#00D2FF]" />
-              <span>Call 011-35727834</span>
-            </a>
+              <div className="hidden md:flex items-center gap-2">
+                <div className="bg-[#080E21]/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/15 text-xs font-mono font-bold text-slate-200 shadow-md">
+                  100% Grooved Copper
+                </div>
+                <div className="bg-[#080E21]/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-blue-500/30 text-xs font-mono font-bold text-[#00D2FF] shadow-md">
+                  52°C Ambient Peak
+                </div>
+              </div>
+            </div>
           </div>
-        </PageContainer>
-      </section>
+        </section>
 
-      {/* ── 2. TECHNICAL SPECIFICATIONS & COMPARISON TABLE (SECOND: THE TABLE) ── */}
-      <PageContainer className="py-[40px] sm:py-[50px] space-y-12">
+        {/* ── 2. TECHNICAL SPECIFICATIONS & MODEL COMPARISON TABLE ── */}
         <section id="specifications-matrix" className="scroll-mt-24">
           <CategoryModelTable
             models={products}
@@ -520,90 +369,24 @@ async function renderMainCategoryView(
     (p) => p.subcategorySlug === selectedSub?.slug
   );
 
-  const bannerData = getBannerData(
-    selectedSub?.slug || category.slug,
-    category.name,
-    category.description
-  );
+  const bannerImage = getBannerImage(selectedSub?.slug || category.slug);
 
-  const breadcrumbs = [
+  const breadcrumbItems = [
     { label: "Home", href: "/" },
     { label: category.name, href: `/products/${category.slug}`, current: true },
   ];
 
   return (
     <div className="bg-[#f8fafc] min-h-screen">
-      {/* ── 1. FULL PANORAMIC HORIZONTAL BANNER ── */}
-      <section className="relative w-full overflow-hidden bg-[#061129] text-white border-b border-slate-800">
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <Image
-            src={bannerData.image}
-            alt={category.name}
-            fill
-            sizes="100vw"
-            priority
-            unoptimized={true}
-            className="object-cover object-right md:object-center opacity-80 sm:opacity-90"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#061129] via-[#061129]/85 to-[#061129]/30 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#061129] via-transparent to-[#061129]/60 pointer-events-none" />
-        </div>
+      {/* ── Standard Page Header Banner (Preserved) ── */}
+      <PublicPageBanner
+        title={category.name}
+        subtitle={category.tagline || category.description}
+        badge="COMMERCIAL GRADE • 52°C TROPICAL DUTY"
+        breadcrumbItems={breadcrumbItems}
+        bgImage={category.bannerImage || "/uploads/breadcrumb/1648811523_download.jpg"}
+      />
 
-        <div className="absolute inset-0 bg-[radial-gradient(#0f7ae0_1px,transparent_1px)] [background-size:28px_28px] opacity-15 pointer-events-none z-0" />
-
-        <PageContainer
-          size="default"
-          className="relative z-10 pt-20 sm:pt-24 pb-12 sm:pb-16"
-        >
-          <div className="mb-4">
-            <Breadcrumbs items={breadcrumbs} theme="dark" />
-          </div>
-
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/35 text-[11px] font-bold tracking-wider uppercase text-blue-300 mb-3 backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-[#00D2FF] animate-pulse" />
-            <span>COMMERCIAL GRADE &bull; 52°C TROPICAL DUTY</span>
-          </div>
-
-          <h1 className="text-2xl sm:text-3xl lg:text-[40px] font-black font-heading text-white tracking-tight leading-tight max-w-2xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
-            OG Heavy Duty {category.name}
-          </h1>
-
-          <p className="mt-3 text-xs sm:text-sm lg:text-[15px] text-slate-200 max-w-2xl leading-relaxed font-sans drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
-            {category.description}
-          </p>
-
-          <div className="mt-6 flex flex-wrap gap-2.5 max-w-3xl">
-            {bannerData.features.map((feat) => (
-              <div
-                key={feat}
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#080E21]/80 backdrop-blur-md border border-slate-700/80 text-xs font-semibold text-slate-200 shadow-xs"
-              >
-                <CheckCircle2 size={14} className="text-[#00D2FF] shrink-0" />
-                <span>{feat}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href="#specifications-matrix"
-              className="px-6 py-3 rounded-lg bg-gradient-to-r from-[#0f7ae0] to-[#0a66c2] hover:from-[#1185f3] hover:to-[#0c59a3] text-white font-bold text-xs shadow-md transition-all active:scale-95 flex items-center gap-2 cursor-pointer"
-            >
-              <span>View Model Specifications Table</span>
-              <ArrowRight size={14} />
-            </a>
-            <a
-              href="tel:01135727834"
-              className="px-5 py-3 rounded-lg bg-white/10 hover:bg-white/20 text-white font-semibold text-xs border border-white/20 backdrop-blur-md transition-colors flex items-center gap-2"
-            >
-              <Phone size={14} className="text-[#00D2FF]" />
-              <span>Call 011-35727834</span>
-            </a>
-          </div>
-        </PageContainer>
-      </section>
-
-      {/* ── 2. SUBCATEGORY SELECTOR & SPECIFICATIONS TABLE ── */}
       <PageContainer className="py-[40px] sm:py-[50px] space-y-8">
         {/* Subcategory Switcher Tabs */}
         <div className="flex flex-wrap items-center gap-2 border-b border-slate-200 pb-4">
@@ -624,6 +407,42 @@ async function renderMainCategoryView(
             );
           })}
         </div>
+
+        {/* ── Horizontal Banner Image for Selected Subcategory ── */}
+        <section className="relative w-full rounded-2xl overflow-hidden border border-slate-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.06)] bg-[#061129]">
+          <div className="relative w-full h-[220px] sm:h-[300px] lg:h-[340px] overflow-hidden">
+            <Image
+              src={bannerImage}
+              alt={`OG Heavy Duty ${selectedSub?.name || category.name}`}
+              fill
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              priority
+              unoptimized={true}
+              className="object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#061129]/85 via-transparent to-black/20 pointer-events-none" />
+
+            <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 right-4 sm:right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-3 pointer-events-none">
+              <div className="bg-[#080E21]/85 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/15 max-w-xl shadow-lg">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#00D2FF] block">
+                  {category.name} &bull; HEAVY-DUTY COMMERCIAL SPECIFICATION
+                </span>
+                <h2 className="text-base sm:text-xl font-bold font-heading text-white tracking-tight">
+                  OG Heavy Duty {selectedSub?.name || category.name}
+                </h2>
+              </div>
+
+              <div className="hidden md:flex items-center gap-2">
+                <div className="bg-[#080E21]/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/15 text-xs font-mono font-bold text-slate-200 shadow-md">
+                  100% Grooved Copper
+                </div>
+                <div className="bg-[#080E21]/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-blue-500/30 text-xs font-mono font-bold text-[#00D2FF] shadow-md">
+                  52°C Ambient Peak
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* Selected Subcategory Specifications Table */}
         <section id="specifications-matrix" className="scroll-mt-24">
@@ -647,13 +466,11 @@ async function renderProductDetailView(product) {
     product.subcategorySlug || product.categorySlug
   );
 
-  const bannerData = getBannerData(
-    product.subcategorySlug || product.categorySlug,
-    product.name,
-    product.description
+  const bannerImage = getBannerImage(
+    product.subcategorySlug || product.categorySlug
   );
 
-  const breadcrumbs = [
+  const breadcrumbItems = [
     { label: "Home", href: "/" },
     {
       label:
@@ -675,58 +492,44 @@ async function renderProductDetailView(product) {
 
   return (
     <div className="bg-[#f8fafc] min-h-screen">
-      {/* ── 1. FULL PANORAMIC HORIZONTAL BANNER ── */}
-      <section className="relative w-full overflow-hidden bg-[#061129] text-white border-b border-slate-800">
-        <div className="absolute inset-0 z-0 overflow-hidden">
-          <Image
-            src={bannerData.image}
-            alt={product.model}
-            fill
-            sizes="100vw"
-            priority
-            unoptimized={true}
-            className="object-cover object-right md:object-center opacity-80 sm:opacity-90"
-          />
-          <div className="absolute inset-0 bg-gradient-to-r from-[#061129] via-[#061129]/85 to-[#061129]/30 pointer-events-none" />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#061129] via-transparent to-[#061129]/60 pointer-events-none" />
-        </div>
+      {/* ── Standard Page Header Banner (Preserved) ── */}
+      <PublicPageBanner
+        title={product.model}
+        subtitle={product.name}
+        badge={`MODEL SPECIFICATION • ${product.tonnage}`}
+        breadcrumbItems={breadcrumbItems}
+        bgImage="/uploads/breadcrumb/1648811523_download.jpg"
+      />
 
-        <PageContainer
-          size="default"
-          className="relative z-10 pt-20 sm:pt-24 pb-12 sm:pb-16"
-        >
-          <div className="mb-4">
-            <Breadcrumbs items={breadcrumbs} theme="dark" />
+      <PageContainer className="py-[40px] sm:py-[50px] space-y-8">
+        {/* Horizontal Banner Section for Product Category */}
+        <section className="relative w-full rounded-2xl overflow-hidden border border-slate-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.06)] bg-[#061129]">
+          <div className="relative w-full h-[220px] sm:h-[280px] lg:h-[320px] overflow-hidden">
+            <Image
+              src={bannerImage}
+              alt={product.model}
+              fill
+              sizes="(max-width: 1280px) 100vw, 1280px"
+              priority
+              unoptimized={true}
+              className="object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#061129]/85 via-transparent to-black/20 pointer-events-none" />
+
+            <div className="absolute bottom-4 left-4 sm:bottom-6 sm:left-6 right-4 sm:right-6 flex items-end justify-between gap-3 pointer-events-none">
+              <div className="bg-[#080E21]/85 backdrop-blur-md px-4 py-2.5 rounded-xl border border-white/15 max-w-xl shadow-lg">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-[#00D2FF] block">
+                  MODEL: {product.model} &bull; {product.tonnage}
+                </span>
+                <h2 className="text-base sm:text-xl font-bold font-heading text-white tracking-tight">
+                  {product.name}
+                </h2>
+              </div>
+            </div>
           </div>
+        </section>
 
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 border border-blue-400/35 text-[11px] font-bold tracking-wider uppercase text-blue-300 mb-3 backdrop-blur-md">
-            <span className="w-2 h-2 rounded-full bg-[#00D2FF] animate-pulse" />
-            <span>MODEL SPECIFICATION &bull; {product.tonnage}</span>
-          </div>
-
-          <h1 className="text-2xl sm:text-3xl lg:text-[40px] font-black font-heading text-white tracking-tight leading-tight max-w-2xl drop-shadow-[0_2px_12px_rgba(0,0,0,0.85)]">
-            {product.model} — {product.name}
-          </h1>
-
-          <p className="mt-3 text-xs sm:text-sm lg:text-[15px] text-slate-200 max-w-2xl leading-relaxed font-sans drop-shadow-[0_1px_6px_rgba(0,0,0,0.85)]">
-            {product.description ||
-              `Heavy-duty air conditioning unit engineered with 100% inner-grooved copper coils and tropicalized rotary compressor for uncompromised pull-down cooling up to 52°C.`}
-          </p>
-
-          <div className="mt-8 flex flex-wrap items-center gap-3">
-            <a
-              href="#specifications-matrix"
-              className="px-6 py-3 rounded-lg bg-[#0f7ae0] hover:bg-[#0b63b8] text-white font-mono text-xs font-bold tracking-wider uppercase shadow-md transition-all active:scale-95 flex items-center gap-2 cursor-pointer"
-            >
-              <span>View Series Comparison Matrix</span>
-              <ArrowRight size={14} />
-            </a>
-          </div>
-        </PageContainer>
-      </section>
-
-      {/* ── 2. TECHNICAL SPECIFICATIONS & SERIES COMPARISON ── */}
-      <PageContainer className="py-[40px] sm:py-[50px] space-y-10">
+        {/* Specifications & Comparison Table for the series */}
         <section id="specifications-matrix" className="scroll-mt-24">
           <CategoryModelTable
             models={categoryProducts}
