@@ -4,10 +4,8 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { X, ChevronDown, ChevronRight, Phone, Mail, FileText, ArrowRight } from "lucide-react";
+import { X, ChevronDown, Phone, Mail, FileText, ArrowRight } from "lucide-react";
 import { PUBLIC_NAV_ITEMS } from "./DesktopNavigation";
-import { MEGA_MENU_CATEGORIES } from "./ProductMegaMenu";
-import PrimaryButton from "./PrimaryButton";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 
 export default function MobileNavigation({
@@ -22,14 +20,6 @@ export default function MobileNavigation({
   const { openQuoteModal } = useQuoteModal();
   const pathname = usePathname();
   const [expandedCategories, setExpandedCategories] = useState({ "Domestic AC": true, "Light Commercial AC": false });
-  const [expandedProductCategory, setExpandedProductCategory] = useState({ "split-ac": true });
-
-  const toggleProductCategory = (catSlug) => {
-    setExpandedProductCategory((prev) => ({
-      ...prev,
-      [catSlug]: !prev[catSlug],
-    }));
-  };
 
   // Close drawer on route navigation
   useEffect(() => {
@@ -99,7 +89,7 @@ export default function MobileNavigation({
           <button
             type="button"
             onClick={onClose}
-            className="p-2 -mr-2 text-slate-500 hover:text-slate-900 hover:bg-slate-200/60 rounded-full transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center"
+            className="p-2 -mr-2 text-slate-500 hover:text-slate-900 hover:bg-slate-200/60 rounded-full transition-colors min-h-[44px] min-w-[44px] flex items-center justify-center cursor-pointer"
             aria-label="Close navigation menu"
           >
             <X size={22} aria-hidden="true" />
@@ -122,7 +112,7 @@ export default function MobileNavigation({
                   <button
                     type="button"
                     onClick={() => toggleCategory(item.label)}
-                    className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold tracking-wide transition-colors min-h-[44px] ${
+                    className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold tracking-wide transition-colors min-h-[44px] cursor-pointer ${
                       active
                         ? "text-[#0f7ae0] bg-blue-50/70"
                         : "text-slate-800 hover:bg-slate-50"
@@ -141,56 +131,24 @@ export default function MobileNavigation({
                   </button>
 
                   {isExpanded && (
-                    <div className="pl-3 pr-1 py-1 mt-1 space-y-1.5 border-l-2 border-blue-500/30 ml-3">
+                    <div className="pl-3 pr-1 py-1 mt-1 space-y-1 border-l-2 border-blue-500/30 ml-3">
                       {item.children.map((child) => {
-                        const childActive = pathname === child.href;
-                        const isSubOpen = Boolean(expandedProductCategory[child.label]);
+                        const childActive = pathname.startsWith(child.href);
 
                         return (
-                          <div key={child.label} className="rounded-lg bg-slate-50/80 border border-slate-100 overflow-hidden">
-                            <div className="flex items-center justify-between px-2.5 py-2">
-                              <Link
-                                href={child.href}
-                                onClick={onClose}
-                                className={`text-xs font-bold hover:text-[#0f7ae0] flex-1 truncate ${
-                                  childActive ? "text-[#0f7ae0]" : "text-slate-800"
-                                }`}
-                              >
-                                {child.label}
-                              </Link>
-                              {child.series?.length > 0 && (
-                                <button
-                                  type="button"
-                                  onClick={() => toggleProductCategory(child.label)}
-                                  className="p-1 text-slate-400 hover:text-[#0f7ae0] rounded"
-                                  aria-label={`Toggle ${child.label} series`}
-                                >
-                                  <ChevronDown
-                                    size={15}
-                                    strokeWidth={2.2}
-                                    className={`transition-all duration-200 ${
-                                      isSubOpen ? "rotate-180 text-[#0f7ae0]" : "text-slate-500"
-                                    }`}
-                                  />
-                                </button>
-                              )}
-                            </div>
-
-                            {isSubOpen && child.series?.length > 0 && (
-                              <div className="px-3 pb-2 pt-0.5 space-y-1 border-t border-slate-100 bg-white">
-                                {child.series.map((s) => (
-                                  <Link
-                                    key={s.label}
-                                    href={s.href}
-                                    onClick={onClose}
-                                    className="block py-1.5 px-2 text-[11px] text-slate-600 hover:text-[#0f7ae0] rounded font-medium truncate"
-                                  >
-                                    • {s.label}
-                                  </Link>
-                                ))}
-                              </div>
-                            )}
-                          </div>
+                          <Link
+                            key={child.label}
+                            href={child.href}
+                            onClick={onClose}
+                            className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-xs font-bold transition-colors ${
+                              childActive
+                                ? "text-[#0f7ae0] bg-blue-50/80"
+                                : "text-slate-700 hover:text-[#0f7ae0] hover:bg-slate-50"
+                            }`}
+                          >
+                            <span className="text-[#0f7ae0] font-black">—</span>
+                            <span className="truncate">{child.label}</span>
+                          </Link>
                         );
                       })}
                     </div>
@@ -206,7 +164,7 @@ export default function MobileNavigation({
                 onClick={onClose}
                 className={`flex items-center px-3 py-2.5 rounded-lg text-sm font-semibold tracking-wide transition-colors min-h-[44px] ${
                   active
-                    ? "text-[#0f7ae0] bg-blue-50/70"
+                    ? "text-[#0f7ae0] bg-blue-50/70 font-bold"
                     : "text-slate-800 hover:bg-slate-50"
                 }`}
                 aria-current={active ? "page" : undefined}
@@ -266,4 +224,3 @@ export default function MobileNavigation({
     </div>
   );
 }
-
