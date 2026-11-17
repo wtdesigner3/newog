@@ -1,11 +1,15 @@
 import mongoose from "mongoose";
 import dns from "dns";
+import dnsPromises from "dns/promises";
 
 // DNS Server Configuration
 // Local router DNS occasionally fails to resolve MongoDB Atlas SRV records.
-// Attempt Google DNS fallback safely.
+// Force Google/Cloudflare DNS resolvers so mongodb+srv:// records resolve reliably.
 try {
-  dns.setServers(["8.8.8.8", "1.1.1.1", "8.8.4.4"]);
+  dns.setServers(["8.8.8.8", "8.8.4.4", "1.1.1.1"]);
+  if (dnsPromises.setServers) {
+    dnsPromises.setServers(["8.8.8.8", "8.8.4.4", "1.1.1.1"]);
+  }
 } catch (e) {
   // Ignore DNS setServers errors in restrictive environments
 }
