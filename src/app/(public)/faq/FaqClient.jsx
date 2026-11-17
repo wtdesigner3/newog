@@ -227,7 +227,7 @@ export default function FaqClient({ faqs = [] }) {
               Have an Engineering or Bulk Inquiry?
             </h3>
             <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl font-sans">
-              Our New Delhi technical team assists clients with custom cooling load estimation, ductable layout drawings, institutional tenders, and pan-India project fulfillment.
+              Our New Delhi technical team assists clients with custom cooling load estimation, ductable layout drawings, institutional tenders, and project fulfillment.
             </p>
           </div>
 

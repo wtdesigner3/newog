@@ -482,7 +482,7 @@ export default async function AboutUsPage() {
                 </h3>
 
                 <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-sans">
-                  {homeAbout?.values_desc || "100% inner-grooved Cu-DHP copper with zero aluminum shortcuts, honest industrial engineering, and dependable pan-India institutional customer partnerships."}
+                  {homeAbout?.values_desc || "100% inner-grooved Cu-DHP copper with zero aluminum shortcuts, honest industrial engineering, and dependable institutional customer partnerships."}
                 </p>
               </div>
 

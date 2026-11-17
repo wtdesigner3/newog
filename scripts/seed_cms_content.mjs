@@ -88,7 +88,7 @@ async function seedCMS() {
         buttonText: "Request Equipment Sizing",
         url: "#quote",
         image: "/images/banner_ac_tower.jpg",
-        alt: "Pan-India Support & Commissioning",
+        alt: "Commercial & Industrial Support",
         status: "active",
         sort: 3,
         showCertifications: true,

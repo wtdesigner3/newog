@@ -150,7 +150,7 @@ export default function ClienteleShowcase({ logos: propLogos, badge, title, subt
 
       <PageContainer>
         <p className="mt-8 text-center text-xs text-slate-400 font-sans">
-          <span className="text-[#0f7ae0] font-semibold">✦</span> Pan-India institutional deployments engineered to specifications. Brand names belong to their respective corporate owners.
+          <span className="text-[#0f7ae0] font-semibold">✦</span> Institutional deployments engineered to specifications. Brand names belong to their respective corporate owners.
         </p>
       </PageContainer>
     </section>

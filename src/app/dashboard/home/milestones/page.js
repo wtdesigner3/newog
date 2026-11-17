@@ -55,7 +55,7 @@ const ICON_OPTIONS = [
   { value: 'Zap', label: 'Lightning (High Efficiency / Power)' },
   { value: 'Award', label: 'Award (Engineering Excellence)' },
   { value: 'Users', label: 'Users (Clientele & Team)' },
-  { value: 'Globe2', label: 'Globe (Pan-India / International)' },
+  { value: 'Globe2', label: 'Globe (Regional / Institutional)' },
   { value: 'CheckCircle2', label: 'Check Circle (Proven & Tested)' },
   { value: 'TrendingUp', label: 'Trending Up (Growth & Performance)' },
   { value: 'Compass', label: 'Compass (Strategic Foundation)' },
@@ -480,7 +480,7 @@ export default function MilestonesPage() {
                       required
                       value={form.textValue}
                       onChange={e => setForm({ ...form, textValue: e.target.value })}
-                      placeholder="e.g. Pan-India"
+                      placeholder="e.g. Delhi NCR"
                     />
                   </div>
                 )}

@@ -102,7 +102,7 @@ export default function EnquiryCta({ data = null, badge: propBadge, title: propT
 
             {/* Sub-description */}
             <p className="mt-4 sm:mt-5 text-sm sm:text-base md:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed font-sans">
-              {description || "Pan-India turnkey solutions for commercial, industrial, and high-ambient institutions. Engineered to endure 52°C extreme climates."}
+              {description || "Turnkey cooling solutions for commercial, industrial, and high-ambient institutions. Engineered to endure 52°C extreme climates."}
             </p>
 
             {/* Two Action Buttons (Brand Blue & Frost Bordered Glass) */}

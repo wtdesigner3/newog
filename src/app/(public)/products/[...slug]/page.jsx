@@ -38,15 +38,15 @@ const SUBCATEGORY_BANNER_MAP = {
  * without any cropping.
  */
 const SUBCATEGORY_POSITION_MAP = {
-  "split-ac": "center 10%",
-  "four-way-cassette-ac": "center 10%",
-  "one-way-cassette-ac": "center 10%",
+  "split-ac": "center top",
+  "four-way-cassette-ac": "center top",
+  "one-way-cassette-ac": "center top",
   "window-ac": "center center",
   "ductable-ac": "center center",
   "floor-standing-ac": "center center",
   "survivor-ac": "center center",
-  "domestic-ac": "center 10%",
-  "light-commercial-ac": "center 10%",
+  "domestic-ac": "center top",
+  "light-commercial-ac": "center top",
 };
 
 function getBannerImage(slug) {

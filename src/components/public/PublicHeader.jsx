@@ -31,7 +31,7 @@ export default function PublicHeader({
   // Always use the high-contrast white-text logo variant for the transparent glass header
   const logo = (settings?.logoImage && settings.logoImage !== "/images/logo.png" && settings.logoImage !== "/images/og-logo.png")
     ? settings.logoImage
-    : "/images/og-logo-white.png";
+    : "/images/og-logo-white-2x.png";
   const catalogueUrl = settings?.pdf1Url || "/uploads/OG Heavy Duty-updated.pdf";
 
   return (
@@ -52,10 +52,10 @@ export default function PublicHeader({
           <Image
             src={logo}
             alt="OG Heavy Duty Air Conditioners"
-            width={220}
-            height={72}
-            className="h-11 sm:h-12 md:h-14 lg:h-[58px] w-auto object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] transition-transform duration-200 hover:scale-[1.03]"
-            style={{ maxHeight: "58px", width: "auto" }}
+            width={240}
+            height={78}
+            className="h-11 sm:h-12 md:h-14 lg:h-[60px] w-auto object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] transition-transform duration-200 hover:scale-[1.03]"
+            style={{ maxHeight: "60px", width: "auto" }}
             priority
           />
         </Link>

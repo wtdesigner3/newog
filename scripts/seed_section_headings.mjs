@@ -58,7 +58,7 @@ async function seedHeadings() {
 
     contact_badge: "Get a Quote",
     contact_title: "Heavy-duty engineering, uninterrupted continuous cooling.",
-    contact_subtitle: "Pan-India turnkey solutions for commercial, industrial, and high-ambient institutions. Engineered to endure 52°C extreme climates.",
+    contact_subtitle: "Turnkey cooling solutions for commercial, industrial, and high-ambient institutions. Engineered to endure 52°C extreme climates.",
   };
 
   if (existingHomeExtra) {
@@ -89,7 +89,7 @@ async function seedHeadings() {
   const otherctaData = {
     subtitle: "Turnkey HVAC Projects",
     title: "Heavy-duty engineering, uninterrupted continuous cooling.",
-    content: "Pan-India turnkey solutions for commercial, industrial, and high-ambient institutions. Engineered to endure 52°C extreme climates.",
+    content: "Turnkey cooling solutions for commercial, industrial, and high-ambient institutions. Engineered to endure 52°C extreme climates.",
     buttonText1: "Request a Quotation",
     url1: "/contact",
     buttonText2: "Download Catalogue",

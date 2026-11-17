@@ -47,7 +47,7 @@ const OPEN_ROLES = [
   {
     title: "AC Service & Commissioning Engineer",
     department: "Field Engineering",
-    location: "Delhi NCR / Pan-India",
+    location: "Delhi NCR",
     experience: "2–5 Years",
     type: "Full-time",
     description:

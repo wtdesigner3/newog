@@ -251,7 +251,7 @@ export default function HeroSection({ initialSlide = 0, slides: propSlides }) {
             <ShieldCheck size={16} className="text-[#0f7ae0]" />
             <span className="font-semibold">{slide.badge || "100% Inner-Grooved Copper"}</span>
             <span className="text-slate-400">•</span>
-            <span className="text-slate-300">Pan-India Industrial Support</span>
+            <span className="text-slate-300">Commercial & Industrial Support</span>
           </div>
         </div>
       </PageContainer>
