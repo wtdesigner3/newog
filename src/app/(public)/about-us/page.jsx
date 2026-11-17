@@ -408,18 +408,18 @@ export default async function AboutUsPage() {
                 </div>
 
                 <h3 className="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-[#0f7ae0] transition-colors leading-tight mb-2.5">
-                  High-Ambient Reliability
+                  {homeAbout?.mission_title || "High-Ambient Reliability"}
                 </h3>
 
                 <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-sans">
-                  To engineer robust, heavy-duty climate control systems that maintain deep thermal pull-down under India&apos;s severe 52°C tropical extremes without compressor tripouts.
+                  {homeAbout?.mission_desc || "To engineer robust, heavy-duty climate control systems that maintain deep thermal pull-down under India's severe 52°C tropical extremes without compressor tripouts."}
                 </p>
               </div>
 
               {/* Signature Single Highlight */}
               <div className="mt-6 p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center gap-2.5 text-xs font-bold text-slate-800 shadow-2xs">
                 <CheckCircle2 size={15} className="text-[#0f7ae0] shrink-0" />
-                <span>52°C Non-Tripping Operation</span>
+                <span>{homeAbout?.mission_highlight || "52°C Non-Tripping Operation"}</span>
               </div>
             </div>
 
@@ -443,18 +443,18 @@ export default async function AboutUsPage() {
                 </div>
 
                 <h3 className="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-[#0f7ae0] transition-colors leading-tight mb-2.5">
-                  Sustainable Cold Innovation
+                  {homeAbout?.vision_title || "Sustainable Cold Innovation"}
                 </h3>
 
                 <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-sans">
-                  To be India&apos;s benchmark heavy-duty air conditioning brand, championing low-GWP refrigerants (R32 / R410A) and energy-conserving inverter drives for industrial decarbonization.
+                  {homeAbout?.vision_desc || "To be India's benchmark heavy-duty air conditioning brand, championing low-GWP refrigerants (R32 / R410A) and energy-conserving inverter drives for industrial decarbonization."}
                 </p>
               </div>
 
               {/* Signature Single Highlight */}
               <div className="mt-6 p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center gap-2.5 text-xs font-bold text-slate-800 shadow-2xs">
                 <CheckCircle2 size={15} className="text-[#0f7ae0] shrink-0" />
-                <span>Zero-ODP &amp; High-SEER Inverters</span>
+                <span>{homeAbout?.vision_highlight || "Zero-ODP & High-SEER Inverters"}</span>
               </div>
             </div>
 
@@ -478,18 +478,18 @@ export default async function AboutUsPage() {
                 </div>
 
                 <h3 className="text-lg sm:text-xl font-bold font-heading text-slate-900 group-hover:text-[#0f7ae0] transition-colors leading-tight mb-2.5">
-                  Uncompromised Integrity
+                  {homeAbout?.values_title || "Uncompromised Integrity"}
                 </h3>
 
                 <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-sans">
-                  100% inner-grooved Cu-DHP copper with zero aluminum shortcuts, honest industrial engineering, and dependable pan-India institutional customer partnerships.
+                  {homeAbout?.values_desc || "100% inner-grooved Cu-DHP copper with zero aluminum shortcuts, honest industrial engineering, and dependable pan-India institutional customer partnerships."}
                 </p>
               </div>
 
               {/* Signature Single Highlight */}
               <div className="mt-6 p-3 rounded-xl bg-slate-50 border border-slate-200/80 flex items-center gap-2.5 text-xs font-bold text-slate-800 shadow-2xs">
                 <CheckCircle2 size={15} className="text-[#0f7ae0] shrink-0" />
-                <span>100% Inner-Grooved Copper</span>
+                <span>{homeAbout?.values_highlight || "100% Inner-Grooved Copper"}</span>
               </div>
             </div>
           </div>

@@ -7,7 +7,7 @@ import RichEditor from '../../../../components/dashboard/RichEditor'
 import { Card, CardHeader, CardTitle, CardContent, CardFooter } from '../../../../components/ui/card'
 import { Button } from '../../../../components/ui/button'
 import { FloatingInput, FloatingTextarea } from '../../../../components/ui/floating-input'
-import { Save, RotateCcw, Image as ImageIcon, Sparkles, BookOpen, Layers, Award, Link as LinkIcon, Info } from 'lucide-react'
+import { Save, RotateCcw, Image as ImageIcon, Sparkles, BookOpen, Layers, Award, Link as LinkIcon, Info, Target, Eye, Compass } from 'lucide-react'
 
 const API_URL = ''
 
@@ -27,6 +27,16 @@ export default function HomeAboutPage() {
     experience_text: 'Severe Tropical Heatwave Resilience (52°C Tested)',
     button_text: 'Explore Full Heritage Story',
     button_url: '/about-us',
+    // Strategic Direction: Mission, Vision & Core Values
+    mission_title: 'High-Ambient Reliability',
+    mission_desc: "To engineer robust, heavy-duty climate control systems that maintain deep thermal pull-down under India's severe 52°C tropical extremes without compressor tripouts.",
+    mission_highlight: '52°C Non-Tripping Operation',
+    vision_title: 'Sustainable Cold Innovation',
+    vision_desc: "To be India's benchmark heavy-duty air conditioning brand, championing low-GWP refrigerants (R32 / R410A) and energy-conserving inverter drives for industrial decarbonization.",
+    vision_highlight: 'Zero-ODP & High-SEER Inverters',
+    values_title: 'Integrity & Engineering Rigor',
+    values_desc: '100% pure inner-grooved rifled copper coils, Japanese-standard thermal balance testing, and transparent industrial specifications.',
+    values_highlight: '100% Pure Inner-Grooved Copper',
   })
   const [toasts, setToasts] = useState([])
 
@@ -63,6 +73,15 @@ export default function HomeAboutPage() {
           experience_text: about.experience_text || 'Severe Tropical Heatwave Resilience (52°C Tested)',
           button_text: about.button_text || 'Explore Full Heritage Story',
           button_url: about.button_url || '/about-us',
+          mission_title: about.mission_title || 'High-Ambient Reliability',
+          mission_desc: about.mission_desc || "To engineer robust, heavy-duty climate control systems that maintain deep thermal pull-down under India's severe 52°C tropical extremes without compressor tripouts.",
+          mission_highlight: about.mission_highlight || '52°C Non-Tripping Operation',
+          vision_title: about.vision_title || 'Sustainable Cold Innovation',
+          vision_desc: about.vision_desc || "To be India's benchmark heavy-duty air conditioning brand, championing low-GWP refrigerants (R32 / R410A) and energy-conserving inverter drives for industrial decarbonization.",
+          vision_highlight: about.vision_highlight || 'Zero-ODP & High-SEER Inverters',
+          values_title: about.values_title || 'Integrity & Engineering Rigor',
+          values_desc: about.values_desc || '100% pure inner-grooved rifled copper coils, Japanese-standard thermal balance testing, and transparent industrial specifications.',
+          values_highlight: about.values_highlight || '100% Pure Inner-Grooved Copper',
         })
       }
     } catch (error) {
@@ -88,6 +107,17 @@ export default function HomeAboutPage() {
       formData.append('experience_text', form.experience_text)
       formData.append('button_text', form.button_text)
       formData.append('button_url', form.button_url)
+      
+      // Strategic Direction
+      formData.append('mission_title', form.mission_title)
+      formData.append('mission_desc', form.mission_desc)
+      formData.append('mission_highlight', form.mission_highlight)
+      formData.append('vision_title', form.vision_title)
+      formData.append('vision_desc', form.vision_desc)
+      formData.append('vision_highlight', form.vision_highlight)
+      formData.append('values_title', form.values_title)
+      formData.append('values_desc', form.values_desc)
+      formData.append('values_highlight', form.values_highlight)
 
       if (form.imageFile) {
         formData.append('image', form.imageFile)
@@ -336,6 +366,99 @@ export default function HomeAboutPage() {
                     label="Button URL / Destination"
                     value={form.button_url}
                     onChange={e => updateField('button_url', e.target.value)}
+                  />
+                </div>
+              </div>
+
+              {/* ── Strategic Direction: Mission, Vision & Core Values (/about-us Page) ── */}
+              <div className="pt-6 border-t border-slate-800 space-y-5">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <Compass className="w-5 h-5 text-[#0f7ae0]" />
+                    <h4 className="text-sm font-bold text-white uppercase tracking-wider">
+                      Strategic Direction: Mission, Vision &amp; Core Values (/about-us page)
+                    </h4>
+                  </div>
+                  <span className="text-[11px] font-semibold text-slate-400 bg-slate-800/80 px-2.5 py-1 rounded-md border border-slate-700">
+                    Live on /about-us
+                  </span>
+                </div>
+
+                {/* 1. Our Mission */}
+                <div className="p-4.5 rounded-xl bg-slate-900/60 border border-slate-800 space-y-3">
+                  <div className="flex items-center gap-2">
+                    <Target className="w-4 h-4 text-[#0f7ae0]" />
+                    <span className="text-xs font-bold text-white uppercase tracking-wider">Card 1: Our Mission</span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <FloatingInput
+                      label="Mission Title"
+                      value={form.mission_title}
+                      onChange={e => updateField('mission_title', e.target.value)}
+                    />
+                    <FloatingInput
+                      label="Mission Bottom Highlight / Badge"
+                      value={form.mission_highlight}
+                      onChange={e => updateField('mission_highlight', e.target.value)}
+                    />
+                  </div>
+                  <FloatingTextarea
+                    label="Mission Description Text"
+                    value={form.mission_desc}
+                    onChange={e => updateField('mission_desc', e.target.value)}
+                    rows={2}
+                  />
+                </div>
+
+                {/* 2. Our Vision */}
+                <div className="p-4.5 rounded-xl bg-slate-900/60 border border-slate-800 space-y-3">
+                  <div className="flex items-center gap-2">
+                    <Eye className="w-4 h-4 text-emerald-400" />
+                    <span className="text-xs font-bold text-white uppercase tracking-wider">Card 2: Our Vision</span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <FloatingInput
+                      label="Vision Title"
+                      value={form.vision_title}
+                      onChange={e => updateField('vision_title', e.target.value)}
+                    />
+                    <FloatingInput
+                      label="Vision Bottom Highlight / Badge"
+                      value={form.vision_highlight}
+                      onChange={e => updateField('vision_highlight', e.target.value)}
+                    />
+                  </div>
+                  <FloatingTextarea
+                    label="Vision Description Text"
+                    value={form.vision_desc}
+                    onChange={e => updateField('vision_desc', e.target.value)}
+                    rows={2}
+                  />
+                </div>
+
+                {/* 3. Core Values */}
+                <div className="p-4.5 rounded-xl bg-slate-900/60 border border-slate-800 space-y-3">
+                  <div className="flex items-center gap-2">
+                    <Award className="w-4 h-4 text-amber-400" />
+                    <span className="text-xs font-bold text-white uppercase tracking-wider">Card 3: Core Values</span>
+                  </div>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <FloatingInput
+                      label="Core Values Title"
+                      value={form.values_title}
+                      onChange={e => updateField('values_title', e.target.value)}
+                    />
+                    <FloatingInput
+                      label="Core Values Bottom Highlight / Badge"
+                      value={form.values_highlight}
+                      onChange={e => updateField('values_highlight', e.target.value)}
+                    />
+                  </div>
+                  <FloatingTextarea
+                    label="Core Values Description Text"
+                    value={form.values_desc}
+                    onChange={e => updateField('values_desc', e.target.value)}
+                    rows={2}
                   />
                 </div>
               </div>

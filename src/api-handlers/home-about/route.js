@@ -49,6 +49,18 @@ export async function POST(request) {
         const experience_text = formData.get("experience_text") || "Severe Tropical Heatwave Resilience (52°C Tested)";
         const button_text = formData.get("button_text") || "Explore Full Heritage Story";
         const button_url = formData.get("button_url") || "/about-us";
+        
+        // Strategic Direction: Mission, Vision & Core Values
+        const mission_title = formData.get("mission_title") || "High-Ambient Reliability";
+        const mission_desc = formData.get("mission_desc") || "";
+        const mission_highlight = formData.get("mission_highlight") || "52°C Non-Tripping Operation";
+        const vision_title = formData.get("vision_title") || "Sustainable Cold Innovation";
+        const vision_desc = formData.get("vision_desc") || "";
+        const vision_highlight = formData.get("vision_highlight") || "Zero-ODP & High-SEER Inverters";
+        const values_title = formData.get("values_title") || "Integrity & Engineering Rigor";
+        const values_desc = formData.get("values_desc") || "";
+        const values_highlight = formData.get("values_highlight") || "100% Pure Inner-Grooved Copper";
+        
         const image = formData.get("image");
 
         let imageUrl = undefined;
@@ -65,7 +77,16 @@ export async function POST(request) {
             experience_years,
             experience_text,
             button_text,
-            button_url
+            button_url,
+            mission_title,
+            mission_desc,
+            mission_highlight,
+            vision_title,
+            vision_desc,
+            vision_highlight,
+            values_title,
+            values_desc,
+            values_highlight,
         };
         if (imageUrl) updateData.image = imageUrl;
 
