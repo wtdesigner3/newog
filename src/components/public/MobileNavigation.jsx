@@ -80,9 +80,9 @@ export default function MobileNavigation({
             <Image
               src={logoSrc}
               alt="OG Heavy Duty"
-              width={140}
-              height={45}
-              className="h-9 w-auto object-contain"
+              width={180}
+              height={60}
+              className="h-11 sm:h-12 w-auto object-contain"
               priority
             />
           </Link>
@@ -112,20 +112,18 @@ export default function MobileNavigation({
                   <button
                     type="button"
                     onClick={() => toggleCategory(item.label)}
-                    className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold tracking-wide transition-colors min-h-[44px] cursor-pointer ${
-                      active
-                        ? "text-[#0f7ae0] bg-blue-50/70"
-                        : "text-slate-800 hover:bg-slate-50"
-                    }`}
+                    className={`w-full flex items-center justify-between px-3 py-2.5 rounded-lg text-sm font-semibold tracking-wide transition-colors min-h-[44px] cursor-pointer ${active
+                      ? "text-[#0f7ae0] bg-blue-50/70"
+                      : "text-slate-800 hover:bg-slate-50"
+                      }`}
                     aria-expanded={isExpanded}
                   >
                     <span>{item.label}</span>
                     <ChevronDown
                       size={19}
                       strokeWidth={2.4}
-                      className={`transition-all duration-200 ${
-                        isExpanded ? "rotate-180 text-[#0f7ae0]" : "text-slate-700"
-                      }`}
+                      className={`transition-all duration-200 ${isExpanded ? "rotate-180 text-[#0f7ae0]" : "text-slate-700"
+                        }`}
                       aria-hidden="true"
                     />
                   </button>
@@ -140,18 +138,16 @@ export default function MobileNavigation({
                             key={child.label}
                             href={child.href}
                             onClick={onClose}
-                            className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-xs font-bold transition-colors ${
-                              childActive
-                                ? "text-[#0f7ae0] bg-blue-50/80"
-                                : "text-slate-700 hover:text-[#0f7ae0] hover:bg-slate-50"
-                            }`}
+                            className={`flex items-center gap-2 px-3 py-2.5 rounded-lg text-xs font-bold transition-colors ${childActive
+                              ? "text-[#0f7ae0] bg-blue-50/80"
+                              : "text-slate-700 hover:text-[#0f7ae0] hover:bg-slate-50"
+                              }`}
                           >
                             <ChevronRight
                               size={12}
                               strokeWidth={2.4}
-                              className={`shrink-0 ${
-                                childActive ? "text-[#0f7ae0]" : "text-slate-400"
-                              }`}
+                              className={`shrink-0 ${childActive ? "text-[#0f7ae0]" : "text-slate-400"
+                                }`}
                               aria-hidden="true"
                             />
                             <span className="truncate">{child.label}</span>
@@ -169,11 +165,10 @@ export default function MobileNavigation({
                 key={item.href}
                 href={item.href}
                 onClick={onClose}
-                className={`flex items-center px-3 py-2.5 rounded-lg text-sm font-semibold tracking-wide transition-colors min-h-[44px] ${
-                  active
-                    ? "text-[#0f7ae0] bg-blue-50/70 font-bold"
-                    : "text-slate-800 hover:bg-slate-50"
-                }`}
+                className={`flex items-center px-3 py-2.5 rounded-lg text-sm font-semibold tracking-wide transition-colors min-h-[44px] ${active
+                  ? "text-[#0f7ae0] bg-blue-50/70 font-bold"
+                  : "text-slate-800 hover:bg-slate-50"
+                  }`}
                 aria-current={active ? "page" : undefined}
               >
                 {item.label}

@@ -38,11 +38,10 @@ export default function PublicHeader({
     <header className="fixed top-2.5 sm:top-3 inset-x-0 z-50 px-3 sm:px-6 lg:px-8 pointer-events-none select-none transition-all duration-300">
       {/* ─── Slim Floating Island Pill Capsule (Ultra Crystal Glassmorphism) ─── */}
       <div
-        className={`pointer-events-auto mx-auto w-full max-w-7xl rounded-full transition-all duration-300 flex items-center justify-between px-4 sm:px-6 py-2 sm:py-2.5 backdrop-blur-2xl backdrop-saturate-180 ${
-          isScrolled
-            ? "bg-white/70 border border-white/70 shadow-[0_12px_36px_-6px_rgba(15,23,42,0.18),inset_0_1px_1px_0_rgba(255,255,255,0.95)] ring-1 ring-black/[0.04] scale-[0.99]"
-            : "bg-white/45 border border-white/50 shadow-[0_8px_32px_-4px_rgba(15,23,42,0.14),inset_0_1px_1px_0_rgba(255,255,255,0.9)] ring-1 ring-black/[0.03]"
-        }`}
+        className={`pointer-events-auto mx-auto w-full max-w-7xl rounded-full transition-all duration-300 flex items-center justify-between px-4 sm:px-6 py-2 sm:py-2.5 backdrop-blur-2xl backdrop-saturate-180 ${isScrolled
+          ? "bg-white/70 border border-white/70 shadow-[0_12px_36px_-6px_rgba(15,23,42,0.18),inset_0_1px_1px_0_rgba(255,255,255,0.95)] ring-1 ring-black/[0.04] scale-[0.99]"
+          : "bg-white/45 border border-white/50 shadow-[0_8px_32px_-4px_rgba(15,23,42,0.14),inset_0_1px_1px_0_rgba(255,255,255,0.9)] ring-1 ring-black/[0.03]"
+          }`}
       >
         {/* Brand Logo - Enlarged, Crisp & Sharp with White Text Subtitle */}
         <Link
@@ -53,10 +52,10 @@ export default function PublicHeader({
           <Image
             src={logo}
             alt="OG Heavy Duty Air Conditioners"
-            width={180}
-            height={60}
-            className="h-10 sm:h-11 md:h-12 w-auto object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] transition-transform duration-200 hover:scale-[1.03]"
-            style={{ maxHeight: "48px", width: "auto" }}
+            width={220}
+            height={72}
+            className="h-11 sm:h-12 md:h-14 lg:h-[58px] w-auto object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] transition-transform duration-200 hover:scale-[1.03]"
+            style={{ maxHeight: "58px", width: "auto" }}
             priority
           />
         </Link>
