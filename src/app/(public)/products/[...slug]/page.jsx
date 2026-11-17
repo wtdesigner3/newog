@@ -38,15 +38,15 @@ const SUBCATEGORY_BANNER_MAP = {
  * without any cropping.
  */
 const SUBCATEGORY_POSITION_MAP = {
-  "split-ac": "center 25%",
-  "four-way-cassette-ac": "center 20%",
-  "one-way-cassette-ac": "center 20%",
-  "window-ac": "center 40%",
-  "ductable-ac": "center 25%",
+  "split-ac": "center 10%",
+  "four-way-cassette-ac": "center 10%",
+  "one-way-cassette-ac": "center 10%",
+  "window-ac": "center center",
+  "ductable-ac": "center center",
   "floor-standing-ac": "center center",
   "survivor-ac": "center center",
-  "domestic-ac": "center 25%",
-  "light-commercial-ac": "center 20%",
+  "domestic-ac": "center 10%",
+  "light-commercial-ac": "center 10%",
 };
 
 function getBannerImage(slug) {
@@ -291,7 +291,7 @@ function renderSubcategoryView(
       <PageContainer className="py-[40px] sm:py-[50px] space-y-8 sm:space-y-10">
         {/* ── 1. HORIZONTAL IMAGE BANNER SECTION (BEFORE TABLE - PURE CLEAN IMAGE) ── */}
         <section className="relative w-full rounded-2xl overflow-hidden border border-slate-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.06)] bg-[#061129]">
-          <div className="relative w-full h-[260px] sm:h-[360px] md:h-[420px] lg:h-[460px] overflow-hidden">
+          <div className="relative w-full h-[280px] sm:h-[380px] md:h-[440px] lg:h-[480px] overflow-hidden">
             <Image
               src={bannerImage}
               alt={subcategory.name}
@@ -411,7 +411,7 @@ async function renderMainCategoryView(
 
         {/* ── Horizontal Banner Image for Selected Subcategory (PURE CLEAN IMAGE) ── */}
         <section className="relative w-full rounded-2xl overflow-hidden border border-slate-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.06)] bg-[#061129]">
-          <div className="relative w-full h-[260px] sm:h-[360px] md:h-[420px] lg:h-[460px] overflow-hidden">
+          <div className="relative w-full h-[280px] sm:h-[380px] md:h-[440px] lg:h-[480px] overflow-hidden">
             <Image
               src={bannerImage}
               alt={selectedSub?.name || category.name}
@@ -485,7 +485,7 @@ async function renderProductDetailView(product) {
       <PageContainer className="py-[40px] sm:py-[50px] space-y-8">
         {/* Horizontal Banner Section for Product Category (PURE CLEAN IMAGE) ── */}
         <section className="relative w-full rounded-2xl overflow-hidden border border-slate-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.06)] bg-[#061129]">
-          <div className="relative w-full h-[260px] sm:h-[360px] md:h-[420px] lg:h-[460px] overflow-hidden">
+          <div className="relative w-full h-[280px] sm:h-[380px] md:h-[440px] lg:h-[480px] overflow-hidden">
             <Image
               src={bannerImage}
               alt={product.model}

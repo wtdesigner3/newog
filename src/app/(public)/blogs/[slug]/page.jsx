@@ -221,7 +221,18 @@ const getBlogPost = cache(async (slug) => {
   try {
     await connectDB();
     const post = await Blog.findOne({ slug, isPublished: true }).lean();
-    if (post) return post;
+    if (post) {
+      return {
+        ...post,
+        publishedAt: post.publishedAt
+          ? new Date(post.publishedAt).toLocaleDateString("en-IN", {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            })
+          : "March 30, 2022",
+      };
+    }
   } catch (err) {
     // DB offline fallback
   }

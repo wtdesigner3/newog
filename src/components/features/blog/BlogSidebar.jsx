@@ -24,9 +24,15 @@ export default function BlogSidebar({ relatedPosts = [] }) {
                   </Link>
                 </div>
                 <div className="recent-post-content">
-                  <Link href={`/blog/${post.slug}`}>{post.date}</Link>
+                  <Link href={`/blogs/${post.slug}`}>
+                    {typeof post.date === "string"
+                      ? post.date
+                      : post.date
+                      ? new Date(post.date).toLocaleDateString()
+                      : ""}
+                  </Link>
                   <h6>
-                    <Link href={`/blog/${post.slug}`}>{post.title}</Link>
+                    <Link href={`/blogs/${post.slug}`}>{post.title}</Link>
                   </h6>
                 </div>
               </div>

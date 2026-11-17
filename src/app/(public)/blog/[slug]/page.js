@@ -165,7 +165,17 @@ async function getRelatedBlogs(currentId, category) {
     return related.map(b => ({
         id: b._id.toString(),
         title: b.title,
-        date: b.publishedAt || new Date(b.createdAt).toLocaleDateString(),
+        date: b.publishedAt
+          ? new Date(b.publishedAt).toLocaleDateString("en-IN", {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            })
+          : new Date(b.createdAt).toLocaleDateString("en-IN", {
+              month: "short",
+              day: "numeric",
+              year: "numeric",
+            }),
         image: b.coverImage || "/images/slide1.jpg",
         slug: b.slug,
     }));
