@@ -26,14 +26,35 @@ const SUBCATEGORY_BANNER_MAP = {
   "four-way-cassette-ac": "/images/banner_cassette_ac_horizontal.jpg",
   "one-way-cassette-ac": "/images/banner_cassette_ac_horizontal.jpg",
   "ductable-ac": "/images/banner_ductable_ac_horizontal.jpg",
-  "floor-standing-ac": "/images/banner_application_banquet.jpg",
+  "floor-standing-ac": "/images/banner_ac_tower_new.jpg",
   "survivor-ac": "/images/banner_survivor_ac_horizontal.jpg",
   "domestic-ac": "/images/banner_split_ac_horizontal.jpg",
   "light-commercial-ac": "/images/banner_cassette_ac_horizontal.jpg",
 };
 
+/**
+ * Custom object-position for each subcategory/category banner to guarantee
+ * that air conditioning units mounted near ceilings or high walls are 100% visible
+ * without any cropping.
+ */
+const SUBCATEGORY_POSITION_MAP = {
+  "split-ac": "center 15%",
+  "four-way-cassette-ac": "center top",
+  "one-way-cassette-ac": "center top",
+  "window-ac": "center 40%",
+  "ductable-ac": "center 25%",
+  "floor-standing-ac": "center center",
+  "survivor-ac": "center center",
+  "domestic-ac": "center 15%",
+  "light-commercial-ac": "center top",
+};
+
 function getBannerImage(slug) {
   return SUBCATEGORY_BANNER_MAP[slug] || "/images/banner_window_ac_horizontal.jpg";
+}
+
+function getBannerPosition(slug) {
+  return SUBCATEGORY_POSITION_MAP[slug] || "center center";
 }
 
 /**
@@ -223,6 +244,7 @@ function renderSubcategoryView(
     parentCategory?.slug || subcategory.parentCategorySlug || "domestic-ac";
 
   const bannerImage = getBannerImage(subcategory.slug);
+  const bannerPosition = getBannerPosition(subcategory.slug);
 
   const breadcrumbItems = [
     { label: "Home", href: "/" },
@@ -269,7 +291,7 @@ function renderSubcategoryView(
       <PageContainer className="py-[40px] sm:py-[50px] space-y-8 sm:space-y-10">
         {/* ── 1. HORIZONTAL IMAGE BANNER SECTION (BEFORE TABLE - PURE CLEAN IMAGE) ── */}
         <section className="relative w-full rounded-2xl overflow-hidden border border-slate-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.06)] bg-[#061129]">
-          <div className="relative w-full h-[220px] sm:h-[300px] lg:h-[340px] overflow-hidden">
+          <div className="relative w-full h-[260px] sm:h-[360px] md:h-[420px] lg:h-[460px] overflow-hidden">
             <Image
               src={bannerImage}
               alt={subcategory.name}
@@ -277,7 +299,8 @@ function renderSubcategoryView(
               sizes="(max-width: 1280px) 100vw, 1280px"
               priority
               unoptimized={true}
-              className="object-cover object-center"
+              className="object-cover"
+              style={{ objectPosition: bannerPosition }}
             />
           </div>
         </section>
@@ -346,7 +369,9 @@ async function renderMainCategoryView(
     (p) => p.subcategorySlug === selectedSub?.slug
   );
 
-  const bannerImage = getBannerImage(selectedSub?.slug || category.slug);
+  const subSlug = selectedSub?.slug || category.slug;
+  const bannerImage = getBannerImage(subSlug);
+  const bannerPosition = getBannerPosition(subSlug);
 
   const breadcrumbItems = [
     { label: "Home", href: "/" },
@@ -387,7 +412,7 @@ async function renderMainCategoryView(
 
         {/* ── Horizontal Banner Image for Selected Subcategory (PURE CLEAN IMAGE) ── */}
         <section className="relative w-full rounded-2xl overflow-hidden border border-slate-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.06)] bg-[#061129]">
-          <div className="relative w-full h-[220px] sm:h-[300px] lg:h-[340px] overflow-hidden">
+          <div className="relative w-full h-[260px] sm:h-[360px] md:h-[420px] lg:h-[460px] overflow-hidden">
             <Image
               src={bannerImage}
               alt={selectedSub?.name || category.name}
@@ -395,7 +420,8 @@ async function renderMainCategoryView(
               sizes="(max-width: 1280px) 100vw, 1280px"
               priority
               unoptimized={true}
-              className="object-cover object-center"
+              className="object-cover"
+              style={{ objectPosition: bannerPosition }}
             />
           </div>
         </section>
@@ -422,9 +448,9 @@ async function renderProductDetailView(product) {
     product.subcategorySlug || product.categorySlug
   );
 
-  const bannerImage = getBannerImage(
-    product.subcategorySlug || product.categorySlug
-  );
+  const subSlug = product.subcategorySlug || product.categorySlug;
+  const bannerImage = getBannerImage(subSlug);
+  const bannerPosition = getBannerPosition(subSlug);
 
   const breadcrumbItems = [
     { label: "Home", href: "/" },
@@ -460,7 +486,7 @@ async function renderProductDetailView(product) {
       <PageContainer className="py-[40px] sm:py-[50px] space-y-8">
         {/* Horizontal Banner Section for Product Category (PURE CLEAN IMAGE) ── */}
         <section className="relative w-full rounded-2xl overflow-hidden border border-slate-200/90 shadow-[0_8px_30px_rgb(0,0,0,0.06)] bg-[#061129]">
-          <div className="relative w-full h-[220px] sm:h-[280px] lg:h-[320px] overflow-hidden">
+          <div className="relative w-full h-[260px] sm:h-[360px] md:h-[420px] lg:h-[460px] overflow-hidden">
             <Image
               src={bannerImage}
               alt={product.model}
@@ -468,7 +494,8 @@ async function renderProductDetailView(product) {
               sizes="(max-width: 1280px) 100vw, 1280px"
               priority
               unoptimized={true}
-              className="object-cover object-center"
+              className="object-cover"
+              style={{ objectPosition: bannerPosition }}
             />
           </div>
         </section>
