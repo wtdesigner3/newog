@@ -5,20 +5,32 @@ import {
 } from "lucide-react";
 import { PageContainer } from "src/components/public";
 
-// Verified client logo assets from legacy tbl_clients (/uploads/clients/)
+// Verified client logo assets from https://ogheavyduty.in/clients (/uploads/client/)
 export const CLIENT_LOGOS = [
-  { id: 1, image: "/uploads/clients/1648791211_1.jpg", name: "Institutional Client 1" },
-  { id: 2, image: "/uploads/clients/1648791222_2.jpg", name: "Institutional Client 2" },
-  { id: 3, image: "/uploads/clients/1648791233_3.jpg", name: "Institutional Client 3" },
-  { id: 4, image: "/uploads/clients/1648791243_4.jpg", name: "Institutional Client 4" },
-  { id: 5, image: "/uploads/clients/1648791254_5.jpg", name: "Institutional Client 5" },
-  { id: 6, image: "/uploads/clients/1648791263_6.jpg", name: "Institutional Client 6" },
-  { id: 7, image: "/uploads/clients/1648791275_7.jpg", name: "Institutional Client 7" },
-  { id: 8, image: "/uploads/clients/1648791286_8.jpg", name: "Institutional Client 8" },
-  { id: 9, image: "/uploads/clients/1648791297_9.jpg", name: "Institutional Client 9" },
-  { id: 10, image: "/uploads/clients/1648791308_10.jpg", name: "Institutional Client 10" },
-  { id: 11, image: "/uploads/clients/1648791323_11.jpg", name: "Institutional Client 11" },
-  { id: 12, image: "/uploads/clients/1648791338_12.jpg", name: "Institutional Client 12" },
+  { id: 1, image: "/uploads/client/1691642872_sbi.jpg", name: "State Bank of India (SBI)" },
+  { id: 2, image: "/uploads/client/1691581726_Du.jpg", name: "Delhi University (DU)" },
+  { id: 3, image: "/uploads/client/1691581741_IIT jodhpur.jpg", name: "IIT Jodhpur" },
+  { id: 4, image: "/uploads/client/1696507279_ministry-railways.jpg", name: "Ministry of Railways" },
+  { id: 5, image: "/uploads/client/1696507495_cpwd.jpg", name: "Central Public Works Department (CPWD)" },
+  { id: 6, image: "/uploads/client/1696507114_ongc.jpg", name: "ONGC" },
+  { id: 7, image: "/uploads/client/1696507092_io.jpg", name: "Indian Oil Corporation (IOCL)" },
+  { id: 8, image: "/uploads/client/1696507002_bp.jpg", name: "Bharat Petroleum (BPCL)" },
+  { id: 9, image: "/uploads/client/1696507025_hp.jpg", name: "Hindustan Petroleum (HPCL)" },
+  { id: 10, image: "/uploads/client/1691642854_pnb.jpg", name: "Punjab National Bank (PNB)" },
+  { id: 11, image: "/uploads/client/1691642816_bob bank.jpg", name: "Bank of Baroda" },
+  { id: 12, image: "/uploads/client/1691642824_canara bank.jpg", name: "Canara Bank" },
+  { id: 13, image: "/uploads/client/1696507338_bsf.jpg", name: "Border Security Force (BSF)" },
+  { id: 14, image: "/uploads/client/1691581759_jnu.jpg", name: "Jawaharlal Nehru University (JNU)" },
+  { id: 15, image: "/uploads/client/1691581751_Jamia.jpg", name: "Jamia Millia Islamia" },
+  { id: 16, image: "/uploads/client/1696507201_irctc.jpg", name: "IRCTC" },
+  { id: 17, image: "/uploads/client/1696506201_lic.jpg", name: "Life Insurance Corporation (LIC)" },
+  { id: 18, image: "/uploads/client/1696506179_esic.jpg", name: "ESIC" },
+  { id: 19, image: "/uploads/client/1691647786_kv school.jpg", name: "Kendriya Vidyalaya (KV School)" },
+  { id: 20, image: "/uploads/client/1691648263_durdarshan.jpg", name: "Doordarshan" },
+  { id: 21, image: "/uploads/client/1691648243_air.jpg", name: "All India Radio (AIR)" },
+  { id: 22, image: "/uploads/client/1696507600_qci.jpg", name: "Quality Council of India (QCI)" },
+  { id: 23, image: "/uploads/client/1696507295_north-railway.jpg", name: "Northern Railway" },
+  { id: 24, image: "/uploads/client/1696507303_western-railway.jpg", name: "Western Railway" },
 ];
 
 export const SECTOR_TAGS = [
@@ -106,7 +118,8 @@ export default function ClienteleShowcase({ logos: propLogos, badge, title, subt
                   alt={client.name}
                   width={140}
                   height={80}
-                  className="max-h-full max-w-full object-contain filter group-hover:brightness-105 transition-transform"
+                  unoptimized={true}
+                  className="max-h-full max-w-full object-contain transition-transform group-hover:scale-105"
                 />
               </div>
             </div>
@@ -126,7 +139,8 @@ export default function ClienteleShowcase({ logos: propLogos, badge, title, subt
                   alt={client.name}
                   width={140}
                   height={80}
-                  className="max-h-full max-w-full object-contain filter group-hover:brightness-105 transition-transform"
+                  unoptimized={true}
+                  className="max-h-full max-w-full object-contain transition-transform group-hover:scale-105"
                 />
               </div>
             </div>
