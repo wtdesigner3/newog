@@ -398,11 +398,10 @@ async function renderMainCategoryView(
               <Link
                 key={sub.slug}
                 href={`/products/${category.slug}/${sub.slug}`}
-                className={`px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
-                  isCurrent
+                className={`px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${isCurrent
                     ? "bg-[#0f7ae0] text-white shadow-xs"
                     : "bg-white text-slate-700 hover:text-[#0f7ae0] hover:bg-slate-100 border border-slate-200"
-                }`}
+                  }`}
               >
                 {sub.name}
               </Link>
