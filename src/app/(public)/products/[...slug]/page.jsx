@@ -26,7 +26,7 @@ const SUBCATEGORY_BANNER_MAP = {
   "four-way-cassette-ac": "/images/banner_cassette_ac_horizontal.jpg",
   "one-way-cassette-ac": "/images/banner_cassette_ac_horizontal.jpg",
   "ductable-ac": "/images/banner_ductable_ac_horizontal.jpg",
-  "floor-standing-ac": "/images/banner_ac_tower_new.jpg",
+  "floor-standing-ac": "/images/banner_application_banquet.jpg",
   "survivor-ac": "/images/banner_survivor_ac_horizontal.jpg",
   "domestic-ac": "/images/banner_split_ac_horizontal.jpg",
   "light-commercial-ac": "/images/banner_cassette_ac_horizontal.jpg",
