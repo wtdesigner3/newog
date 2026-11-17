@@ -158,10 +158,10 @@ export default async function ContactPage() {
       <SectionContainer className="py-[60px] bg-[#f1f5f9]">
         <PageContainer>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-            
+
             {/* ─── Left Column: Corporate Coordinates (5 cols) ───────────── */}
             <div className="lg:col-span-5 space-y-6">
-              
+
               {/* Corporate Office Card: Elevated with Distinct Border & Shadow */}
               <div className="bg-white rounded-2xl sm:rounded-3xl border-2 border-slate-200/90 p-6 sm:p-8 shadow-[0_12px_32px_-6px_rgba(15,23,42,0.08),0_4px_12px_-2px_rgba(15,23,42,0.04)] hover:shadow-[0_16px_44px_-8px_rgba(15,122,224,0.12)] transition-shadow">
                 <div className="space-y-5 text-xs sm:text-sm">
