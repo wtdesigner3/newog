@@ -10,7 +10,7 @@ import { useQuoteModal } from "@/context/QuoteModalContext";
 
 export default function PublicHeader({
   settings = null,
-  logoSrc = "/images/og-logo-white.png",
+  logoSrc = "/images/og-logo-black-2x.png",
 }) {
   const { openQuoteModal } = useQuoteModal();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,10 +28,10 @@ export default function PublicHeader({
   // Verified brand data fallbacks
   const primaryPhone = settings?.primaryPhone || "011-35727834";
   const primaryEmail = settings?.primaryEmail || "info@ogheavyduty.in";
-  // Always use the high-contrast white-text logo variant for the transparent glass header
-  const logo = (settings?.logoImage && settings.logoImage !== "/images/logo.png" && settings.logoImage !== "/images/og-logo.png")
+  // Always use the ultra-legible, high-contrast black-text logo variant for the transparent frosted glass header
+  const logo = (settings?.logoImage && settings.logoImage !== "/images/logo.png" && settings.logoImage !== "/images/og-logo.png" && settings.logoImage !== "/images/og-logo-white.png" && settings.logoImage !== "/images/og-logo-white-2x.png")
     ? settings.logoImage
-    : "/images/og-logo-white-2x.png";
+    : "/images/og-logo-black-2x.png";
   const catalogueUrl = settings?.pdf1Url || "/uploads/OG Heavy Duty-updated.pdf";
 
   return (
@@ -43,7 +43,7 @@ export default function PublicHeader({
           : "bg-white/45 border border-white/50 shadow-[0_8px_32px_-4px_rgba(15,23,42,0.14),inset_0_1px_1px_0_rgba(255,255,255,0.9)] ring-1 ring-black/[0.03]"
           }`}
       >
-        {/* Brand Logo - Enlarged, Crisp & Sharp with White Text Subtitle */}
+        {/* Brand Logo - Enlarged, Crisp & Sharp with High-Legibility Black Text Subtitle */}
         <Link
           href="/"
           className="flex items-center gap-2 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f7ae0] rounded-full pl-0.5 sm:pl-1 pr-1.5"
@@ -54,7 +54,7 @@ export default function PublicHeader({
             alt="OG Heavy Duty Air Conditioners"
             width={240}
             height={78}
-            className="h-11 sm:h-12 md:h-14 lg:h-[60px] w-auto object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] transition-transform duration-200 hover:scale-[1.03]"
+            className="h-11 sm:h-12 md:h-14 lg:h-[60px] w-auto object-contain drop-shadow-[0_1px_2px_rgba(0,0,0,0.12)] transition-transform duration-200 hover:scale-[1.03]"
             style={{ maxHeight: "60px", width: "auto" }}
             priority
           />
