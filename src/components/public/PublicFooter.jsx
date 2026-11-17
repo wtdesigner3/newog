@@ -14,7 +14,9 @@ import {
 export default function PublicFooter({ settings = null }) {
   // Verified brand data
   const primaryPhone = settings?.primaryPhone || "011-35727834";
-  const mobilePhone = "+91 93199 77568";
+  const mobilePhone = settings?.footerPhone || "+91 93199 77568";
+  const rawDigits = (settings?.footerPhone || settings?.primaryPhone || "9319977568").replace(/\D/g, "");
+  const whatsappPhone = rawDigits.startsWith("91") ? `+${rawDigits}` : `+91${rawDigits}`;
   const primaryEmail = settings?.primaryEmail || "info@ogheavyduty.in";
   const address =
     settings?.address || "D-14, Rajan Babu Road, Adarsh Nagar, New Delhi - 110033";
@@ -205,7 +207,7 @@ export default function PublicFooter({ settings = null }) {
       {/* ─── Floating WhatsApp Action Button ──────────────────────────── */}
       <aside aria-label="Direct support channels">
         <a
-          href="https://api.whatsapp.com/send?phone=+919319977568&text=Hello%20Team%20OG%20Heavy%20Duty,%20I%20would%20like%20to%20enquire%20about%20your%20Heavy%20Duty%20Air%20Conditioners."
+          href={`https://api.whatsapp.com/send?phone=${whatsappPhone}&text=Hello%20Team%20OG%20Heavy%20Duty,%20I%20would%20like%20to%20enquire%20about%20your%20Heavy%20Duty%20Air%20Conditioners.`}
           target="_blank"
           rel="noopener noreferrer"
           className="fixed bottom-6 right-6 z-40 bg-[#25D366] hover:bg-[#20ba5a] text-white p-3.5 rounded-full shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#25D366] min-h-[50px] min-w-[50px] flex items-center justify-center"

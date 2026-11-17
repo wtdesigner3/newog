@@ -15,6 +15,7 @@ import {
   CategoryModelTable,
 } from "@/components/catalog";
 import { ShieldCheck, ThermometerSnowflake, CheckCircle2, Phone, ArrowRight } from "lucide-react";
+import GlobalSetting from "src/app/models/GlobalSetting";
 
 /**
  * Horizontal Banner Image Mapping for Each Subcategory & Category.
@@ -198,7 +199,7 @@ export default async function DynamicProductPage({ params, searchParams }) {
       const subCat = await getCategoryBySlug(secondSlug);
       if (subCat) {
         const products = await getProductsByCategory(secondSlug);
-        return renderSubcategoryView(subCat, products, activeTech, parentCat);
+        return await renderSubcategoryView(subCat, products, activeTech, parentCat);
       }
     }
 
@@ -229,12 +230,15 @@ export default async function DynamicProductPage({ params, searchParams }) {
  * Page Header (PublicPageBanner) stays intact.
  * Inside container: Wide Horizontal Banner Image Section, then Technical Table.
  */
-function renderSubcategoryView(
+async function renderSubcategoryView(
   subcategory,
   products = [],
   activeTech = "all",
   parentCategory = null
 ) {
+  const settings = await GlobalSetting.findOne().lean().catch(() => null);
+  const primaryPhone = settings?.primaryPhone || "011-35727834";
+
   const parentName =
     parentCategory?.name ||
     (subcategory.parentCategorySlug === "domestic-ac"
@@ -337,10 +341,10 @@ function renderSubcategoryView(
                 Contact Application Engineer
               </Link>
               <a
-                href="tel:01135727834"
+                href={`tel:${primaryPhone.replace(/\s+/g, "")}`}
                 className="px-4 py-2.5 rounded-lg bg-white/10 hover:bg-white/20 text-white font-mono text-xs font-semibold border border-white/20 transition-colors"
               >
-                Call 011-35727834
+                Call {primaryPhone}
               </a>
             </div>
           </div>

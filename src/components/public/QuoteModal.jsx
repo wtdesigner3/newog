@@ -43,7 +43,7 @@ const ENQUIRY_TYPES = [
   "Dealership / Distribution",
 ];
 
-export default function QuoteModal({ isOpen, onClose, data = {} }) {
+export default function QuoteModal({ isOpen, onClose, data = {}, primaryPhone = "011-35727834" }) {
   const [mounted, setMounted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -316,11 +316,11 @@ export default function QuoteModal({ isOpen, onClose, data = {} }) {
 
               <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-3">
                 <a
-                  href="tel:01135727834"
+                  href={`tel:${primaryPhone.replace(/\s+/g, "")}`}
                   className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-slate-900 text-white hover:bg-slate-800 text-xs font-bold transition-all"
                 >
                   <Phone size={14} className="text-[#00D2FF]" />
-                  <span>Call Hotline: 011-35727834</span>
+                  <span>Call Hotline: {primaryPhone}</span>
                 </a>
                 <button
                   type="button"

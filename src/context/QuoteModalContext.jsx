@@ -15,7 +15,7 @@ const QuoteModalContext = createContext({
  * Supports programmatic hook usage (`useQuoteModal()`), CustomEvents (`open-quote-modal`),
  * and declarative DOM attributes (`data-open-quote` or `href="#quote"`).
  */
-export function QuoteModalProvider({ children }) {
+export function QuoteModalProvider({ children, primaryPhone = "011-35727834" }) {
   const [isOpen, setIsOpen] = useState(false);
   const [modalData, setModalData] = useState({});
 
@@ -68,7 +68,7 @@ export function QuoteModalProvider({ children }) {
       }}
     >
       {children}
-      <QuoteModal isOpen={isOpen} onClose={closeQuoteModal} data={modalData} />
+      <QuoteModal isOpen={isOpen} onClose={closeQuoteModal} data={modalData} primaryPhone={primaryPhone} />
     </QuoteModalContext.Provider>
   );
 }

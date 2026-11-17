@@ -15,6 +15,11 @@ import {
   SectionContainer,
   PublicPageBanner,
 } from "src/components/public";
+import { connectDB } from "src/app/lib/config";
+import GlobalSetting from "src/app/models/GlobalSetting";
+import ContactPageModel from "src/app/models/ContactPage";
+
+export const revalidate = 0;
 
 export const metadata = {
   title: "Contact OG Heavy Duty | Customer Care, Sales & Dealer Enquiries",
@@ -40,13 +45,25 @@ export const metadata = {
   },
 };
 
-export default function ContactPage() {
-  // Verified Corporate Data
-  const primaryPhone = "011-35727834";
-  const mobilePhone = "+91 93199 77568";
-  const primaryEmail = "info@ogheavyduty.in";
+export default async function ContactPage() {
+  let settings = null;
+  let contactCMS = null;
+  try {
+    await connectDB();
+    settings = await GlobalSetting.findOne().lean();
+    contactCMS = await ContactPageModel.findOne().lean();
+  } catch (e) {
+    console.error("Error loading contact settings:", e);
+  }
+
+  // Dynamic Corporate Data from database with verified fallbacks
+  const primaryPhone = settings?.primaryPhone || "011-35727834";
+  const mobilePhone = settings?.footerPhone || "+91 93199 77568";
+  const primaryEmail = settings?.primaryEmail || "info@ogheavyduty.in";
   const salesEmail = "sales@ogheavyduty.in";
-  const address = "D-14, Rajan Babu Road, Adarsh Nagar, New Delhi - 110033";
+  const address = (settings?.address && settings.address !== "New Delhi, India")
+    ? settings.address
+    : (contactCMS?.locations?.[0]?.address || "D-14, Rajan Babu Road, Adarsh Nagar, New Delhi - 110033");
   const workingHours = "Monday – Saturday: 10:00 AM – 7:30 PM";
   const sundayHours = "Sunday: 10:00 AM – 7:00 PM (Showroom Open)";
 
@@ -178,7 +195,7 @@ export default function ContactPage() {
                       <p className="text-slate-600 mt-1 font-sans">
                         <span className="text-slate-500 text-xs">Direct Showroom: </span>
                         <a
-                          href={`tel:${primaryPhone}`}
+                          href={`tel:${primaryPhone.replace(/\s+/g, "")}`}
                           className="font-bold text-slate-900 hover:text-[#0f7ae0] transition-colors"
                         >
                           {primaryPhone}

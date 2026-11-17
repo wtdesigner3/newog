@@ -169,6 +169,10 @@ export async function PUT(request) {
     await settings.save();
 
     revalidatePath('/', 'layout');
+    revalidatePath('/contact');
+    revalidatePath('/about-us');
+    revalidatePath('/faq');
+    revalidatePath('/products');
 
     const cleanData = settings.toObject();
     if (user.role !== 'super_admin') {

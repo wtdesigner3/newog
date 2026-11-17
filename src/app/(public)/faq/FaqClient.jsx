@@ -13,7 +13,7 @@ import {
   Sparkles,
 } from "lucide-react";
 
-export default function FaqClient({ faqs = [] }) {
+export default function FaqClient({ faqs = [], primaryPhone = "011-35727834" }) {
   const [searchQuery, setSearchQuery] = useState("");
   const [openIds, setOpenIds] = useState(() => {
     // Open first 2 items by default
@@ -241,11 +241,11 @@ export default function FaqClient({ faqs = [] }) {
             </Link>
 
             <a
-              href="tel:01135727834"
+              href={`tel:${primaryPhone.replace(/\s+/g, "")}`}
               className="inline-flex items-center justify-center gap-2 px-5 py-3 bg-white/10 hover:bg-white/15 text-white text-xs sm:text-sm font-bold rounded-xl min-h-[46px] border border-white/20 transition backdrop-blur-md active:scale-95"
             >
               <Phone size={15} className="text-[#00D2FF]" />
-              <span>Direct Desk: 011-35727834</span>
+              <span>Direct Desk: {primaryPhone}</span>
             </a>
           </div>
         </div>

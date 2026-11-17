@@ -87,6 +87,7 @@ export async function PUT(request) {
         await page.save();
 
         revalidatePath('/', 'layout');
+        revalidatePath('/contact');
         return Response.json({ success: true, message: "Contact Page updated", data: page });
     } catch (err) {
         console.error("[PUT /api/contact-page] Error:", err);

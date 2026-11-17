@@ -5,12 +5,12 @@ import PublicHeader from "src/components/public/PublicHeader";
 import PublicFooter from "src/components/public/PublicFooter";
 import { QuoteModalProvider } from "src/context/QuoteModalContext";
 
-export const revalidate = 300; // ISR: 5 minutes cache
+export const revalidate = 0; // Real-time cache revalidation for instant dashboard synchronization
 
-// Resilient settings fetch with 600ms timeout to prevent 10s offline TTFB delay (FINDING-5.4.1-PERF-01)
+// Resilient settings fetch with 3000ms timeout
 async function fetchGlobalSettingsFast() {
   const timeoutPromise = new Promise((_, reject) =>
-    setTimeout(() => reject(new Error("DB_TIMEOUT")), 600)
+    setTimeout(() => reject(new Error("DB_TIMEOUT")), 3000)
   );
 
   try {
@@ -77,7 +77,7 @@ export default async function PublicLayout({ children }) {
   }
 
   return (
-    <QuoteModalProvider>
+    <QuoteModalProvider primaryPhone={globalSettings?.primaryPhone}>
       <div className="min-h-screen flex flex-col bg-white text-slate-900 font-sans selection:bg-[#0f7ae0] selection:text-white w-full">
       {/* ─── Accessible Skip-to-Content Link ──────────────────────────── */}
       <a

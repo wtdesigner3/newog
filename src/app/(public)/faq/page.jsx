@@ -3,14 +3,14 @@ import Script from "next/script";
 import FaqClient from "./FaqClient";
 import { connectDB } from "../../lib/config";
 import Faq from "../../models/Faq";
+import GlobalSetting from "../../models/GlobalSetting";
 import {
   PageContainer,
   SectionContainer,
   PublicPageBanner,
 } from "src/components/public";
 
-// Revalidate FAQ page cache every 1 hour (3600 seconds)
-export const revalidate = 3600;
+export const revalidate = 0;
 
 export const metadata = {
   title: "Frequently Asked Questions (FAQ) | OG Heavy Duty",
@@ -218,6 +218,8 @@ const getFaqs = cache(async () => {
 
 export default async function FaqPage() {
   const faqs = await getFaqs();
+  const settings = await GlobalSetting.findOne().lean().catch(() => null);
+  const primaryPhone = settings?.primaryPhone || "011-35727834";
 
   // Schema.org FAQPage Structured Data
   const faqPageSchema = {
@@ -259,7 +261,7 @@ export default async function FaqPage() {
       {/* ─── Main Content Section: Standardized 60px Spacing ─────────── */}
       <SectionContainer className="py-[60px] bg-[#f8fafc]/50">
         <PageContainer>
-          <FaqClient faqs={faqs} />
+          <FaqClient faqs={faqs} primaryPhone={primaryPhone} />
         </PageContainer>
       </SectionContainer>
     </>
