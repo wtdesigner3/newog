@@ -6,7 +6,6 @@ import {
   Phone,
   Mail,
   Clock,
-  Building2,
   ExternalLink,
   Sparkles,
 } from "lucide-react";
@@ -148,20 +147,6 @@ export default function ContactPage() {
               
               {/* Corporate Office Card: Elevated with Distinct Border & Shadow */}
               <div className="bg-white rounded-2xl sm:rounded-3xl border-2 border-slate-200/90 p-6 sm:p-8 shadow-[0_12px_32px_-6px_rgba(15,23,42,0.08),0_4px_12px_-2px_rgba(15,23,42,0.04)] hover:shadow-[0_16px_44px_-8px_rgba(15,122,224,0.12)] transition-shadow">
-                <div className="flex items-center gap-2.5 pb-4 mb-6 border-b border-slate-100">
-                  <div className="w-10 h-10 rounded-xl bg-blue-50 border border-blue-100 text-[#0f7ae0] flex items-center justify-center shrink-0">
-                    <Building2 size={20} />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-[#0f7ae0] block">
-                      New Delhi Headquarters
-                    </span>
-                    <h2 className="text-base sm:text-lg font-bold font-heading text-slate-900 leading-tight">
-                      Corporate &amp; Sales Office
-                    </h2>
-                  </div>
-                </div>
-
                 <div className="space-y-5 text-xs sm:text-sm">
                   {/* Address */}
                   <div className="flex items-start gap-3.5">
