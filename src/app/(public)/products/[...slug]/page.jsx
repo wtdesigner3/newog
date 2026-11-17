@@ -38,15 +38,15 @@ const SUBCATEGORY_BANNER_MAP = {
  * without any cropping.
  */
 const SUBCATEGORY_POSITION_MAP = {
-  "split-ac": "center 15%",
-  "four-way-cassette-ac": "center top",
-  "one-way-cassette-ac": "center top",
+  "split-ac": "center 25%",
+  "four-way-cassette-ac": "center 20%",
+  "one-way-cassette-ac": "center 20%",
   "window-ac": "center 40%",
   "ductable-ac": "center 25%",
   "floor-standing-ac": "center center",
   "survivor-ac": "center center",
-  "domestic-ac": "center 15%",
-  "light-commercial-ac": "center top",
+  "domestic-ac": "center 25%",
+  "light-commercial-ac": "center 20%",
 };
 
 function getBannerImage(slug) {
@@ -399,8 +399,8 @@ async function renderMainCategoryView(
                 key={sub.slug}
                 href={`/products/${category.slug}/${sub.slug}`}
                 className={`px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${isCurrent
-                    ? "bg-[#0f7ae0] text-white shadow-xs"
-                    : "bg-white text-slate-700 hover:text-[#0f7ae0] hover:bg-slate-100 border border-slate-200"
+                  ? "bg-[#0f7ae0] text-white shadow-xs"
+                  : "bg-white text-slate-700 hover:text-[#0f7ae0] hover:bg-slate-100 border border-slate-200"
                   }`}
               >
                 {sub.name}

@@ -10,7 +10,7 @@ import { useQuoteModal } from "@/context/QuoteModalContext";
 
 export default function PublicHeader({
   settings = null,
-  logoSrc = "/images/og-logo.png",
+  logoSrc = "/images/og-logo-white.png",
 }) {
   const { openQuoteModal } = useQuoteModal();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,7 +28,10 @@ export default function PublicHeader({
   // Verified brand data fallbacks
   const primaryPhone = settings?.primaryPhone || "011-35727834";
   const primaryEmail = settings?.primaryEmail || "info@ogheavyduty.in";
-  const logo = settings?.logoImage || logoSrc;
+  // Always use the high-contrast white-text logo variant for the transparent glass header
+  const logo = (settings?.logoImage && settings.logoImage !== "/images/logo.png" && settings.logoImage !== "/images/og-logo.png")
+    ? settings.logoImage
+    : "/images/og-logo-white.png";
   const catalogueUrl = settings?.pdf1Url || "/uploads/OG Heavy Duty-updated.pdf";
 
   return (
@@ -37,11 +40,11 @@ export default function PublicHeader({
       <div
         className={`pointer-events-auto mx-auto w-full max-w-7xl rounded-full transition-all duration-300 flex items-center justify-between px-4 sm:px-6 py-2 sm:py-2.5 backdrop-blur-2xl backdrop-saturate-180 ${
           isScrolled
-            ? "bg-white/55 border border-white/60 shadow-[0_12px_36px_-6px_rgba(15,23,42,0.14),inset_0_1px_1px_0_rgba(255,255,255,0.95),inset_0_-1px_1px_0_rgba(255,255,255,0.25)] ring-1 ring-black/[0.04] scale-[0.99]"
-            : "bg-white/40 border border-white/50 shadow-[0_8px_32px_-4px_rgba(15,23,42,0.1),inset_0_1px_1px_0_rgba(255,255,255,0.9),inset_0_-1px_1px_0_rgba(255,255,255,0.2)] ring-1 ring-black/[0.03]"
+            ? "bg-white/70 border border-white/70 shadow-[0_12px_36px_-6px_rgba(15,23,42,0.18),inset_0_1px_1px_0_rgba(255,255,255,0.95)] ring-1 ring-black/[0.04] scale-[0.99]"
+            : "bg-white/45 border border-white/50 shadow-[0_8px_32px_-4px_rgba(15,23,42,0.14),inset_0_1px_1px_0_rgba(255,255,255,0.9)] ring-1 ring-black/[0.03]"
         }`}
       >
-        {/* Brand Logo - Enlarged, Crisp & Sharp */}
+        {/* Brand Logo - Enlarged, Crisp & Sharp with White Text Subtitle */}
         <Link
           href="/"
           className="flex items-center gap-2 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f7ae0] rounded-full pl-0.5 sm:pl-1 pr-1.5"
@@ -50,10 +53,10 @@ export default function PublicHeader({
           <Image
             src={logo}
             alt="OG Heavy Duty Air Conditioners"
-            width={140}
-            height={40}
-            className="h-8 sm:h-9 md:h-9.5 w-auto object-contain transition-transform duration-200 hover:scale-[1.03]"
-            style={{ maxHeight: "38px", width: "auto" }}
+            width={180}
+            height={60}
+            className="h-10 sm:h-11 md:h-12 w-auto object-contain drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)] transition-transform duration-200 hover:scale-[1.03]"
+            style={{ maxHeight: "48px", width: "auto" }}
             priority
           />
         </Link>

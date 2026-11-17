@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import { Star, ShieldCheck, Cpu, ArrowUpRight } from "lucide-react";
 import { useQuoteModal } from "@/context/QuoteModalContext";
 
 export default function CategoryModelTable({
@@ -34,7 +35,7 @@ export default function CategoryModelTable({
       (m) =>
         m.technology?.toUpperCase().includes("VARIABLE") ||
         m.technology?.toUpperCase().includes("INVERTER")
-    );
+      );
   }, [models]);
 
   const fixedCount = useMemo(() => {
@@ -64,20 +65,29 @@ export default function CategoryModelTable({
 
   const renderCleanStarRating = (starText) => {
     if (!starText) {
-      return <span className="text-slate-400 text-sm font-medium">—</span>;
+      return <span className="text-slate-400 text-xs font-mono">—</span>;
     }
 
     const match = starText.match(/(\d+)/);
     const count = match ? parseInt(match[1], 10) : 0;
 
     return (
-      <div className="flex items-center gap-1.5">
-        <span className="text-amber-500 text-sm font-semibold tracking-wider">
-          {"★".repeat(Math.min(count, 5))}
-          {"☆".repeat(Math.max(0, 5 - count))}
-        </span>
-        <span className="text-xs font-semibold text-slate-700">
-          {count} Star
+      <div className="inline-flex items-center gap-1.5 px-2 py-1 rounded bg-slate-50 border border-slate-200/80">
+        <div className="flex items-center gap-0.5" aria-label={`${count} Star Rating`}>
+          {[1, 2, 3, 4, 5].map((i) => (
+            <Star
+              key={i}
+              size={11}
+              className={
+                i <= count
+                  ? "fill-amber-400 text-amber-500"
+                  : "fill-slate-200 text-slate-300"
+              }
+            />
+          ))}
+        </div>
+        <span className="text-[11px] font-semibold text-slate-700 tracking-tight">
+          {count} Star BEE
         </span>
       </div>
     );
@@ -86,7 +96,6 @@ export default function CategoryModelTable({
   const normalizeTonnage = (tonnage) => {
     if (!tonnage) return "—";
     const t = String(tonnage).trim();
-    // If it's already "1.5 Ton" or "1.5 ton" or "2 Ton"
     if (/ton/i.test(t)) {
       return t.replace(/ton/i, "Ton");
     }
@@ -150,23 +159,29 @@ export default function CategoryModelTable({
       <div className="hidden md:block overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xs">
         <table className="w-full text-left border-collapse">
           <thead>
-            <tr className="bg-slate-50/90 border-b border-slate-200 text-slate-700">
-              <th className="py-3.5 px-6 text-xs font-bold uppercase tracking-wider">
-                Model No.
+            <tr className="bg-slate-50/95 border-b border-slate-200 text-slate-600">
+              <th className="py-3 px-5 text-[11px] font-bold uppercase tracking-wider font-mono">
+                Model Number
               </th>
-              <th className="py-3.5 px-6 text-xs font-bold uppercase tracking-wider">
-                Capacity
+              <th className="py-3 px-5 text-[11px] font-bold uppercase tracking-wider font-mono">
+                Nominal Capacity
               </th>
               {hasStarRatings && (
-                <th className="py-3.5 px-6 text-xs font-bold uppercase tracking-wider">
-                  Star Rating
+                <th className="py-3 px-5 text-[11px] font-bold uppercase tracking-wider font-mono">
+                  Energy Rating
                 </th>
               )}
-              <th className="py-3.5 px-6 text-xs font-bold uppercase tracking-wider">
-                Technology
+              <th className="py-3 px-5 text-[11px] font-bold uppercase tracking-wider font-mono">
+                Compressor / Technology
               </th>
-              <th className="py-3.5 px-6 text-right text-xs font-bold uppercase tracking-wider">
-                Quotation
+              <th className="py-3 px-5 text-[11px] font-bold uppercase tracking-wider font-mono hidden lg:table-cell">
+                Condenser Coil
+              </th>
+              <th className="py-3 px-5 text-[11px] font-bold uppercase tracking-wider font-mono hidden lg:table-cell">
+                Ambient Duty
+              </th>
+              <th className="py-3 px-5 text-right text-[11px] font-bold uppercase tracking-wider font-mono">
+                Action
               </th>
             </tr>
           </thead>
@@ -179,49 +194,58 @@ export default function CategoryModelTable({
               return (
                 <tr
                   key={item.model || idx}
-                  className="hover:bg-slate-50/80 transition-colors"
+                  className="hover:bg-blue-50/40 transition-colors group"
                 >
                   {/* Model Number */}
-                  <td className="py-4 px-6">
-                    <span className="font-semibold text-sm text-slate-900 tracking-tight">
+                  <td className="py-3.5 px-5">
+                    <span className="font-mono font-bold text-xs sm:text-[13px] text-slate-900 group-hover:text-[#0f7ae0] transition-colors">
                       {item.model}
                     </span>
                   </td>
 
                   {/* Nominal Tonnage */}
-                  <td className="py-4 px-6 text-sm font-medium text-slate-800">
+                  <td className="py-3.5 px-5 text-xs sm:text-sm font-semibold text-slate-800">
                     {normalizeTonnage(item.tonnage)}
                   </td>
 
                   {/* Star Rating */}
                   {hasStarRatings && (
-                    <td className="py-4 px-6">
+                    <td className="py-3.5 px-5">
                       {renderCleanStarRating(item.starRating)}
                     </td>
                   )}
 
                   {/* Technology */}
-                  <td className="py-4 px-6">
-                    <div className="flex items-center gap-2">
+                  <td className="py-3.5 px-5">
+                    <div className="inline-flex items-center gap-1.5 px-2 py-0.5 rounded text-xs font-medium bg-slate-100/80 border border-slate-200 text-slate-700">
                       <span
-                        className={`w-2 h-2 rounded-full shrink-0 ${
-                          isInverter ? "bg-emerald-500" : "bg-slate-400"
+                        className={`w-1.5 h-1.5 rounded-full shrink-0 ${
+                          isInverter ? "bg-emerald-500" : "bg-blue-500"
                         }`}
                       />
-                      <span className="text-sm font-medium text-slate-800">
-                        {item.technology}
-                      </span>
+                      <span>{item.technology}</span>
                     </div>
                   </td>
 
+                  {/* Condenser Coil */}
+                  <td className="py-3.5 px-5 text-xs text-slate-600 hidden lg:table-cell font-medium">
+                    100% Grooved Cu
+                  </td>
+
+                  {/* Ambient Duty */}
+                  <td className="py-3.5 px-5 text-xs text-slate-600 hidden lg:table-cell font-medium">
+                    Up to 52°C Tropical
+                  </td>
+
                   {/* Action */}
-                  <td className="py-4 px-6 text-right">
+                  <td className="py-3.5 px-5 text-right">
                     <button
                       type="button"
                       onClick={() => handleQuoteClick(item)}
-                      className="px-4 py-1.5 rounded-md text-xs font-semibold text-white bg-[#0f7ae0] hover:bg-[#0c66be] transition-colors shadow-2xs active:scale-95 cursor-pointer"
+                      className="inline-flex items-center gap-1 px-3.5 py-1.5 rounded text-xs font-semibold text-white bg-[#0f7ae0] hover:bg-[#0b66be] transition-all shadow-xs active:scale-95 cursor-pointer"
                     >
-                      Get Quote
+                      <span>Get Quote</span>
+                      <ArrowUpRight size={13} className="shrink-0" />
                     </button>
                   </td>
                 </tr>

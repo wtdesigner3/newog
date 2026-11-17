@@ -144,14 +144,14 @@ export default function DesktopNavigation({ navItems = PUBLIC_NAV_ITEMS }) {
                 />
               </Link>
 
-              {/* ── Subcategory Dropdown Panel with Blue Top Border (NO 3rd tier flyout) ── */}
+              {/* ── Subcategory Dropdown Panel with Sleek Industrial Top Accent (NO 3rd tier flyout) ── */}
               {isOpen && (
                 <div
-                  className="absolute top-full left-0 pt-2 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
+                  className="absolute top-full left-0 pt-2.5 z-50 animate-in fade-in slide-in-from-top-1 duration-150"
                   role="menu"
                   aria-orientation="vertical"
                 >
-                  <div className="bg-white shadow-[0_16px_36px_rgba(15,23,42,0.14)] border border-slate-200/90 rounded-b-md border-t-[3px] border-t-[#0f7ae0] min-w-[260px] py-1.5">
+                  <div className="bg-white shadow-[0_20px_40px_-10px_rgba(15,23,42,0.18)] border border-slate-200/90 rounded-xl border-t-[3px] border-t-[#0f7ae0] min-w-[270px] p-1.5 overflow-hidden">
                     {item.children.map((child) => {
                       const isChildActive = pathname.startsWith(child.href);
 
@@ -160,27 +160,36 @@ export default function DesktopNavigation({ navItems = PUBLIC_NAV_ITEMS }) {
                           key={child.label}
                           href={child.href}
                           role="menuitem"
-                          className={`group/item flex items-center px-4 py-2.5 text-[13.5px] font-medium transition-all ${
+                          className={`group/item flex items-center justify-between px-3.5 py-2.5 rounded-lg text-[13.5px] font-medium transition-all ${
                             isChildActive
-                              ? "text-[#0f7ae0] bg-blue-50/70 font-bold border-l-2 border-[#0f7ae0]"
-                              : "text-slate-800 hover:text-[#0f7ae0] hover:bg-slate-50 border-l-2 border-transparent hover:border-[#0f7ae0]"
+                              ? "text-[#0f7ae0] bg-blue-50/80 font-bold"
+                              : "text-slate-800 hover:text-[#0f7ae0] hover:bg-slate-50/90"
                           }`}
                         >
                           <span className="flex items-center gap-2.5">
-                            <ChevronRight
-                              size={13}
-                              strokeWidth={2.4}
-                              className={`shrink-0 transition-transform duration-150 ${
+                            <span
+                              className={`w-1.5 h-1.5 rounded-full transition-all duration-200 ${
                                 isChildActive
-                                  ? "text-[#0f7ae0] translate-x-0.5"
-                                  : "text-slate-400 group-hover/item:text-[#0f7ae0] group-hover/item:translate-x-0.5"
+                                  ? "bg-[#0f7ae0] scale-125"
+                                  : "bg-slate-300 group-hover/item:bg-[#0f7ae0] group-hover/item:scale-125"
                               }`}
                               aria-hidden="true"
                             />
-                            <span className="group-hover/item:translate-x-0.5 transition-transform duration-150">
+                            <span className="transition-transform duration-150 group-hover/item:translate-x-0.5">
                               {child.label}
                             </span>
                           </span>
+
+                          <ChevronRight
+                            size={14}
+                            strokeWidth={2.4}
+                            className={`shrink-0 transition-all duration-200 ${
+                              isChildActive
+                                ? "text-[#0f7ae0] opacity-100 translate-x-0"
+                                : "text-slate-400 opacity-0 -translate-x-1 group-hover/item:opacity-100 group-hover/item:text-[#0f7ae0] group-hover/item:translate-x-0"
+                            }`}
+                            aria-hidden="true"
+                          />
                         </Link>
                       );
                     })}
