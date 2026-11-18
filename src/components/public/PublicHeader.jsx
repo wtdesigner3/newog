@@ -41,7 +41,7 @@ export default function PublicHeader({
           : ""
           }`}
       >
-        {/* Brand Logo - Horizontal, Iconic & Ultra-Legible */}
+        {/* Brand Logo - Original Typography Shifted to Horizontal */}
         <Link
           href="/"
           className="flex items-center gap-2 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f7ae0] rounded-full pl-0.5 sm:pl-1 pr-1.5"
@@ -50,8 +50,8 @@ export default function PublicHeader({
           <Image
             src={logo}
             alt="OG Heavy Duty Air Conditioners"
-            width={240}
-            height={63}
+            width={250}
+            height={60}
             className="h-10 sm:h-11 md:h-12 lg:h-[50px] w-auto object-contain transition-transform duration-200 hover:scale-[1.02]"
             style={{ maxHeight: "52px", width: "auto" }}
             priority
