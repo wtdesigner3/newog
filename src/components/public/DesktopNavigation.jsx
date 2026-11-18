@@ -124,7 +124,7 @@ export default function DesktopNavigation({ navItems = PUBLIC_NAV_ITEMS }) {
                     ? "text-[#0f7ae0] bg-blue-50/90 shadow-2xs font-bold"
                     : active
                     ? "text-[#0f7ae0] bg-blue-50/80 border border-blue-200/60 font-bold shadow-2xs"
-                    : "text-slate-800 hover:text-[#0f7ae0] hover:bg-white/60 hover:shadow-2xs"
+                    : "text-slate-800 hover:text-[#0f7ae0] hover:bg-slate-100/90 hover:shadow-2xs"
                 }`}
                 aria-haspopup="true"
                 aria-expanded={isOpen}
@@ -207,7 +207,7 @@ export default function DesktopNavigation({ navItems = PUBLIC_NAV_ITEMS }) {
             className={`px-3 py-1.5 text-[13px] xl:text-[14px] font-semibold tracking-normal rounded-full transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#0f7ae0] ${
               active
                 ? "text-[#0f7ae0] bg-blue-50/80 border border-blue-200/60 font-bold shadow-2xs"
-                : "text-slate-800 hover:text-[#0f7ae0] hover:bg-white/60 hover:shadow-2xs"
+                : "text-slate-800 hover:text-[#0f7ae0] hover:bg-slate-100/90 hover:shadow-2xs"
             }`}
             aria-current={active ? "page" : undefined}
           >
