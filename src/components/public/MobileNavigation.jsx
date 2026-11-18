@@ -12,7 +12,7 @@ export default function MobileNavigation({
   isOpen,
   onClose,
   navItems = PUBLIC_NAV_ITEMS,
-  logoSrc = "/images/og-logo-black-2x.png",
+  logoSrc = "/images/og-logo-black-clean-2x.png",
   contactPhone = "011-35727834",
   contactEmail = "info@ogheavyduty.in",
   catalogueUrl = "/uploads/OG Heavy Duty-updated.pdf",

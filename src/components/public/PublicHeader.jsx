@@ -10,7 +10,7 @@ import { useQuoteModal } from "@/context/QuoteModalContext";
 
 export default function PublicHeader({
   settings = null,
-  logoSrc = "/images/og-logo-black-2x.png",
+  logoSrc = "/images/og-logo-black-clean-2x.png",
 }) {
   const { openQuoteModal } = useQuoteModal();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,10 +28,10 @@ export default function PublicHeader({
   // Verified brand data fallbacks
   const primaryPhone = settings?.primaryPhone || "011-35727834";
   const primaryEmail = settings?.primaryEmail || "info@ogheavyduty.in";
-  // Always use the ultra-legible, high-contrast black-text logo variant for the transparent frosted glass header
-  const logo = (settings?.logoImage && settings.logoImage !== "/images/logo.png" && settings.logoImage !== "/images/og-logo.png" && settings.logoImage !== "/images/og-logo-white.png" && settings.logoImage !== "/images/og-logo-white-2x.png")
+  // Always use the clean, light-weight, ultra-readable black-text logo variant for the solid white header
+  const logo = (settings?.logoImage && settings.logoImage !== "/images/logo.png" && settings.logoImage !== "/images/og-logo.png" && settings.logoImage !== "/images/og-logo-white.png" && settings.logoImage !== "/images/og-logo-white-2x.png" && settings.logoImage !== "/images/og-logo-black.png" && settings.logoImage !== "/images/og-logo-black-2x.png")
     ? settings.logoImage
-    : "/images/og-logo-black-2x.png";
+    : "/images/og-logo-black-clean-2x.png";
   const catalogueUrl = settings?.pdf1Url || "/uploads/OG Heavy Duty-updated.pdf";
 
   return (
