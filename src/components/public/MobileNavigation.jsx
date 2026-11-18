@@ -78,11 +78,11 @@ export default function MobileNavigation({
         <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 bg-slate-50">
           <Link href="/" onClick={onClose} className="inline-block">
             <Image
-              src={logoSrc}
+              src="/images/og-logo-black-readable-2x.png"
               alt="OG Heavy Duty"
-              width={180}
-              height={60}
-              className="h-11 sm:h-12 w-auto object-contain"
+              width={220}
+              height={98}
+              className="h-13 sm:h-14 w-auto object-contain"
               priority
             />
           </Link>
