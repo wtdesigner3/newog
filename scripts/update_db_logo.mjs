@@ -6,7 +6,7 @@ await mongoose.connect(process.env.MONGODB_URI);
 const db = mongoose.connection.db;
 const res = await db.collection('globalsettings').updateOne(
   {},
-  { $set: { logoImage: '/images/og-logo-black-readable-2x.png' } }
+  { $set: { logoImage: '/images/og-logo-horizontal-2x.png' } }
 );
 console.log('MongoDB update result:', res);
 await mongoose.disconnect();
