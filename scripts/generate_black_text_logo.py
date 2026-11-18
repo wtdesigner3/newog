@@ -2,13 +2,11 @@ import cv2
 import numpy as np
 from PIL import Image, ImageDraw, ImageFont
 
-# 1. Load original clean logo for the emblem
+# 1. Base emblem
 orig = cv2.imread('d:/rahul latest/ogheavyduty-next/public/images/og-logo.png', cv2.IMREAD_UNCHANGED)
 b, g, r, a = cv2.split(orig)
 BRAND_B, BRAND_G, BRAND_R = 224, 122, 15
 
-# Clean emblem area (y < 114)
-# Preserve full white badge text 'O.G. HEAVY DUTY' spanning y: 52..67, x: 135..230
 for y in range(0, 114):
     for x in range(320):
         is_badge_text = (
@@ -28,7 +26,6 @@ for y in range(0, 114):
             g[y, x] = BRAND_G
             r[y, x] = BRAND_R
 
-# 2. Scale emblem to 2x (640 x 228) using alpha-aware Lanczos
 b_f = b.astype(np.float32)
 g_f = g.astype(np.float32)
 r_f = r.astype(np.float32)
@@ -53,7 +50,6 @@ g_emblem[~mask_2x] = BRAND_G
 r_emblem[~mask_2x] = BRAND_R
 a_emblem = np.clip(a_2x * 255.0, 0, 255).astype(np.uint8)
 
-# 3. Create 2x Master Canvas (640 x 314)
 canvas = Image.new('RGBA', (640, 314), (0, 0, 0, 0))
 emblem_pil = Image.fromarray(cv2.merge([
     r_emblem.astype(np.uint8),
@@ -63,44 +59,53 @@ emblem_pil = Image.fromarray(cv2.merge([
 ]))
 canvas.paste(emblem_pil, (0, 0), emblem_pil)
 
-# 4. Render clean, light-weight, high-legibility typography
+# Render Medium Weight Typography
 draw = ImageDraw.Draw(canvas)
-font_l1 = ImageFont.truetype('C:/Windows/Fonts/segoeui.ttf', 24)
+font_l1 = ImageFont.truetype('C:/Windows/Fonts/seguisb.ttf', 24)
 font_l2 = ImageFont.truetype('C:/Windows/Fonts/georgiai.ttf', 21)
 
 text_l1 = 'OPERATIONALLY  GENIUS  HEAVY  DUTY'
 text_l2 = "Your family's air-care expert"
 
-# Center Line 1 (Clean regular sans-serif, spacious kerning)
+# Line 1: Segoe UI Semibold (True Medium Weight)
 bbox1 = draw.textbbox((0, 0), text_l1, font=font_l1)
 w1 = bbox1[2] - bbox1[0]
 x1 = (640 - w1) // 2
 y1 = 236
 draw.text((x1, y1), text_l1, font=font_l1, fill=(15, 23, 42, 255))
 
-# Center Line 2 (Refined light italic serif)
-bbox2 = draw.textbbox((0, 0), text_l2, font=font_l2)
+# Line 2: Georgia Italic with subtle 0.4px stroke (True Medium Weight)
+bbox2 = draw.textbbox((0, 0), text_l2, font=font_l2, stroke_width=0.4)
 w2 = bbox2[2] - bbox2[0]
 x2 = (640 - w2) // 2
 y2 = 272
-draw.text((x2, y2), text_l2, font=font_l2, fill=(15, 23, 42, 240))
+draw.text((x2, y2), text_l2, font=font_l2, fill=(15, 23, 42, 255), stroke_width=0.4, stroke_fill=(15, 23, 42, 255))
 
-# Fine accent lines
+# Accent lines
 line_y = y2 + 13
-draw.line([(x2 - 80, line_y), (x2 - 15, line_y)], fill=(15, 23, 42, 220), width=2)
-draw.line([(x2 + w2 + 15, line_y), (x2 + w2 + 80, line_y)], fill=(15, 23, 42, 220), width=2)
+draw.line([(x2 - 80, line_y), (x2 - 15, line_y)], fill=(15, 23, 42, 240), width=2)
+draw.line([(x2 + w2 + 15, line_y), (x2 + w2 + 80, line_y)], fill=(15, 23, 42, 240), width=2)
 
-# Convert to OpenCV BGRA
 canvas_np = np.array(canvas)
 out_2x = cv2.cvtColor(canvas_np, cv2.COLOR_RGBA2BGRA)
-
-# 5. Create 1x version (320 x 157) using high-quality area downsampling
 out_1x = cv2.resize(out_2x, (320, 157), interpolation=cv2.INTER_AREA)
 
-# Save both 2x and 1x variants
-cv2.imwrite('d:/rahul latest/ogheavyduty-next/public/images/og-logo-black-2x.png', out_2x)
-cv2.imwrite('d:/rahul latest/ogheavyduty-next/public/images/og-logo-dark-2x.png', out_2x)
-cv2.imwrite('d:/rahul latest/ogheavyduty-next/public/images/og-logo-black.png', out_1x)
-cv2.imwrite('d:/rahul latest/ogheavyduty-next/public/images/og-logo-dark.png', out_1x)
+destinations = [
+    'og-logo-black-medium-2x.png',
+    'og-logo-black-clean-2x.png',
+    'og-logo-black-2x.png',
+    'og-logo-dark-2x.png',
+]
+for d in destinations:
+    cv2.imwrite(f'd:/rahul latest/ogheavyduty-next/public/images/{d}', out_2x)
 
-print('Successfully generated refined, light-weight, ultra-readable logo assets!')
+destinations_1x = [
+    'og-logo-black-medium.png',
+    'og-logo-black-clean.png',
+    'og-logo-black.png',
+    'og-logo-dark.png',
+]
+for d in destinations_1x:
+    cv2.imwrite(f'd:/rahul latest/ogheavyduty-next/public/images/{d}', out_1x)
+
+print('Successfully generated refined Medium logo assets!')

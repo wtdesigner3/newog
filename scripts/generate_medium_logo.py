@@ -1,0 +1,113 @@
+import cv2
+import numpy as np
+from PIL import Image, ImageDraw, ImageFont
+
+# 1. Base emblem
+orig = cv2.imread('d:/rahul latest/ogheavyduty-next/public/images/og-logo.png', cv2.IMREAD_UNCHANGED)
+b, g, r, a = cv2.split(orig)
+BRAND_B, BRAND_G, BRAND_R = 224, 122, 15
+DARK_B, DARK_G, DARK_R = 15, 23, 42
+
+for y in range(0, 114):
+    for x in range(320):
+        is_badge_text = (
+            52 <= y <= 67
+            and 135 <= x <= 230
+            and r[y, x] > 180
+            and g[y, x] > 180
+            and b[y, x] > 180
+            and a[y, x] > 50
+        )
+        if is_badge_text:
+            b[y, x] = 255
+            g[y, x] = 255
+            r[y, x] = 255
+        else:
+            b[y, x] = BRAND_B
+            g[y, x] = BRAND_G
+            r[y, x] = BRAND_R
+
+b_f = b.astype(np.float32)
+g_f = g.astype(np.float32)
+r_f = r.astype(np.float32)
+a_f = a.astype(np.float32) / 255.0
+b_pre, g_pre, r_pre = b_f * a_f, g_f * a_f, r_f * a_f
+
+b_2x = cv2.resize(b_pre[:114, :], (640, 228), interpolation=cv2.INTER_LANCZOS4)
+g_2x = cv2.resize(g_pre[:114, :], (640, 228), interpolation=cv2.INTER_LANCZOS4)
+r_2x = cv2.resize(r_pre[:114, :], (640, 228), interpolation=cv2.INTER_LANCZOS4)
+a_2x = cv2.resize(a_f[:114, :], (640, 228), interpolation=cv2.INTER_LANCZOS4)
+
+eps = 1e-5
+mask_2x = a_2x > eps
+b_emblem = np.zeros_like(b_2x)
+g_emblem = np.zeros_like(g_2x)
+r_emblem = np.zeros_like(r_2x)
+b_emblem[mask_2x] = np.clip(b_2x[mask_2x] / a_2x[mask_2x], 0, 255)
+g_emblem[mask_2x] = np.clip(g_2x[mask_2x] / a_2x[mask_2x], 0, 255)
+r_emblem[mask_2x] = np.clip(r_2x[mask_2x] / a_2x[mask_2x], 0, 255)
+b_emblem[~mask_2x] = BRAND_B
+g_emblem[~mask_2x] = BRAND_G
+r_emblem[~mask_2x] = BRAND_R
+a_emblem = np.clip(a_2x * 255.0, 0, 255).astype(np.uint8)
+
+canvas = Image.new('RGBA', (640, 314), (0, 0, 0, 0))
+emblem_pil = Image.fromarray(cv2.merge([
+    r_emblem.astype(np.uint8),
+    g_emblem.astype(np.uint8),
+    b_emblem.astype(np.uint8),
+    a_emblem
+]))
+canvas.paste(emblem_pil, (0, 0), emblem_pil)
+
+# Render Medium Weight Typography
+draw = ImageDraw.Draw(canvas)
+font_l1 = ImageFont.truetype('C:/Windows/Fonts/seguisb.ttf', 24)
+font_l2 = ImageFont.truetype('C:/Windows/Fonts/georgiai.ttf', 21)
+
+text_l1 = 'OPERATIONALLY  GENIUS  HEAVY  DUTY'
+text_l2 = "Your family's air-care expert"
+
+# Line 1: Segoe UI Semibold (True Medium Weight)
+bbox1 = draw.textbbox((0, 0), text_l1, font=font_l1)
+w1 = bbox1[2] - bbox1[0]
+x1 = (640 - w1) // 2
+y1 = 236
+draw.text((x1, y1), text_l1, font=font_l1, fill=(15, 23, 42, 255))
+
+# Line 2: Georgia Italic with subtle 0.4px stroke (True Medium Weight)
+bbox2 = draw.textbbox((0, 0), text_l2, font=font_l2, stroke_width=0.4)
+w2 = bbox2[2] - bbox2[0]
+x2 = (640 - w2) // 2
+y2 = 272
+draw.text((x2, y2), text_l2, font=font_l2, fill=(15, 23, 42, 255), stroke_width=0.4, stroke_fill=(15, 23, 42, 255))
+
+# Accent lines
+line_y = y2 + 13
+draw.line([(x2 - 80, line_y), (x2 - 15, line_y)], fill=(15, 23, 42, 240), width=2)
+draw.line([(x2 + w2 + 15, line_y), (x2 + w2 + 80, line_y)], fill=(15, 23, 42, 240), width=2)
+
+canvas_np = np.array(canvas)
+out_2x = cv2.cvtColor(canvas_np, cv2.COLOR_RGBA2BGRA)
+out_1x = cv2.resize(out_2x, (320, 157), interpolation=cv2.INTER_AREA)
+
+# Save to all destination variants
+destinations = [
+    'og-logo-black-medium-2x.png',
+    'og-logo-black-clean-2x.png',
+    'og-logo-black-2x.png',
+    'og-logo-dark-2x.png',
+]
+for d in destinations:
+    cv2.imwrite(f'd:/rahul latest/ogheavyduty-next/public/images/{d}', out_2x)
+
+destinations_1x = [
+    'og-logo-black-medium.png',
+    'og-logo-black-clean.png',
+    'og-logo-black.png',
+    'og-logo-dark.png',
+]
+for d in destinations_1x:
+    cv2.imwrite(f'd:/rahul latest/ogheavyduty-next/public/images/{d}', out_1x)
+
+print('Successfully updated all logo files with Medium font weight!')
