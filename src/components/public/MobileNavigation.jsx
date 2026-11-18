@@ -60,20 +60,20 @@ export default function MobileNavigation({
 
   return (
     <div
-      className="fixed inset-0 z-50 lg:hidden flex justify-end"
+      className="fixed inset-0 z-50 lg:hidden flex justify-end pointer-events-auto select-auto"
       role="dialog"
       aria-modal="true"
       aria-label="Mobile Navigation Menu"
     >
       {/* Backdrop */}
       <div
-        className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity"
+        className="fixed inset-0 bg-slate-900/60 backdrop-blur-sm transition-opacity pointer-events-auto cursor-pointer"
         onClick={onClose}
         aria-hidden="true"
       />
 
       {/* Drawer Panel */}
-      <div className="relative w-full max-w-sm bg-white h-full shadow-2xl flex flex-col z-10 overflow-hidden animate-in slide-in-from-right duration-250">
+      <div className="relative w-full max-w-sm bg-white h-full shadow-2xl flex flex-col z-10 overflow-hidden pointer-events-auto animate-in slide-in-from-right duration-250">
         {/* Drawer Header */}
         <div className="flex items-center justify-between px-5 py-4 border-b border-slate-100 bg-slate-50">
           <Link href="/" onClick={onClose} className="inline-block">
